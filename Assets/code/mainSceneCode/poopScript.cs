@@ -9,6 +9,7 @@ public class poopScript : MonoBehaviour
     public int spawnInterval1;
     public int spawnInterval2;
     public GameObject poopPrefab;
+    List<GameObject> poops = new List<GameObject>();
 
     //fixedupdate checks how many poops are in the screen from gamemanager, and also checks if a timer is running
     //before running the spawner script
@@ -29,9 +30,21 @@ public class poopScript : MonoBehaviour
         int spawnTime = Random.Range(spawnInterval1, spawnInterval2);
         yield return new WaitForSeconds (spawnTime);
         Vector2 pos = new Vector2(Random.Range(-4.5f, 5f), Random.Range(-3f,3f));
-        Instantiate(poopPrefab, pos, Quaternion.identity);
+        GameObject instancedPoop = Instantiate(poopPrefab, pos, Quaternion.identity);
         GameManager.Instance.poopAmount++;
         Debug.Log(GameManager.Instance.poopAmount);
+        poops.Add(instancedPoop);
         isCoroutineRunning = false;
+    }
+
+    public void cleanPoopButton()
+    {
+        foreach (GameObject poop in poops)
+        {
+            Destroy(poop);
+        }
+        poops.Clear();
+        GameManager.Instance.poopAmount = 0;
+        isRoomClean = true;
     }
 }
