@@ -1,15 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class poopScript : MonoBehaviour
 {
-    private bool isRoomClean;
+
     private bool isCoroutineRunning;
     public int spawnInterval1;
     public int spawnInterval2;
     public GameObject poopPrefab;
+    private happinessBar happinessbar;
+    public GameObject happinessBarScriptHolder;
     List<GameObject> poops = new List<GameObject>();
+
+    void Awake()
+    {
+        happinessbar = happinessBarScriptHolder.GetComponent<happinessBar>();
+    }
 
     //fixedupdate checks how many poops are in the screen from gamemanager, and also checks if a timer is running
     //before running the spawner script
@@ -35,6 +43,8 @@ public class poopScript : MonoBehaviour
         GameManager.Instance.poopAmount++;
         Debug.Log(GameManager.Instance.poopAmount);
         poops.Add(instancedPoop);
+        GameManager.Instance.happiness -= 0.05f;
+        happinessbar.UpdateHappinessBar();
         isCoroutineRunning = false;
     }
 
@@ -49,6 +59,7 @@ public class poopScript : MonoBehaviour
         }
         poops.Clear();
         GameManager.Instance.poopAmount = 0;
-        isRoomClean = true;
+        GameManager.Instance.happiness += 0.25f;
+        happinessbar.UpdateHappinessBar();
     }
 }

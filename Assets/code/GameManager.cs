@@ -18,10 +18,11 @@ public class GameManager : MonoBehaviour
         }
     }
     public int poopAmount {get; set;}
-    public int happiness {get; set;}
+    public float happiness {get; set;}
 
     private void Awake()
     {
+        happiness = 0.5f;
         if (_instance)
         {
             Destroy(gameObject);
