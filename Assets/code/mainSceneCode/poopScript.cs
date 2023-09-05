@@ -12,6 +12,7 @@ public class poopScript : MonoBehaviour
     public GameObject poopPrefab;
     private happinessBar happinessbar;
     public GameObject happinessBarScriptHolder;
+    public Button cleanpoopButton;
     List<GameObject> poops = new List<GameObject>();
 
     void Awake()
@@ -26,6 +27,15 @@ public class poopScript : MonoBehaviour
         if (GameManager.Instance.poopAmount < 5 && isCoroutineRunning == false)
         {
             StartCoroutine("spawnPoops");
+        }
+
+        if (GameManager.Instance.poopAmount < 1)
+        {
+            cleanpoopButton.interactable = false;
+        }
+        else
+        {
+            cleanpoopButton.interactable = true;
         }
     }
 
@@ -59,7 +69,7 @@ public class poopScript : MonoBehaviour
         }
         poops.Clear();
         GameManager.Instance.poopAmount = 0;
-        GameManager.Instance.happiness += 0.25f;
+        GameManager.Instance.happiness += 0.10f;
         happinessbar.UpdateHappinessBar();
     }
 }
