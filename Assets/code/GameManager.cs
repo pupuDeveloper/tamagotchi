@@ -33,4 +33,15 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(this);
     }
+    void Update()
+    {
+        if (happiness > 1)
+        {
+            happiness = 1;
+        }
+        else if (happiness < 0)
+        {
+            happiness = 0;
+        }
+    }
 }
