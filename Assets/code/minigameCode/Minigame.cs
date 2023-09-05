@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Minigame : MonoBehaviour
 {
 
@@ -9,13 +10,12 @@ public class Minigame : MonoBehaviour
     public Vector3 _newPos;
     public float _fallSpeed = 8.0f;
     public float _spinSpeed = 250.0f;
-    [SerializeField] private Transform _target;
 
-    private void Awake()
-    {
-        _xPos = Random.Range(-4.8f, 4.8f);
-        _newPos = new Vector3(_xPos, 6, 0);
-    }
+   // private void Awake()
+   // {
+   //     _xPos = Random.Range(-4.8f, 4.8f);
+   //     _newPos = new Vector3(_xPos, 6, 0);
+   // }
 
     private void Update()
     {
