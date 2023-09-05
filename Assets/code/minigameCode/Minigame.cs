@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class Minigame : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public float _xPos;
+    public Vector3 _newPos;
+    public float _fallSpeed = 8.0f;
+    public float _spinSpeed = 250.0f;
+
+    private void Start()
     {
-        
+        _xPos = Random.Range(-4.8f, 4.8f);
+        _newPos = new Vector3(_xPos, 6, 0);
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void Update()
     {
-        
+        //move the object down the screen
+        transform.Translate(Vector3.down * _fallSpeed * Time.deltaTime, Space.World);
+        transform.Rotate(Vector3.forward, _spinSpeed * Time.deltaTime);
+
+        //if the object has reached the bottom of the screen
+        if(transform.position.y < -6)
+        {
+            //move the objecta above the screen
+            _xPos = Random.Range(-4.5f, 4.5f);
+            _newPos = new Vector3(_xPos, 6, 0);
+            transform.position = _newPos;
+        }
     }
+
+
 }
