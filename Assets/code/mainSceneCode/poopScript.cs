@@ -24,6 +24,7 @@ public class poopScript : MonoBehaviour
     //IEnumerator coroutine randomises time between spawnInterval1 and Spawninterval2
     //Then it randomises position
     //Then it creates a copy of the poop prefab and spawns it to the screen
+    //It also adds the added prefab copy to the poops list
     IEnumerator spawnPoops()
     {
         isCoroutineRunning = true;
@@ -37,6 +38,9 @@ public class poopScript : MonoBehaviour
         isCoroutineRunning = false;
     }
 
+    // This method is for the cleaning/bathroom button that cleans poops
+    // after destroying all poops in the List, it also clears the list
+    // and makes sure gamemanager also has correct (0) amount of poops
     public void cleanPoopButton()
     {
         foreach (GameObject poop in poops)
