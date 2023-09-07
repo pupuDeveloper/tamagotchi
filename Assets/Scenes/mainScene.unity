@@ -450,10 +450,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef99ff51d9ef25f4987670ff95864946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnInterval1: 1
-  spawnInterval2: 2
+  spawnInterval1: 30
+  spawnInterval2: 60
+  passiveTimer: 25
   poopPrefab: {fileID: 8875750602958446050, guid: 7e38b13932f057f42bdbf4cc055c0487, type: 3}
   happinessBarScriptHolder: {fileID: 2080038189}
+  cleanpoopButton: {fileID: 1318539178}
 --- !u!1 &1318539176
 GameObject:
   m_ObjectHideFlags: 0
