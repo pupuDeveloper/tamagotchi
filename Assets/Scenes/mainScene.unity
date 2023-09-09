@@ -201,7 +201,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 88}
+  m_AnchoredPosition: {x: 0, y: 87.5}
   m_SizeDelta: {x: 15, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &90870670
@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 270602407}
   - component: {fileID: 270602408}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: BG1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -470,6 +470,7 @@ GameObject:
   - component: {fileID: 370375017}
   - component: {fileID: 370375016}
   - component: {fileID: 370375015}
+  - component: {fileID: 370375018}
   m_Layer: 5
   m_Name: left
   m_TagString: Untagged
@@ -540,7 +541,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2134899585}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: moveBackground, Assembly-CSharp
         m_MethodName: buttonActions
         m_Mode: 1
@@ -590,6 +591,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370375013}
   m_CullTransparentMesh: 1
+--- !u!114 &370375018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370375013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5567c3570d508234fb45ca31e0ceb342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 270602406}
+  isPressed: 0
 --- !u!1 &613812234
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,6 +617,7 @@ GameObject:
   - component: {fileID: 613812238}
   - component: {fileID: 613812237}
   - component: {fileID: 613812236}
+  - component: {fileID: 613812239}
   m_Layer: 5
   m_Name: right
   m_TagString: Untagged
@@ -672,13 +688,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2134899585}
+      - m_Target: {fileID: 2134899583}
         m_TargetAssemblyTypeName: moveBackground, Assembly-CSharp
-        m_MethodName: buttonActions
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -722,6 +738,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613812234}
   m_CullTransparentMesh: 1
+--- !u!114 &613812239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613812234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5567c3570d508234fb45ca31e0ceb342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 270602406}
+  isPressed: 0
 --- !u!1 &864655554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,7 +1320,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2134899584}
-  - component: {fileID: 2134899585}
   m_Layer: 0
   m_Name: backgroundPlaceholder
   m_TagString: Untagged
@@ -1314,21 +1343,6 @@ Transform:
   - {fileID: 270602407}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2134899585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2134899583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5567c3570d508234fb45ca31e0ceb342, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  background: {fileID: 270602406}
-  right: {fileID: 613812236}
-  left: {fileID: 370375015}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
