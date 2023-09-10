@@ -10,18 +10,17 @@ public class moveBackground : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     public GameObject background;
     public bool isPressed;
 
-
     void Update()
     {
         if (isPressed)
         {
-            if (EventSystem.current.currentSelectedGameObject.name == "right" && background.transform.position.x > -10)
-            {
-                background.transform.position -= new Vector3 (7 * Time.deltaTime, 0, 0);
-            }
-            else if (EventSystem.current.currentSelectedGameObject.name == "left" && background.transform.position.x < 10 && isPressed)
+            if (EventSystem.current.currentSelectedGameObject.name == "right" && background.transform.position.x < 10)
             {
                 background.transform.position += new Vector3 (7 * Time.deltaTime, 0, 0);
+            }
+            else if (EventSystem.current.currentSelectedGameObject.name == "left" && background.transform.position.x > -10)
+            {
+                background.transform.position -= new Vector3 (7 * Time.deltaTime, 0, 0);
             }
         }
     }
