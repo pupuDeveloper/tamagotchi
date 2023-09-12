@@ -1,15 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class poopScript : MonoBehaviour
 {
-    private bool isRoomClean;
+
     private bool isCoroutineRunning;
     public int spawnInterval1;
     public int spawnInterval2;
     public GameObject poopPrefab;
+    private happinessBar happinessbar;
+    public GameObject happinessBarScriptHolder;
+    public Button cleanpoopButton;
     List<GameObject> poops = new List<GameObject>();
+
+    void Awake()
+    {
+        happinessbar = happinessBarScriptHolder.GetComponent<happinessBar>();
+    }
 
     //fixedupdate checks how many poops are in the screen from gamemanager, and also checks if a timer is running
     //before running the spawner script
@@ -18,6 +27,15 @@ public class poopScript : MonoBehaviour
         if (GameManager.Instance.poopAmount < 5 && isCoroutineRunning == false)
         {
             StartCoroutine("spawnPoops");
+        }
+
+        if (GameManager.Instance.poopAmount < 1)
+        {
+            cleanpoopButton.interactable = false;
+        }
+        else
+        {
+            cleanpoopButton.interactable = true;
         }
     }
 
@@ -30,11 +48,13 @@ public class poopScript : MonoBehaviour
         isCoroutineRunning = true;
         int spawnTime = Random.Range(spawnInterval1, spawnInterval2);
         yield return new WaitForSeconds (spawnTime);
-        Vector2 pos = new Vector2(Random.Range(-4.5f, 5f), Random.Range(-3f,3f));
+        Vector2 pos = new Vector2(Random.Range(-14.5f, 14.5f), Random.Range(-3f,0f));
         GameObject instancedPoop = Instantiate(poopPrefab, pos, Quaternion.identity);
         GameManager.Instance.poopAmount++;
         Debug.Log(GameManager.Instance.poopAmount);
         poops.Add(instancedPoop);
+        GameManager.Instance.happiness -= 0.05f;
+        happinessbar.UpdateHappinessBar();
         isCoroutineRunning = false;
     }
 
@@ -49,6 +69,7 @@ public class poopScript : MonoBehaviour
         }
         poops.Clear();
         GameManager.Instance.poopAmount = 0;
-        isRoomClean = true;
+        GameManager.Instance.happiness += 0.10f;
+        happinessbar.UpdateHappinessBar();
     }
 }

@@ -17,11 +17,13 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
-    public int poopAmount {get; set;}
-    public int happiness {get; set;}
+    public int poopAmount { get; set; }
+    public float happiness { get; set; }
+    public int day { get; set; }
 
     private void Awake()
     {
+        happiness = 0.5f;
         if (_instance)
         {
             Destroy(gameObject);
@@ -31,5 +33,16 @@ public class GameManager : MonoBehaviour
             _instance = this;
         }
         DontDestroyOnLoad(this);
+    }
+    void Update()
+    {
+        if (happiness > 1)
+        {
+            happiness = 1;
+        }
+        else if (happiness < 0)
+        {
+            happiness = 0;
+        }
     }
 }
