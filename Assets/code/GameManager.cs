@@ -20,9 +20,12 @@ public class GameManager : MonoBehaviour
     public int poopAmount { get; set; }
     public float happiness { get; set; }
     public int day { get; set; }
+    public float dayProgression { get; set; }
+    public float dayLenght { get; set; }
 
     private void Awake()
     {
+        dayLenght = 180f;
         happiness = 0.5f;
         if (_instance)
         {
@@ -45,4 +48,5 @@ public class GameManager : MonoBehaviour
             happiness = 0;
         }
     }
+    
 }
