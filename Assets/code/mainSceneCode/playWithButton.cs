@@ -8,7 +8,7 @@ public class playWithButton : MonoBehaviour
 
     //rn just using a bool that can be checked from editor since we haven't decided or
     //programmed the rate of which the playwithbunny button is available
-    public bool isButtonAvailable;
+    private bool isButtonAvailable;
     private happinessBar happinessbar;
     public GameObject happinessBarScriptHolder;
     public Button playWithBunnyButton;
@@ -16,13 +16,17 @@ public class playWithButton : MonoBehaviour
     {
         happinessbar = happinessBarScriptHolder.GetComponent<happinessBar>();
     }
+
     public void playWithBunny()
     {
-        if (!isButtonAvailable)
-        {
-            playWithBunnyButton.interactable = false;
-        }
         GameManager.Instance.happiness += 0.30f;
         happinessbar.UpdateHappinessBar();
+        playWithBunnyButton.interactable = false;
+        StartCoroutine("cooldown");
+    }
+    IEnumerator cooldown()
+    {
+        yield return new WaitForSeconds (GameManager.Instance.dayLenght - GameManager.Instance.dayProgression);
+        playWithBunnyButton.interactable = true;
     }
 }
