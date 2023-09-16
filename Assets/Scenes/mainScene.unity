@@ -1046,6 +1046,7 @@ GameObject:
   - component: {fileID: 1047791360}
   - component: {fileID: 1047791359}
   - component: {fileID: 1047791363}
+  - component: {fileID: 1047791364}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1139,9 +1140,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd88f051b2e7ce49a554ca8bc8fbe37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isButtonAvailable: 0
   happinessBarScriptHolder: {fileID: 2080038189}
   playWithBunnyButton: {fileID: 154399029}
+--- !u!114 &1047791364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047791358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b964d174347d5704288fbcf0544f3692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  happinessBarScriptHolder: {fileID: 2080038189}
+  petbutton: {fileID: 2081175727}
 --- !u!1 &1166283316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,7 +1214,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 22082f309ef27254ca66ef38b18a5413, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2020,7 +2034,7 @@ GameObject:
   - component: {fileID: 2081175728}
   - component: {fileID: 2081175727}
   m_Layer: 5
-  m_Name: Button
+  m_Name: petButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2088,7 +2102,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2081175728}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1047791364}
+        m_TargetAssemblyTypeName: petButton, Assembly-CSharp
+        m_MethodName: petbuttonFunc
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2081175728
 MonoBehaviour:
   m_ObjectHideFlags: 0
