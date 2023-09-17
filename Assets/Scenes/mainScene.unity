@@ -1986,8 +1986,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnInterval1: 30
-  spawnInterval2: 60
-  passiveTimer: 25
+  spawnInterval2: 45
+  passiveTimer: 20
   poopPrefab: {fileID: 8875750602958446050, guid: 7e38b13932f057f42bdbf4cc055c0487, type: 3}
   happinessBarScriptHolder: {fileID: 2080038189}
   cleanpoopButton: {fileID: 1318539178}
