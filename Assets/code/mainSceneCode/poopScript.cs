@@ -7,8 +7,10 @@ public class poopScript : MonoBehaviour
 {
 
     private bool isCoroutineRunning;
+    private bool isPassiveCoroutineRunning;
     public int spawnInterval1;
     public int spawnInterval2;
+    public int passiveTimer;
     public GameObject poopPrefab;
     private happinessBar happinessbar;
     public GameObject happinessBarScriptHolder;
@@ -37,6 +39,11 @@ public class poopScript : MonoBehaviour
         {
             cleanpoopButton.interactable = true;
         }
+
+        if (isPassiveCoroutineRunning == false)
+        {
+            StartCoroutine("passiveHappinessChange");
+        }
     }
 
     //IEnumerator coroutine randomises time between spawnInterval1 and Spawninterval2
@@ -53,9 +60,46 @@ public class poopScript : MonoBehaviour
         GameManager.Instance.poopAmount++;
         Debug.Log(GameManager.Instance.poopAmount);
         poops.Add(instancedPoop);
-        GameManager.Instance.happiness -= 0.05f;
+        GameManager.Instance.happiness -= (0.05f * GameManager.Instance.happinessMultiplier);
         happinessbar.UpdateHappinessBar();
         isCoroutineRunning = false;
+    }
+
+    IEnumerator passiveHappinessChange()
+    {
+        isPassiveCoroutineRunning = true;
+        switch (GameManager.Instance.poopAmount)
+        {
+            case 0:
+            GameManager.Instance.happiness += 0.02f;
+            happinessbar.UpdateHappinessBar();
+            break;
+            
+            case 1:
+            GameManager.Instance.happiness += 0.01f;
+            happinessbar.UpdateHappinessBar();
+            break;
+
+            case 2:
+            break;
+
+            case 3:
+            GameManager.Instance.happiness -= (0.01f * GameManager.Instance.happinessMultiplier);
+            happinessbar.UpdateHappinessBar();
+            break;
+
+            case 4:
+            GameManager.Instance.happiness -= (0.02f * GameManager.Instance.happinessMultiplier);
+            happinessbar.UpdateHappinessBar();
+            break;
+
+            case 5:
+            GameManager.Instance.happiness -= (0.04f * GameManager.Instance.happinessMultiplier);
+            happinessbar.UpdateHappinessBar();
+            break;
+        }
+        yield return new WaitForSeconds (passiveTimer);
+        isPassiveCoroutineRunning = false;
     }
 
     // This method is for the cleaning/bathroom button that cleans poops

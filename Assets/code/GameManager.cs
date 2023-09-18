@@ -20,10 +20,18 @@ public class GameManager : MonoBehaviour
     public int poopAmount { get; set; }
     public float happiness { get; set; }
     public int day { get; set; }
-
+    public float dayProgression { get; set; }
+    public float dayLenght { get; set; }
+    private bool isDayChangeRunning { get; set; }
+    public float happinessMultiplier { get; set; }
     private void Awake()
     {
+        //TODO: read values below from memory. if null, create said values below
+        dayLenght = 210f;
         happiness = 0.5f;
+        day = 1;
+        dayProgression = 0f;
+        happinessMultiplier = 1f;
         if (_instance)
         {
             Destroy(gameObject);
@@ -44,5 +52,21 @@ public class GameManager : MonoBehaviour
         {
             happiness = 0;
         }
+        dayProgression += Time.deltaTime;
+        if (dayProgression >= dayLenght && isDayChangeRunning == false)
+        {
+            StartCoroutine("dayChange");
+        }
+    }
+    IEnumerator dayChange()
+    {
+        isDayChangeRunning = true;
+        // TODO: Fade black or similar that shows new day n shit
+        yield return new WaitForSeconds (5);
+        day++;
+        happinessMultiplier += 0.1f;
+        dayProgression = 0f;
+        Debug.Log("New Day Has Started");
+        isDayChangeRunning = false;
     }
 }
