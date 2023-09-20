@@ -1,38 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using UnityEngine.Events;
 
-public class moveBackground : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class moveBackground : MonoBehaviour
 {
     public GameObject background;
-    public bool isPressed;
+    private bool hovering;
 
+    public void onOver()
+    {
+        hovering = true;
+    }
+    public void onExit()
+    {
+        hovering = false;
+    }
     void Update()
     {
-        if (isPressed)
+        if (hovering)
         {
-            if (EventSystem.current.currentSelectedGameObject.name == "right" && background.transform.position.x < 10)
+            if (this.gameObject.name == "right" && background.transform.position.x < 10)
             {
-                background.transform.position += new Vector3 (7 * Time.deltaTime, 0, 0);
+                background.transform.position += new Vector3(7 * Time.deltaTime, 0, 0);
             }
-            else if (EventSystem.current.currentSelectedGameObject.name == "left" && background.transform.position.x > -10)
+            else if (this.gameObject.name == "left" && background.transform.position.x > -10)
             {
-                background.transform.position -= new Vector3 (7 * Time.deltaTime, 0, 0);
+                background.transform.position -= new Vector3(7 * Time.deltaTime, 0, 0);
             }
         }
     }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        isPressed = true;
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        isPressed = false;
-    }
-
 }
+
