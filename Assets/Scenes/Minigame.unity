@@ -141,15 +141,15 @@ PrefabInstance:
       objectReference: {fileID: 1417575157}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Radius
-      value: 0.39739347
+      value: 0.45211697
       objectReference: {fileID: 0}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Offset.x
-      value: -0.02223146
+      value: 0.006840408
       objectReference: {fileID: 0}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Offset.y
-      value: -0.011970758
+      value: 0.030781746
       objectReference: {fileID: 0}
     - target: {fileID: 6539596084682433880, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Name
@@ -306,7 +306,7 @@ PrefabInstance:
       objectReference: {fileID: 1417575157}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Radius
-      value: 0.39739352
+      value: 0.45040703
       objectReference: {fileID: 0}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Offset.x
@@ -314,7 +314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Offset.y
-      value: -0.015391052
+      value: 0.03762245
       objectReference: {fileID: 0}
     - target: {fileID: 6539596084682433880, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Name
@@ -483,7 +483,7 @@ PrefabInstance:
       objectReference: {fileID: 1417575157}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Radius
-      value: 0.39910287
+      value: 0.45724648
       objectReference: {fileID: 0}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Offset.x
@@ -491,7 +491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Offset.y
-      value: -0.018810928
+      value: 0.039332688
       objectReference: {fileID: 0}
     - target: {fileID: 6539596084682433880, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Name
@@ -686,19 +686,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c2116a36b97bc42be2187e777eea52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1417575160
-MonoBehaviour:
+  _speed: 5
+--- !u!50 &1417575160
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417575155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad1456974fed8164bb1e6326a89c90e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 3
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!4 &1479055803 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6796272847141233655, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
@@ -722,7 +737,7 @@ PrefabInstance:
       objectReference: {fileID: 1417575157}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Radius
-      value: 0.40423363
+      value: 0.4589572
       objectReference: {fileID: 0}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Offset.x
@@ -730,7 +745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Offset.y
-      value: -0.013680756
+      value: 0.041042805
       objectReference: {fileID: 0}
     - target: {fileID: 6539596084682433880, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Name
@@ -804,7 +819,7 @@ PrefabInstance:
       objectReference: {fileID: 1417575157}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Radius
-      value: 0.40252346
+      value: 0.46066737
       objectReference: {fileID: 0}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Offset.x
@@ -812,7 +827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Offset.y
-      value: -0.022231638
+      value: 0.035912275
       objectReference: {fileID: 0}
     - target: {fileID: 6539596084682433880, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Name
@@ -1093,7 +1108,7 @@ PrefabInstance:
       objectReference: {fileID: 1417575157}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Radius
-      value: 0.40434897
+      value: 0.45394206
       objectReference: {fileID: 0}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Offset.x
@@ -1101,7 +1116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Offset.y
-      value: -0.0121587515
+      value: 0.03743434
       objectReference: {fileID: 0}
     - target: {fileID: 6539596084682433880, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Name

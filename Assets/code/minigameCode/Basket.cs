@@ -7,11 +7,15 @@ namespace BunnyHole
 {
     public class Basket : MonoBehaviour
     {
+        [SerializeField] private float _speed = 1.0f;
         private Inputs _inputs;
+        private Rigidbody2D _rb2D;
+        private Vector2 _moveInput;
 
         private void Awake()
         {
             _inputs = new Inputs();
+            _rb2D = GetComponent<Rigidbody2D>();
         }
 
         private void OnEnable()
@@ -26,11 +30,13 @@ namespace BunnyHole
             _inputs.Basket.Disable();
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             //Reads the movement
-            Vector2 moveInput = _inputs.Basket.Move.ReadValue<Vector2>();
-            Debug.Log("Movement: " + moveInput);
+            _moveInput = _inputs.Basket.Move.ReadValue<Vector2>();
+            Debug.Log("Movement: " + _moveInput);
+            _moveInput.y = 0;
+            _rb2D.velocity = _moveInput * _speed;
         }
 
     }
