@@ -6,14 +6,14 @@ using UnityEngine;
 public class Minigame : MonoBehaviour
 {
 
-    public float _xPos;
-    public Vector3 _newPos;
-    public float _fallSpeed = 8.0f;
-    public float _spinSpeed = 250.0f;
+    private float _xPos;
+    private Vector3 _newPos;
+    private float _fallSpeed = 6.0f;
+    private float _spinSpeed = 250.0f;
 
     private void Awake()
     {
-        _xPos = Random.Range(-4.8f, 4.8f);
+        _xPos = Random.Range(-4.73f, 3.88f);
         _newPos = new Vector3(_xPos, 6, 0);
     }
 
