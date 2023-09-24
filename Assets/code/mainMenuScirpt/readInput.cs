@@ -7,8 +7,10 @@ using System;
 
 public class readInput : MonoBehaviour
 {
-    private string SuggestedInput;
+    public string SuggestedInput;
     [SerializeField] private TMP_InputField inputfield;
+    [SerializeField] private GameObject gameStartPopout;
+    [SerializeField] private GameObject namepetselection;
 
     void Start()
     {
@@ -25,11 +27,12 @@ public class readInput : MonoBehaviour
     {
         if (SuggestedInput.Length < 3)
         {
-            Debug.LogError("name is too short!");
+            Debug.Log("name is too short!");
         }
         else
         {
-            GameManager.Instance.CurrentlyPlayedPetName = SuggestedInput;
+            gameStartPopout.SetActive(true);
+            namepetselection.SetActive(false);
         }
     }
 }
