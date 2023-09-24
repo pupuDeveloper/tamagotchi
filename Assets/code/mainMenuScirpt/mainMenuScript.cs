@@ -11,6 +11,7 @@ public class mainMenuScript : MonoBehaviour
     {
         if (GameManager.Instance.activePet)
         {
+            GameManager.Instance.gameIsPaused = false;
             SceneManager.LoadScene("mainScene");
         }
         else

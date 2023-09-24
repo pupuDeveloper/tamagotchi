@@ -26,7 +26,7 @@ public class poopScript : MonoBehaviour
     //before running the spawner script
     void FixedUpdate()
     {
-        if (GameManager.Instance.poopAmount < 5 && isCoroutineRunning == false)
+        if (GameManager.Instance.poopAmount < 5 && isCoroutineRunning == false && GameManager.Instance.gameIsPaused == false)
         {
             StartCoroutine("spawnPoops");
         }

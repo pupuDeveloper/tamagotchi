@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public float happinessMultiplier { get; set; }
     public bool activePet { get; set; }
     public string CurrentlyPlayedPetName { get; set; }
+    public bool gameIsPaused { get; set; }
     private void Awake()
     {
         //TODO: read values below from memory. if null, create said values below
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
         day = 1;
         dayProgression = 0f;
         happinessMultiplier = 1f;
+        gameIsPaused = true;
         if (_instance)
         {
             Destroy(gameObject);
@@ -46,25 +48,28 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        if (happiness > 1)
+        if (gameIsPaused == false)
         {
-            happiness = 1;
-        }
-        else if (happiness < 0)
-        {
-            happiness = 0;
-        }
-        dayProgression += Time.deltaTime;
-        if (dayProgression >= dayLenght && isDayChangeRunning == false)
-        {
-            StartCoroutine("dayChange");
+            if (happiness > 1)
+            {
+                happiness = 1;
+            }
+            else if (happiness < 0)
+            {
+                happiness = 0;
+            }
+            dayProgression += Time.deltaTime;
+            if (dayProgression >= dayLenght && isDayChangeRunning == false)
+            {
+                StartCoroutine("dayChange");
+            }
         }
     }
     IEnumerator dayChange()
     {
         isDayChangeRunning = true;
         // TODO: Fade black or similar that shows new day n shit
-        yield return new WaitForSeconds (5);
+        yield return new WaitForSeconds(5);
         day++;
         happinessMultiplier += 0.1f;
         dayProgression = 0f;

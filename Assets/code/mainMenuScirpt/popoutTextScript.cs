@@ -18,6 +18,8 @@ public class popoutTextScript : MonoBehaviour
     public void startGame()
     {
         GameManager.Instance.CurrentlyPlayedPetName = readinputScript.SuggestedInput;
+        GameManager.Instance.activePet = true;
+        GameManager.Instance.gameIsPaused = false;
         SceneManager.LoadScene("mainScene");
     }
 }
