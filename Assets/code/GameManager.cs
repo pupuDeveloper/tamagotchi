@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public float dayLenght { get; set; }
     private bool isDayChangeRunning { get; set; }
     public float happinessMultiplier { get; set; }
+    public bool activePet { get; set; }
+    public string CurrentlyPlayedPetName { get; set; }
     private void Awake()
     {
         //TODO: read values below from memory. if null, create said values below
