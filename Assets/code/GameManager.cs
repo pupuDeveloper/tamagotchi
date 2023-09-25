@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
     public bool activePet { get; set; }
     public string CurrentlyPlayedPetName { get; set; }
     public bool gameIsPaused { get; set; }
+    public float petDeathTimer { get; set; }
     private void Awake()
     {
         //TODO: read values below from memory. if null, create said values below
@@ -35,6 +37,7 @@ public class GameManager : MonoBehaviour
         day = 1;
         dayProgression = 0f;
         happinessMultiplier = 1f;
+        petDeathTimer = 20f;
         gameIsPaused = true;
         if (_instance)
         {
@@ -54,9 +57,10 @@ public class GameManager : MonoBehaviour
             {
                 happiness = 1;
             }
-            else if (happiness < 0)
+            else if (happiness <= 0)
             {
                 happiness = 0;
+                petDeathTimer -= Time.deltaTime;
             }
             dayProgression += Time.deltaTime;
             if (dayProgression >= dayLenght && isDayChangeRunning == false)
@@ -64,10 +68,20 @@ public class GameManager : MonoBehaviour
                 StartCoroutine("dayChange");
             }
         }
+        if (petDeathTimer <= 0 && gameIsPaused == false)
+        {
+            gameOver();
+        }
     }
     IEnumerator dayChange()
     {
-        isDayChangeRunning = true;
+        if (day == 6)
+        {
+            lastDayPetEnd();
+        }
+        else
+        {
+            isDayChangeRunning = true;
         // TODO: Fade black or similar that shows new day n shit
         yield return new WaitForSeconds(5);
         day++;
@@ -75,5 +89,31 @@ public class GameManager : MonoBehaviour
         dayProgression = 0f;
         Debug.Log("New Day Has Started");
         isDayChangeRunning = false;
+        }
+    }
+    void lastDayPetEnd()
+    {
+        Debug.Log("you survived with your... pet? for a week. It has spared you from its terror, but it will not spare others. It has left to raise hell elsewhere, but it didnt leave you empty handed");
+        gameIsPaused = true;
+        activePet = false;
+        CurrentlyPlayedPetName = "";
+        day = 1;
+        dayProgression = 0f;
+        happinessMultiplier = 1f;
+        happiness = 0.5f;
+        SceneManager.LoadScene("mainmenu");
+    }
+    void gameOver()
+    {
+        gameIsPaused = true;
+        Debug.Log("you didn't attend to your pets needs, and its pathetic existence withered away.");
+        activePet = false;
+        CurrentlyPlayedPetName = "";
+        day = 1;
+        dayProgression = 0f;
+        happinessMultiplier = 1f;
+        petDeathTimer = 20f;
+        happiness = 0.5f;
+        SceneManager.LoadScene("mainmenu");
     }
 }
