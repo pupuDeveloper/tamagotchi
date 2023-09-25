@@ -34,7 +34,7 @@ namespace BunnyHole
         {
             //Reads the movement
             _moveInput = _inputs.Basket.Move.ReadValue<Vector2>();
-            Debug.Log("Movement: " + _moveInput);
+           // Debug.Log("Movement: " + _moveInput);
             _moveInput.y = 0;
             _rb2D.velocity = _moveInput * _speed;
         }
