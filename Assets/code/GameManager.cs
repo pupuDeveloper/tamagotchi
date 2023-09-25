@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     public bool gameIsPaused { get; set; }
     public float petDeathTimer { get; set; }
     public bool miniGamePlayed { get; set; }
-    private bool minigameCoroutineRunning; { get; set; }
+    private bool minigameCoroutineRunning { get; set; }
     private void Awake()
     {
         //TODO: read values below from memory. if null, create said values below

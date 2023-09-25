@@ -20,7 +20,6 @@ public class Counting : MonoBehaviour
         Debug.Log("good job you collected all the strawberries");
         GameManager.Instance.happiness += 0.30f;
         button.interactable = true;
-        GameManager.Instance.miniGamePlayed = true;
     }
     private void Update()
     {
