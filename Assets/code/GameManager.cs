@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         //TODO: read values below from memory. if null, create said values below
-        dayLenght = 15f;
+        dayLenght = 210f;
         happiness = 0.5f;
         day = 1;
         dayProgression = 0f;
