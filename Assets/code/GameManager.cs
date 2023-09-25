@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -83,6 +84,7 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator dayChange()
     {
+        gameIsPaused = true;
         if (day == 6)
         {
             lastDayPetEnd();
@@ -97,6 +99,7 @@ public class GameManager : MonoBehaviour
         dayProgression = 0f;
         Debug.Log("New Day Has Started");
         isDayChangeRunning = false;
+        gameIsPaused = false;
         }
     }
     void lastDayPetEnd()
