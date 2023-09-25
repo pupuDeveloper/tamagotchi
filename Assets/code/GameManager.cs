@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,6 +25,10 @@ public class GameManager : MonoBehaviour
     public float dayLenght { get; set; }
     private bool isDayChangeRunning { get; set; }
     public float happinessMultiplier { get; set; }
+    public bool activePet { get; set; }
+    public string CurrentlyPlayedPetName { get; set; }
+    public bool gameIsPaused { get; set; }
+    public float petDeathTimer { get; set; }
     private void Awake()
     {
         //TODO: read values below from memory. if null, create said values below
@@ -32,6 +37,8 @@ public class GameManager : MonoBehaviour
         day = 1;
         dayProgression = 0f;
         happinessMultiplier = 1f;
+        petDeathTimer = 20f;
+        gameIsPaused = true;
         if (_instance)
         {
             Destroy(gameObject);
@@ -44,29 +51,69 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        if (happiness > 1)
+        if (gameIsPaused == false)
         {
-            happiness = 1;
+            if (happiness > 1)
+            {
+                happiness = 1;
+            }
+            else if (happiness <= 0)
+            {
+                happiness = 0;
+                petDeathTimer -= Time.deltaTime;
+            }
+            dayProgression += Time.deltaTime;
+            if (dayProgression >= dayLenght && isDayChangeRunning == false)
+            {
+                StartCoroutine("dayChange");
+            }
         }
-        else if (happiness < 0)
+        if (petDeathTimer <= 0 && gameIsPaused == false)
         {
-            happiness = 0;
-        }
-        dayProgression += Time.deltaTime;
-        if (dayProgression >= dayLenght && isDayChangeRunning == false)
-        {
-            StartCoroutine("dayChange");
+            gameOver();
         }
     }
     IEnumerator dayChange()
     {
-        isDayChangeRunning = true;
+        if (day == 6)
+        {
+            lastDayPetEnd();
+        }
+        else
+        {
+            isDayChangeRunning = true;
         // TODO: Fade black or similar that shows new day n shit
-        yield return new WaitForSeconds (5);
+        yield return new WaitForSeconds(5);
         day++;
         happinessMultiplier += 0.1f;
         dayProgression = 0f;
         Debug.Log("New Day Has Started");
         isDayChangeRunning = false;
+        }
+    }
+    void lastDayPetEnd()
+    {
+        Debug.Log("you survived with your... pet? for a week. It has spared you from its terror, but it will not spare others. It has left to raise hell elsewhere, but it didnt leave you empty handed");
+        gameIsPaused = true;
+        activePet = false;
+        CurrentlyPlayedPetName = "";
+        day = 1;
+        dayProgression = 0f;
+        happinessMultiplier = 1f;
+        happiness = 0.5f;
+        SceneManager.LoadScene("mainmenu");
+    }
+    void gameOver()
+    {
+        gameIsPaused = true;
+        Debug.Log("you didn't attend to your pets needs, and its pathetic existence withered away.");
+        activePet = false;
+        CurrentlyPlayedPetName = "";
+        day = 1;
+        dayProgression = 0f;
+        happinessMultiplier = 1f;
+        petDeathTimer = 20f;
+        happiness = 0.5f;
+        SceneManager.LoadScene("mainmenu");
     }
 }
