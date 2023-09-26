@@ -33,8 +33,7 @@ public class GameManager : MonoBehaviour
     public bool miniGamePlayed { get; set; }
     private bool minigameCoroutineRunning { get; set; }
     public bool minigameInfotoggle { get; set; }
-    public bool isPassiveDecreaseRunning { get; set; }
-    public int passiveHappinessTimer { get; set; }
+    public bool isInfoGiven { get; set; }
     private void Awake()
     {
         //TODO: read values below from memory. if null, create said values below
@@ -48,7 +47,7 @@ public class GameManager : MonoBehaviour
         gameIsPaused = true;
         minigameCoroutineRunning = false;
         minigameInfotoggle = false;
-        passiveHappinessTimer = 10;
+        isInfoGiven = false;
         if (_instance)
         {
             Destroy(gameObject);
@@ -76,10 +75,6 @@ public class GameManager : MonoBehaviour
             if (dayProgression >= dayLenght && isDayChangeRunning == false)
             {
                 StartCoroutine("dayChange");
-            }
-            if (isPassiveDecreaseRunning == false)
-            {
-                StartCoroutine("passiveHappinesDecrease");
             }
         }
         if (petDeathTimer <= 0 && gameIsPaused == false)
@@ -144,13 +139,5 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds (dayLenght - dayProgression);
         miniGamePlayed = false;
         minigameCoroutineRunning = false;
-    }
-    IEnumerator passiveHappinesDecrease()
-    {
-        isPassiveDecreaseRunning = true;
-        yield return new WaitForSeconds (passiveHappinessTimer);
-        happiness -= 0.01f * happinessMultiplier;
-        
-        isPassiveDecreaseRunning = false;
     }
 }
