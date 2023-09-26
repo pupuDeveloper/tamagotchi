@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,11 +31,11 @@ public class GameManager : MonoBehaviour
     public bool gameIsPaused { get; set; }
     public float petDeathTimer { get; set; }
     public bool miniGamePlayed { get; set; }
-    private bool minigameCoroutineRunning; { get; set; }
+    private bool minigameCoroutineRunning { get; set; }
     private void Awake()
     {
         //TODO: read values below from memory. if null, create said values below
-        dayLenght = 15f;
+        dayLenght = 210f;
         happiness = 0.5f;
         day = 1;
         dayProgression = 0f;
@@ -83,6 +84,7 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator dayChange()
     {
+        gameIsPaused = true;
         if (day == 6)
         {
             lastDayPetEnd();
@@ -97,6 +99,7 @@ public class GameManager : MonoBehaviour
         dayProgression = 0f;
         Debug.Log("New Day Has Started");
         isDayChangeRunning = false;
+        gameIsPaused = false;
         }
     }
     void lastDayPetEnd()

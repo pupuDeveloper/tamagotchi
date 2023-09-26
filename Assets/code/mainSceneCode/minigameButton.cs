@@ -8,6 +8,7 @@ public class minigameButton : MonoBehaviour
 {
     private bool isButtonAvailable;
     public Button minigamebutton;
+    private Scene scene;
     public void Switch()
     {
         Scene scene = SceneManager.GetActiveScene();
@@ -25,11 +26,12 @@ public class minigameButton : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (GameManager.Instance.miniGamePlayed == false)
+        scene = SceneManager.GetActiveScene();
+        if (GameManager.Instance.miniGamePlayed == false && scene.name == "mainScene")
         {
             minigamebutton.interactable = true;
         }
-        else
+        else if (GameManager.Instance.miniGamePlayed)
         {
             minigamebutton.interactable = false;
         }
