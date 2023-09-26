@@ -32,10 +32,11 @@ public class GameManager : MonoBehaviour
     public float petDeathTimer { get; set; }
     public bool miniGamePlayed { get; set; }
     private bool minigameCoroutineRunning { get; set; }
+    public bool minigameInfotoggle { get; set; }
     private void Awake()
     {
         //TODO: read values below from memory. if null, create said values below
-        dayLenght = 210f;
+        dayLenght = 10f;
         happiness = 0.5f;
         day = 1;
         dayProgression = 0f;
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
         miniGamePlayed = false;
         gameIsPaused = true;
         minigameCoroutineRunning = false;
+        minigameInfotoggle = false;
         if (_instance)
         {
             Destroy(gameObject);

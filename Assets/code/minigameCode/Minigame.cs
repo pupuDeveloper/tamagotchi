@@ -10,16 +10,19 @@ public class Minigame : MonoBehaviour
     private Vector3 _newPos;
     private float _fallSpeed = 6.0f;
     private float _spinSpeed = 250.0f;
-
+    private GameObject popoutwindow;
     private void Awake()
     {
-        _xPos = Random.Range(-2.52f, 1.66f);
+        popoutwindow = GameObject.Find("infoPopout");
+        _xPos = Random.Range(-4.73f, 3.88f);
         _newPos = new Vector3(_xPos, 6, 0);
     }
 
     private void Update()
     {
-        //move the object down the screen
+        if (popoutwindow.activeSelf == false)
+        {
+            //move the object down the screen
         transform.Translate(Vector3.down * _fallSpeed * Time.deltaTime, Space.World);
         transform.Rotate(Vector3.forward, _spinSpeed * Time.deltaTime);
 
@@ -30,6 +33,7 @@ public class Minigame : MonoBehaviour
             _xPos = Random.Range(-2.52f, 1.66f);
             _newPos = new Vector3(_xPos, 6, 0);
             transform.position = _newPos;
+        }
         }
     }
 }
