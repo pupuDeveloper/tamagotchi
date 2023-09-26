@@ -582,7 +582,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: collect all strawberries by moving the basked with A/d keys
+  m_text: collect all strawberries by moving the basked with A/D keys and gamepad's
+    left stick
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 810650bc3835a89438004043c7d221cf, type: 2}
   m_sharedMaterial: {fileID: -3966640522385589738, guid: 810650bc3835a89438004043c7d221cf, type: 2}
@@ -840,7 +841,7 @@ PrefabInstance:
       objectReference: {fileID: 1417575157}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Radius
-      value: 0.46481
+      value: 0.4587536
       objectReference: {fileID: 0}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Offset.x
@@ -848,7 +849,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Offset.y
-      value: 0.05373645
+      value: 0.03873825
       objectReference: {fileID: 0}
     - target: {fileID: 6539596084682433880, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Name
@@ -894,6 +895,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7058784328070166481, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -918,11 +923,15 @@ PrefabInstance:
       objectReference: {fileID: 1417575157}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Radius
-      value: 0.4628837
+      value: 0.4553578
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.015809417
       objectReference: {fileID: 0}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Offset.y
-      value: 0.04637599
+      value: 0.03139186
       objectReference: {fileID: 0}
     - target: {fileID: 6539596084682433880, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Name
@@ -966,6 +975,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6796272847141233655, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058784328070166481, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058784328070166481, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
+      propertyPath: m_Interpolate
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1111,11 +1128,11 @@ PrefabInstance:
       objectReference: {fileID: 1417575157}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Radius
-      value: 0.47296143
+      value: 0.4759853
       objectReference: {fileID: 0}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Offset.y
-      value: 0.056453705
+      value: 0.053429842
       objectReference: {fileID: 0}
     - target: {fileID: 6539596084682433880, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Name
@@ -1160,6 +1177,10 @@ PrefabInstance:
     - target: {fileID: 6796272847141233655, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058784328070166481, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
+      propertyPath: m_Mass
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1319,11 +1340,11 @@ PrefabInstance:
       objectReference: {fileID: 1417575157}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Radius
-      value: 0.47296143
+      value: 0.45779896
       objectReference: {fileID: 0}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Offset.y
-      value: 0.056453705
+      value: 0.03532982
       objectReference: {fileID: 0}
     - target: {fileID: 6539596084682433880, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Name
@@ -1368,6 +1389,10 @@ PrefabInstance:
     - target: {fileID: 6796272847141233655, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058784328070166481, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
+      propertyPath: m_Mass
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1527,7 +1552,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -1631,11 +1656,15 @@ PrefabInstance:
       objectReference: {fileID: 1417575157}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Radius
-      value: 0.46481037
+      value: 0.46026278
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.00062432885
       objectReference: {fileID: 0}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Offset.y
-      value: 0.04830265
+      value: 0.028813839
       objectReference: {fileID: 0}
     - target: {fileID: 6539596084682433880, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Name
@@ -1680,6 +1709,10 @@ PrefabInstance:
     - target: {fileID: 6796272847141233655, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058784328070166481, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
+      propertyPath: m_Mass
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2071,11 +2104,15 @@ PrefabInstance:
       objectReference: {fileID: 1417575157}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Radius
-      value: 0.46209335
+      value: 0.46055222
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.011143416
       objectReference: {fileID: 0}
     - target: {fileID: 6498069966379114187, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Offset.y
-      value: 0.045585632
+      value: 0.027589798
       objectReference: {fileID: 0}
     - target: {fileID: 6539596084682433880, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_Name
@@ -2119,6 +2156,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6796272847141233655, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058784328070166481, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058784328070166481, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
+      propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

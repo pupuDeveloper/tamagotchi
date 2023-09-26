@@ -7,7 +7,7 @@ public class Mover : MonoBehaviour
 {
     [SerializeField] private float _speed = 1.0f;
 
-    private void Update()
+    private void FixedUpdate()
     {
         Vector2 _pos = transform.position;
         if(Input.GetKey("d"))
