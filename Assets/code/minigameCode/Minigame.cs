@@ -13,7 +13,7 @@ public class Minigame : MonoBehaviour
 
     private void Awake()
     {
-        _xPos = Random.Range(-4.73f, 3.88f);
+        _xPos = Random.Range(-2.52f, 1.66f);
         _newPos = new Vector3(_xPos, 6, 0);
     }
 
@@ -27,7 +27,7 @@ public class Minigame : MonoBehaviour
         if(transform.position.y < -6)
         {
             //move the object above the screen
-            _xPos = Random.Range(-4.5f, 4.5f);
+            _xPos = Random.Range(-2.52f, 1.66f);
             _newPos = new Vector3(_xPos, 6, 0);
             transform.position = _newPos;
         }
