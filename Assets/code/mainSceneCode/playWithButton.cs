@@ -19,7 +19,7 @@ public class playWithButton : MonoBehaviour
 
     public void playWithBunny()
     {
-        GameManager.Instance.happiness += 0.30f;
+        GameManager.Instance.happiness += 0.20f;
         happinessbar.UpdateHappinessBar();
         playWithBunnyButton.interactable = false;
         StartCoroutine("cooldown");
