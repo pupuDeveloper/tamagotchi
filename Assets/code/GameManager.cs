@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class GameManager : MonoBehaviour
     public string CurrentlyPlayedPetName { get; set; }
     public bool gameIsPaused { get; set; }
     public float petDeathTimer { get; set; }
+    public bool miniGamePlayed { get; set; }
+    private bool minigameCoroutineRunning { get; set; }
     private void Awake()
     {
         //TODO: read values below from memory. if null, create said values below
@@ -38,7 +41,9 @@ public class GameManager : MonoBehaviour
         dayProgression = 0f;
         happinessMultiplier = 1f;
         petDeathTimer = 20f;
+        miniGamePlayed = false;
         gameIsPaused = true;
+        minigameCoroutineRunning = false;
         if (_instance)
         {
             Destroy(gameObject);
@@ -72,9 +77,14 @@ public class GameManager : MonoBehaviour
         {
             gameOver();
         }
+        if (miniGamePlayed && minigameCoroutineRunning == false)
+        {
+            StartCoroutine("miniGamecooldown");
+        }
     }
     IEnumerator dayChange()
     {
+        gameIsPaused = true;
         if (day == 6)
         {
             lastDayPetEnd();
@@ -89,6 +99,7 @@ public class GameManager : MonoBehaviour
         dayProgression = 0f;
         Debug.Log("New Day Has Started");
         isDayChangeRunning = false;
+        gameIsPaused = false;
         }
     }
     void lastDayPetEnd()
@@ -101,6 +112,7 @@ public class GameManager : MonoBehaviour
         dayProgression = 0f;
         happinessMultiplier = 1f;
         happiness = 0.5f;
+        miniGamePlayed = false;
         SceneManager.LoadScene("mainmenu");
     }
     void gameOver()
@@ -114,6 +126,14 @@ public class GameManager : MonoBehaviour
         happinessMultiplier = 1f;
         petDeathTimer = 20f;
         happiness = 0.5f;
+        miniGamePlayed = false;
         SceneManager.LoadScene("mainmenu");
+    }
+    IEnumerator miniGamecooldown()
+    {
+        minigameCoroutineRunning = true;
+        yield return new WaitForSeconds (dayLenght - dayProgression);
+        miniGamePlayed = false;
+        minigameCoroutineRunning = false;
     }
 }
