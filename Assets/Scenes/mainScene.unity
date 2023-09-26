@@ -1553,6 +1553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ecddb92726ebe4980a3cd4f9457a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minigamebutton: {fileID: 1386249381}
 --- !u!114 &864655560
 MonoBehaviour:
   m_ObjectHideFlags: 0
