@@ -11,6 +11,7 @@ namespace BunnyHole
         private Inputs _inputs;
         private Rigidbody2D _rb2D;
         private Vector2 _moveInput;
+        [SerializeField] private GameObject popoutwindow;
 
         private void Awake()
         {
@@ -32,11 +33,14 @@ namespace BunnyHole
 
         private void FixedUpdate()
         {
-            //Reads the movement
-            _moveInput = _inputs.Basket.Move.ReadValue<Vector2>();
-           // Debug.Log("Movement: " + _moveInput);
-            _moveInput.y = 0;
-            _rb2D.velocity = _moveInput * _speed;
+            if (popoutwindow.activeSelf == false)
+            {
+                //Reads the movement
+                _moveInput = _inputs.Basket.Move.ReadValue<Vector2>();
+                // Debug.Log("Movement: " + _moveInput);
+                _moveInput.y = 0;
+                _rb2D.velocity = _moveInput * _speed;
+            }
         }
 
     }
