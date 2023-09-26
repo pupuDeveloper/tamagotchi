@@ -7,6 +7,7 @@ public class infoPopout : MonoBehaviour
 {
     [SerializeField] private GameObject popout;
     [SerializeField] private Toggle toggle;
+    [SerializeField] private GameObject crossImage;
 
     void Start()
     {
@@ -16,9 +17,8 @@ public class infoPopout : MonoBehaviour
         }
         else
         {
-        popout.SetActive(false);
+            popout.SetActive(false);
         }
-        Debug.Log("bool in gamemanager is: " +GameManager.Instance.minigameInfotoggle);
     }
 
     public void OkButton()
@@ -30,6 +30,17 @@ public class infoPopout : MonoBehaviour
         else
         {
             GameManager.Instance.minigameInfotoggle = false;
+        }
+    }
+    public void OnToggleValueChanged()
+    {
+        if (toggle.isOn)
+        {
+            crossImage.SetActive(true);
+        }
+        else
+        {
+            crossImage.SetActive(false);
         }
     }
 }
