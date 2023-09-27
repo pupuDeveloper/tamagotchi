@@ -33,10 +33,15 @@ public class GameManager : MonoBehaviour
     public bool miniGamePlayed { get; set; }
     private bool minigameCoroutineRunning { get; set; }
     public bool minigameInfotoggle { get; set; }
+    public bool isInfoGiven { get; set; }
+    public bool bunnyPet { get; set; }
+    private bool isBunnyPetCooldownRunning { get; set; }
+    public bool brushPet { get; set; }
+    private bool isbrushBunnyCooldownRunning { get; set; }
     private void Awake()
     {
         //TODO: read values below from memory. if null, create said values below
-        dayLenght = 10f;
+        dayLenght = 210f;
         happiness = 0.5f;
         day = 1;
         dayProgression = 0f;
@@ -46,6 +51,7 @@ public class GameManager : MonoBehaviour
         gameIsPaused = true;
         minigameCoroutineRunning = false;
         minigameInfotoggle = false;
+        isInfoGiven = false;
         if (_instance)
         {
             Destroy(gameObject);
@@ -83,6 +89,14 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine("miniGamecooldown");
         }
+        if (brushPet && isbrushBunnyCooldownRunning == false)
+        {
+            StartCoroutine("brushBunnyCooldown");
+        }
+        if (bunnyPet && isBunnyPetCooldownRunning == false)
+        {
+            StartCoroutine("playWithBunnyCooldown");
+        }
     }
     IEnumerator dayChange()
     {
@@ -95,7 +109,7 @@ public class GameManager : MonoBehaviour
         {
             isDayChangeRunning = true;
         // TODO: Fade black or similar that shows new day n shit
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(6);
         day++;
         happinessMultiplier += 0.1f;
         dayProgression = 0f;
@@ -137,5 +151,19 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds (dayLenght - dayProgression);
         miniGamePlayed = false;
         minigameCoroutineRunning = false;
+    }
+    IEnumerator brushBunnyCooldown()
+    {
+        isbrushBunnyCooldownRunning = true;
+        yield return new WaitForSeconds ((dayLenght / 4) - 10);
+        brushPet = false;
+        isbrushBunnyCooldownRunning = false;
+    }
+    IEnumerator playWithBunnyCooldown()
+    {
+        isBunnyPetCooldownRunning = true;
+        yield return new WaitForSeconds (dayLenght - dayProgression);
+        bunnyPet = false;
+        isBunnyPetCooldownRunning = false;
     }
 }
