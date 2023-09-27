@@ -15,14 +15,14 @@ public class fadeToBlackController : MonoBehaviour
     {
         if (GameManager.Instance.dayProgression >= GameManager.Instance.dayLenght && fadeIsRunning == false)
         {
-            StartCoroutine(fade());
+            StartCoroutine(Dayfade());
         }
         if (GameManager.Instance.dayProgression >= GameManager.Instance.dayLenght && fadeInDone)
         {
-            StartCoroutine(fade(false));
+            StartCoroutine(Dayfade(false));
         }
     }
-    public IEnumerator fade(bool fadetoBlack = true, float fadespeed = 0.45f)
+    public IEnumerator Dayfade(bool fadetoBlack = true, float fadespeed = 0.45f)
     {
         fadeIsRunning = true;
         Color objectColor = blackoutSquare.GetComponent<Image>().color;
@@ -59,4 +59,13 @@ public class fadeToBlackController : MonoBehaviour
         }
         fadeIsRunning = false;
     }
+    //TODO: game lose and win fades and stuff
+    /*public IEnumerator gameWinFade(winFadeBool = true, float fadespeed = 0.45f)
+    {
+
+    }
+    public IEnumerator gameLoseFade(loseFadebool = true, float fadespeed 0.45f)
+    {
+
+    }*/
 }
