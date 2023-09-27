@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
         {
             isDayChangeRunning = true;
         // TODO: Fade black or similar that shows new day n shit
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(6);
         day++;
         happinessMultiplier += 0.1f;
         dayProgression = 0f;
