@@ -19,11 +19,11 @@ public class moveBackground : MonoBehaviour
     {
         if (hovering)
         {
-            if (this.gameObject.name == "right" && background.transform.position.x < 10)
+            if (this.gameObject.name == "right" && background.transform.position.x < 5)
             {
                 background.transform.position += new Vector3(7 * Time.deltaTime, 0, 0);
             }
-            else if (this.gameObject.name == "left" && background.transform.position.x > -10)
+            else if (this.gameObject.name == "left" && background.transform.position.x > -5)
             {
                 background.transform.position -= new Vector3(7 * Time.deltaTime, 0, 0);
             }
