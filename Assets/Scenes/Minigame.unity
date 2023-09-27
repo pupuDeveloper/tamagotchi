@@ -582,7 +582,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: collect all strawberries by moving the basked with A/D keys and gamepad's
+  m_text: collect all strawberries by moving the basked with A/D keys or gamepad's
     left stick
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 810650bc3835a89438004043c7d221cf, type: 2}
