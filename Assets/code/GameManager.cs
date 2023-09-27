@@ -34,6 +34,10 @@ public class GameManager : MonoBehaviour
     private bool minigameCoroutineRunning { get; set; }
     public bool minigameInfotoggle { get; set; }
     public bool isInfoGiven { get; set; }
+    public bool bunnyPet { get; set; }
+    private bool isBunnyPetCooldownRunning { get; set; }
+    public bool brushPet { get; set; }
+    private bool isbrushBunnyCooldownRunning { get; set; }
     private void Awake()
     {
         //TODO: read values below from memory. if null, create said values below
@@ -84,6 +88,14 @@ public class GameManager : MonoBehaviour
         if (miniGamePlayed && minigameCoroutineRunning == false)
         {
             StartCoroutine("miniGamecooldown");
+        }
+        if (brushPet && isbrushBunnyCooldownRunning == false)
+        {
+            StartCoroutine("brushBunnyCooldown");
+        }
+        if (bunnyPet && isBunnyPetCooldownRunning == false)
+        {
+            StartCoroutine("playWithBunnyCooldown");
         }
     }
     IEnumerator dayChange()
@@ -139,5 +151,19 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds (dayLenght - dayProgression);
         miniGamePlayed = false;
         minigameCoroutineRunning = false;
+    }
+    IEnumerator brushBunnyCooldown()
+    {
+        isbrushBunnyCooldownRunning = true;
+        yield return new WaitForSeconds ((dayLenght / 4) - 10);
+        brushPet = false;
+        isbrushBunnyCooldownRunning = false;
+    }
+    IEnumerator playWithBunnyCooldown()
+    {
+        isBunnyPetCooldownRunning = true;
+        yield return new WaitForSeconds (dayLenght - dayProgression);
+        bunnyPet = false;
+        isBunnyPetCooldownRunning = false;
     }
 }
