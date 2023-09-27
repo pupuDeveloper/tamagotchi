@@ -19,11 +19,14 @@ public class petButton : MonoBehaviour
         GameManager.Instance.happiness += 0.075f;
         happinessbar.UpdateHappinessBar();
         petbutton.interactable = false;
-        StartCoroutine("cooldown");
+        GameManager.Instance.brushPet = true;
     }
-        IEnumerator cooldown()
+
+    void FixedUpdate()
     {
-        yield return new WaitForSeconds ((GameManager.Instance.dayLenght / 4) - 10);
-        petbutton.interactable = true;
+        if (GameManager.Instance.brushPet == false)
+        {
+            petbutton.interactable = true;
+        }
     }
 }
