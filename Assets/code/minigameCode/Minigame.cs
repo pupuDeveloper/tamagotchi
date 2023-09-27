@@ -18,7 +18,7 @@ public class Minigame : MonoBehaviour
         _newPos = new Vector3(_xPos, 6, 0);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (popoutwindow.activeSelf == false)
         {
