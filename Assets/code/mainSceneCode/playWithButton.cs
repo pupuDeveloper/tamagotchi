@@ -22,11 +22,14 @@ public class playWithButton : MonoBehaviour
         GameManager.Instance.happiness += 0.20f;
         happinessbar.UpdateHappinessBar();
         playWithBunnyButton.interactable = false;
-        StartCoroutine("cooldown");
+        GameManager.Instance.bunnyPet = true;
     }
-    IEnumerator cooldown()
+
+    void FixedUpdate()
     {
-        yield return new WaitForSeconds (GameManager.Instance.dayLenght - GameManager.Instance.dayProgression);
-        playWithBunnyButton.interactable = true;
+        if (GameManager.Instance.bunnyPet == false)
+        {
+            playWithBunnyButton.interactable = true;
+        }
     }
 }
