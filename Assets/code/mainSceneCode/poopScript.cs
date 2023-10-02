@@ -66,7 +66,7 @@ public class poopScript : MonoBehaviour
         GameManager.Instance.poopAmount++;
         Debug.Log(GameManager.Instance.poopAmount);
         poops.Add(instancedPoop);
-        GameManager.Instance.happiness -= (0.05f * GameManager.Instance.happinessMultiplier);
+        GameManager.Instance.happiness -= (0.02f * GameManager.Instance.happinessMultiplier);
         happinessbar.UpdateHappinessBar();
         isCoroutineRunning = false;
     }
