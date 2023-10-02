@@ -8,6 +8,7 @@ public class poopScript : MonoBehaviour
 
     private bool isCoroutineRunning;
     private bool isPassiveCoroutineRunning;
+    private bool isCleaningOn;
     public int spawnInterval1;
     public int spawnInterval2;
     public float passiveTimer;
@@ -15,7 +16,7 @@ public class poopScript : MonoBehaviour
     private happinessBar happinessbar;
     public GameObject happinessBarScriptHolder;
     public Button cleanpoopButton;
-    List<GameObject> poops = new List<GameObject>();
+    public List<GameObject> poops = new List<GameObject>();
 
     void Awake()
     {
