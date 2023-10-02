@@ -20,6 +20,11 @@ public class poopScript : MonoBehaviour
     void Awake()
     {
         happinessbar = happinessBarScriptHolder.GetComponent<happinessBar>();
+        for (int i = 0; i < GameManager.Instance.poopAmount; i++)
+        {
+            Vector2 pos = new Vector2(Random.Range(-8.5f, 8.5f), Random.Range(-2.5f,0.5f));
+            GameObject instancedPoop = Instantiate(poopPrefab, pos, Quaternion.identity);
+        }
     }
 
     //fixedupdate checks how many poops are in the screen from gamemanager, and also checks if a timer is running
