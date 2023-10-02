@@ -13,11 +13,11 @@ public class fadeToBlackController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GameManager.Instance.dayProgression >= GameManager.Instance.dayLenght && fadeIsRunning == false)
+        if (GameManager.Instance.evolutionProgression >= GameManager.Instance.evolutionLenght && fadeIsRunning == false)
         {
             StartCoroutine(Dayfade());
         }
-        if (GameManager.Instance.dayProgression >= GameManager.Instance.dayLenght && fadeInDone)
+        if (GameManager.Instance.evolutionProgression >= GameManager.Instance.evolutionLenght && fadeInDone)
         {
             StartCoroutine(Dayfade(false));
         }

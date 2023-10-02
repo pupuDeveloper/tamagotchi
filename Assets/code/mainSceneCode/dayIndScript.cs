@@ -27,7 +27,7 @@ public class dayIndScript : MonoBehaviour
     }
     private void timeChecker()
     {
-        if (GameManager.Instance.dayProgression < changePoint)
+        if (GameManager.Instance.evolutionProgression < changePoint)
         {
             GetComponent<Image>().sprite = img1;
         }

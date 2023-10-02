@@ -76,30 +76,30 @@ public class poopScript : MonoBehaviour
         switch (GameManager.Instance.poopAmount)
         {
             case 0:
-            GameManager.Instance.happiness += 0.02f;
-            happinessbar.UpdateHappinessBar();
             break;
             
             case 1:
-            GameManager.Instance.happiness += 0.01f;
-            happinessbar.UpdateHappinessBar();
-            break;
-
-            case 2:
-            break;
-
-            case 3:
             GameManager.Instance.happiness -= (0.01f * GameManager.Instance.happinessMultiplier);
             happinessbar.UpdateHappinessBar();
             break;
 
-            case 4:
+            case 2:
             GameManager.Instance.happiness -= (0.02f * GameManager.Instance.happinessMultiplier);
             happinessbar.UpdateHappinessBar();
             break;
 
-            case 5:
+            case 3:
+            GameManager.Instance.happiness -= (0.03f * GameManager.Instance.happinessMultiplier);
+            happinessbar.UpdateHappinessBar();
+            break;
+
+            case 4:
             GameManager.Instance.happiness -= (0.04f * GameManager.Instance.happinessMultiplier);
+            happinessbar.UpdateHappinessBar();
+            break;
+
+            case 5:
+            GameManager.Instance.happiness -= (0.05f * GameManager.Instance.happinessMultiplier);
             happinessbar.UpdateHappinessBar();
             break;
         }
