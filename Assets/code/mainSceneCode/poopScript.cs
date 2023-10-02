@@ -24,6 +24,7 @@ public class poopScript : MonoBehaviour
         {
             Vector2 pos = new Vector2(Random.Range(-8.5f, 8.5f), Random.Range(-2.5f,0.5f));
             GameObject instancedPoop = Instantiate(poopPrefab, pos, Quaternion.identity);
+            poops.Add(instancedPoop);
         }
     }
 

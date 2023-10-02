@@ -27,7 +27,7 @@ public class playWithButton : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GameManager.Instance.bunnyPlay == false)
+        if (GameManager.Instance.activityToBeLaunched == 1 && GameManager.Instance.bunnyPlay == false)
         {
             playWithBunnyButton.interactable = true;
         }

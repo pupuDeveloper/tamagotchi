@@ -24,7 +24,7 @@ public class petButton : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GameManager.Instance.brushPet == false)
+        if (GameManager.Instance.activityToBeLaunched == 2 && GameManager.Instance.brushPet == false)
         {
             petbutton.interactable = true;
         }

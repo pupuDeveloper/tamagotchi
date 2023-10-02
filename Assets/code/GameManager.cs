@@ -38,6 +38,11 @@ public class GameManager : MonoBehaviour
     private bool isBunnyPlayCooldownRunning { get; set; }
     public bool brushPet { get; set; }
     private bool isbrushBunnyCooldownRunning { get; set; }
+    private int activityInterval1 { get; set; }
+    private int activityInterval2 { get; set; }
+    public int activityToBeLaunched { get; set; }
+    public bool isActivityCooldownRunning { get; set; }
+    private int individualActivityCooldown { get; set; }
     private void Awake()
     {
         //TODO: read values below from memory. if null, create said values below
@@ -47,9 +52,16 @@ public class GameManager : MonoBehaviour
         evolutionProgression = 0f;
         happinessMultiplier = 1f;
         petDeathTimer = 20f;
+        activityInterval1 = 7;
+        activityInterval2 = 20;
+        individualActivityCooldown = 20;
         miniGamePlayed = false;
+        brushPet = false;
+        bunnyPlay = false;
         gameIsPaused = true;
         minigameCoroutineRunning = false;
+        isBunnyPlayCooldownRunning = false;
+        isbrushBunnyCooldownRunning = false;
         minigameInfotoggle = false;
         isInfoGiven = false;
         if (_instance)
@@ -78,7 +90,7 @@ public class GameManager : MonoBehaviour
             evolutionProgression += Time.deltaTime;
             if (evolutionProgression >= evolutionLenght && isEvolutionRunning == false)
             {
-                StartCoroutine("dayChange");
+                StartCoroutine("evolutionChange");
             }
             if (happiness > 0)
             {
@@ -101,6 +113,10 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine("playWithBunnyCooldown");
         }
+        if (isActivityCooldownRunning == false)
+        {
+            StartCoroutine("activityCooldown");
+        }
     }
     IEnumerator evolutionChange()
     {
@@ -117,7 +133,15 @@ public class GameManager : MonoBehaviour
         evolution++;
         happinessMultiplier += 0.1f;
         evolutionProgression = 0f;
-        Debug.Log("New Day Has Started");
+        if (evolution == 2)
+        {
+            evolutionLenght = 360f;
+        }
+        else if (evolution == 3)
+        {
+            evolutionLenght = 9999999999999999999f;
+        }
+        Debug.Log("Your pet is growing!!!");
         isEvolutionRunning = false;
         gameIsPaused = false;
         }
@@ -152,22 +176,60 @@ public class GameManager : MonoBehaviour
     IEnumerator miniGamecooldown()
     {
         minigameCoroutineRunning = true;
-        yield return new WaitForSeconds (evolutionLenght - evolutionProgression);
+        yield return new WaitForSeconds (individualActivityCooldown);
         miniGamePlayed = false;
         minigameCoroutineRunning = false;
     }
     IEnumerator brushBunnyCooldown()
     {
         isbrushBunnyCooldownRunning = true;
-        yield return new WaitForSeconds ((evolutionLenght / 4) - 10);
+        yield return new WaitForSeconds (individualActivityCooldown);
         brushPet = false;
         isbrushBunnyCooldownRunning = false;
     }
     IEnumerator playWithBunnyCooldown()
     {
         isBunnyPlayCooldownRunning = true;
-        yield return new WaitForSeconds (evolutionLenght - evolutionProgression);
+        yield return new WaitForSeconds (individualActivityCooldown);
         bunnyPlay = false;
         isBunnyPlayCooldownRunning = false;
+    }
+    IEnumerator activityCooldown()
+    {
+        isActivityCooldownRunning = true;
+        int activityInterval = Random.Range(activityInterval1, activityInterval2);
+        yield return new WaitForSeconds (activityInterval);
+        activityToBeLaunched = activityRandomizer();
+        while (activityToBeLaunched == 0)
+        {
+            activityToBeLaunched = activityRandomizer();
+        }
+        Debug.Log(activityToBeLaunched);
+        isActivityCooldownRunning = false;
+    }
+    public int activityRandomizer()
+    {
+        int activityNumber = 0;
+        List<int> availableGames= new List<int>();
+        if (minigameCoroutineRunning == false)
+        {
+            availableGames.Add(1);
+        }
+        if(isbrushBunnyCooldownRunning == false)
+        {
+            availableGames.Add(2);
+        }
+        if(isBunnyPlayCooldownRunning == false)
+        {
+            availableGames.Add(3);
+        }
+        if (availableGames.Count == 0)
+        {
+            activityNumber = 0;
+            return activityNumber;
+        }
+        int pickActivity = Random.Range (0, availableGames.Count);
+        activityNumber = availableGames[pickActivity];
+        return activityNumber;
     }
 }
