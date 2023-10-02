@@ -8,7 +8,7 @@ public class poopScript : MonoBehaviour
 
     private bool isCoroutineRunning;
     private bool isPassiveCoroutineRunning;
-    private bool isCleaningOn;
+    public bool isCleaningOn;
     public int spawnInterval1;
     public int spawnInterval2;
     public float passiveTimer;
@@ -17,6 +17,9 @@ public class poopScript : MonoBehaviour
     public GameObject happinessBarScriptHolder;
     public Button cleanpoopButton;
     public List<GameObject> poops = new List<GameObject>();
+    public Texture2D cursorTexture;
+    public CursorMode cursorMode = CursorMode.Auto;
+    public Vector2 hotSpot = Vector2.zero;
 
     void Awake()
     {
@@ -114,13 +117,15 @@ public class poopScript : MonoBehaviour
     // and makes sure gamemanager also has correct (0) amount of poops
     public void cleanPoopButton()
     {
-        foreach (GameObject poop in poops)
+        if (isCleaningOn)
         {
-            Destroy(poop);
+            isCleaningOn = false;
+            Cursor.SetCursor(null, hotSpot, cursorMode);
         }
-        poops.Clear();
-        GameManager.Instance.poopAmount = 0;
-        GameManager.Instance.happiness += 0.10f;
-        happinessbar.UpdateHappinessBar();
+        else
+        {
+            isCleaningOn = true;
+            Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
+        }
     }
 }

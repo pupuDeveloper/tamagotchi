@@ -3640,12 +3640,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef99ff51d9ef25f4987670ff95864946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCleaningOn: 0
   spawnInterval1: 3
   spawnInterval2: 15
   passiveTimer: 0.5
   poopPrefab: {fileID: 8875750602958446050, guid: 7e38b13932f057f42bdbf4cc055c0487, type: 3}
   happinessBarScriptHolder: {fileID: 2080038189}
   cleanpoopButton: {fileID: 1318539178}
+  poops: []
+  cursorTexture: {fileID: 2800000, guid: 6d61dfaef2de3aa43a50ac9a324b0ef1, type: 3}
+  cursorMode: 0
+  hotSpot: {x: 0, y: 0}
 --- !u!4 &1943622002
 Transform:
   m_ObjectHideFlags: 0
