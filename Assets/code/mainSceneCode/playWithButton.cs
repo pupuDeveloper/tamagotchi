@@ -19,7 +19,7 @@ public class playWithButton : MonoBehaviour
 
     public void playWithBunny()
     {
-        GameManager.Instance.happiness += 0.20f;
+        GameManager.Instance.happiness += 0.10f;
         happinessbar.UpdateHappinessBar();
         playWithBunnyButton.interactable = false;
         GameManager.Instance.bunnyPlay = true;

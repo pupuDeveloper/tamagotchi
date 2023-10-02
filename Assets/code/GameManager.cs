@@ -52,8 +52,8 @@ public class GameManager : MonoBehaviour
         evolutionProgression = 0f;
         happinessMultiplier = 1f;
         petDeathTimer = 20f;
-        activityInterval1 = 7;
-        activityInterval2 = 20;
+        activityInterval1 = 3;
+        activityInterval2 = 12;
         individualActivityCooldown = 20;
         miniGamePlayed = false;
         brushPet = false;

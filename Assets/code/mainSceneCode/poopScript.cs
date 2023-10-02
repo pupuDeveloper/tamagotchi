@@ -10,7 +10,7 @@ public class poopScript : MonoBehaviour
     private bool isPassiveCoroutineRunning;
     public int spawnInterval1;
     public int spawnInterval2;
-    public int passiveTimer;
+    public float passiveTimer;
     public GameObject poopPrefab;
     private happinessBar happinessbar;
     public GameObject happinessBarScriptHolder;
@@ -80,27 +80,27 @@ public class poopScript : MonoBehaviour
             break;
             
             case 1:
-            GameManager.Instance.happiness -= (0.01f * GameManager.Instance.happinessMultiplier);
+            GameManager.Instance.happiness -= (0.0017f * GameManager.Instance.happinessMultiplier);
             happinessbar.UpdateHappinessBar();
             break;
 
             case 2:
-            GameManager.Instance.happiness -= (0.02f * GameManager.Instance.happinessMultiplier);
+            GameManager.Instance.happiness -= (0.0034f * GameManager.Instance.happinessMultiplier);
             happinessbar.UpdateHappinessBar();
             break;
 
             case 3:
-            GameManager.Instance.happiness -= (0.03f * GameManager.Instance.happinessMultiplier);
+            GameManager.Instance.happiness -= (0.0068f * GameManager.Instance.happinessMultiplier);
             happinessbar.UpdateHappinessBar();
             break;
 
             case 4:
-            GameManager.Instance.happiness -= (0.04f * GameManager.Instance.happinessMultiplier);
+            GameManager.Instance.happiness -= (0.0132f * GameManager.Instance.happinessMultiplier);
             happinessbar.UpdateHappinessBar();
             break;
 
             case 5:
-            GameManager.Instance.happiness -= (0.05f * GameManager.Instance.happinessMultiplier);
+            GameManager.Instance.happiness -= (0.0264f * GameManager.Instance.happinessMultiplier);
             happinessbar.UpdateHappinessBar();
             break;
         }

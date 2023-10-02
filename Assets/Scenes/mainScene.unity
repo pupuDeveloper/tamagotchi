@@ -760,7 +760,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   happinesbarScript: {fileID: 2080038191}
-  timer: 5
+  timer: 0.5
+  playWith: {fileID: 154399029}
+  brush: {fileID: 2081175727}
+  minigame: {fileID: 1386249381}
 --- !u!4 &191726398
 Transform:
   m_ObjectHideFlags: 0
@@ -3637,9 +3640,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef99ff51d9ef25f4987670ff95864946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnInterval1: 10
-  spawnInterval2: 30
-  passiveTimer: 3
+  spawnInterval1: 3
+  spawnInterval2: 15
+  passiveTimer: 0.5
   poopPrefab: {fileID: 8875750602958446050, guid: 7e38b13932f057f42bdbf4cc055c0487, type: 3}
   happinessBarScriptHolder: {fileID: 2080038189}
   cleanpoopButton: {fileID: 1318539178}
