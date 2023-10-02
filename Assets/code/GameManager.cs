@@ -21,10 +21,10 @@ public class GameManager : MonoBehaviour
     }
     public int poopAmount { get; set; }
     public float happiness { get; set; }
-    public int day { get; set; }
+    public int evolution { get; set; }
     public float dayProgression { get; set; }
     public float dayLenght { get; set; }
-    private bool isDayChangeRunning { get; set; }
+    private bool isEvolutionRunning { get; set; }
     public float happinessMultiplier { get; set; }
     public bool activePet { get; set; }
     public string CurrentlyPlayedPetName { get; set; }
@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         //TODO: read values below from memory. if null, create said values below
         dayLenght = 210f;
         happiness = 0.5f;
-        day = 1;
+        evolution = 1;
         dayProgression = 0f;
         happinessMultiplier = 1f;
         petDeathTimer = 20f;
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
                 petDeathTimer -= Time.deltaTime;
             }
             dayProgression += Time.deltaTime;
-            if (dayProgression >= dayLenght && isDayChangeRunning == false)
+            if (dayProgression >= dayLenght && isEvolutionRunning == false)
             {
                 StartCoroutine("dayChange");
             }
@@ -98,23 +98,23 @@ public class GameManager : MonoBehaviour
             StartCoroutine("playWithBunnyCooldown");
         }
     }
-    IEnumerator dayChange()
+    IEnumerator evolutionChange()
     {
         gameIsPaused = true;
-        if (day == 6)
+        if (evolution == 6)
         {
             lastDayPetEnd();
         }
         else
         {
-            isDayChangeRunning = true;
-        // TODO: Fade black or similar that shows new day n shit
+            isEvolutionRunning = true;
+        // TODO: Fade black or similar that shows new evolution n shit
         yield return new WaitForSeconds(6);
-        day++;
+        evolution++;
         happinessMultiplier += 0.1f;
         dayProgression = 0f;
         Debug.Log("New Day Has Started");
-        isDayChangeRunning = false;
+        isEvolutionRunning = false;
         gameIsPaused = false;
         }
     }
@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
         gameIsPaused = true;
         activePet = false;
         CurrentlyPlayedPetName = "";
-        day = 1;
+        evolution = 1;
         dayProgression = 0f;
         happinessMultiplier = 1f;
         happiness = 0.5f;
@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("you didn't attend to your pets needs, and its pathetic existence withered away.");
         activePet = false;
         CurrentlyPlayedPetName = "";
-        day = 1;
+        evolution = 1;
         dayProgression = 0f;
         happinessMultiplier = 1f;
         petDeathTimer = 20f;
