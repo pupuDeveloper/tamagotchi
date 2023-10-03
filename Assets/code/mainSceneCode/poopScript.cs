@@ -65,7 +65,7 @@ public class poopScript : MonoBehaviour
         isCoroutineRunning = true;
         int spawnTime = Random.Range(spawnInterval1, spawnInterval2);
         yield return new WaitForSeconds (spawnTime);
-        Vector2 pos = new Vector2(Random.Range(-8.5f, 8.5f), Random.Range(-2.5f,0.5f));
+        Vector2 pos = new Vector2(Random.Range(-6.5f, 6.5f), Random.Range(-1.5f,0.5f));
         GameObject instancedPoop = Instantiate(poopPrefab, pos, Quaternion.identity);
         GameManager.Instance.poopAmount++;
         Debug.Log(GameManager.Instance.poopAmount);
