@@ -203,8 +203,9 @@ public class GameManager : MonoBehaviour
         while (activityToBeLaunched == 0)
         {
             activityToBeLaunched = activityRandomizer();
+            yield return new WaitForSeconds(1);
         }
-        Debug.Log(activityToBeLaunched);
+        Debug.Log("minigame number :" + activityToBeLaunched);
         isActivityCooldownRunning = false;
     }
     public int activityRandomizer()

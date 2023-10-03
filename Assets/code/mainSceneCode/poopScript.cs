@@ -40,8 +40,7 @@ public class poopScript : MonoBehaviour
         {
             StartCoroutine("spawnPoops");
         }
-
-        if (GameManager.Instance.poopAmount < 1)
+        if (GameManager.Instance.poopAmount < 1 && isCleaningOn == false)
         {
             cleanpoopButton.interactable = false;
         }
@@ -49,7 +48,6 @@ public class poopScript : MonoBehaviour
         {
             cleanpoopButton.interactable = true;
         }
-
         if (isPassiveCoroutineRunning == false)
         {
             StartCoroutine("passiveHappinessChange");
@@ -68,11 +66,12 @@ public class poopScript : MonoBehaviour
         Vector2 pos = new Vector2(Random.Range(-6.5f, 6.5f), Random.Range(-1.5f,0.5f));
         GameObject instancedPoop = Instantiate(poopPrefab, pos, Quaternion.identity);
         GameManager.Instance.poopAmount++;
-        Debug.Log(GameManager.Instance.poopAmount);
         poops.Add(instancedPoop);
         GameManager.Instance.happiness -= (0.02f * GameManager.Instance.happinessMultiplier);
         happinessbar.UpdateHappinessBar();
         isCoroutineRunning = false;
+        Debug.Log("poopamount in gamemanager :" + GameManager.Instance.poopAmount);
+        Debug.Log("poopamount in poopscript :" + poops);
     }
 
     IEnumerator passiveHappinessChange()

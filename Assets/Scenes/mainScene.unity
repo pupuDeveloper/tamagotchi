@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   happinesbarScript: {fileID: 2080038191}
-  timer: 0.5
+  timer: 1
   playWith: {fileID: 154399029}
   brush: {fileID: 2081175727}
   minigame: {fileID: 1386249381}
@@ -3740,7 +3740,7 @@ MonoBehaviour:
   isCleaningOn: 0
   spawnInterval1: 3
   spawnInterval2: 15
-  passiveTimer: 0.5
+  passiveTimer: 1
   poopPrefab: {fileID: 8875750602958446050, guid: 7e38b13932f057f42bdbf4cc055c0487, type: 3}
   happinessBarScriptHolder: {fileID: 2080038189}
   cleanpoopButton: {fileID: 1318539178}
