@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class Collision : MonoBehaviour
 {
-    [SerializeField] private Transform _target;
-    private Minigame minigameScript;
-
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.transform == _target)
+        // Are strawberries colliding with the basket? If yes, destroy
+        // the strawberry
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Basket"))
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             Debug.Log("correct");
+            // Adds count to the Counting script when colliding with the basket
             Counting._count++;
             Debug.Log(Counting._count);
         }
