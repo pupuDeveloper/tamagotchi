@@ -19,15 +19,15 @@ public class playWithButton : MonoBehaviour
 
     public void playWithBunny()
     {
-        GameManager.Instance.happiness += 0.20f;
+        GameManager.Instance.happiness += 0.10f;
         happinessbar.UpdateHappinessBar();
         playWithBunnyButton.interactable = false;
-        GameManager.Instance.bunnyPet = true;
+        GameManager.Instance.bunnyPlay = true;
     }
 
     void FixedUpdate()
     {
-        if (GameManager.Instance.bunnyPet == false)
+        if (GameManager.Instance.activityToBeLaunched == 1 && GameManager.Instance.bunnyPlay == false)
         {
             playWithBunnyButton.interactable = true;
         }

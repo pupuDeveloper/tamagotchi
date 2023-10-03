@@ -21,10 +21,10 @@ public class GameManager : MonoBehaviour
     }
     public int poopAmount { get; set; }
     public float happiness { get; set; }
-    public int day { get; set; }
-    public float dayProgression { get; set; }
-    public float dayLenght { get; set; }
-    private bool isDayChangeRunning { get; set; }
+    public int evolution { get; set; }
+    public float evolutionProgression { get; set; }
+    public float evolutionLenght { get; set; }
+    private bool isEvolutionRunning { get; set; }
     public float happinessMultiplier { get; set; }
     public bool activePet { get; set; }
     public string CurrentlyPlayedPetName { get; set; }
@@ -34,22 +34,34 @@ public class GameManager : MonoBehaviour
     private bool minigameCoroutineRunning { get; set; }
     public bool minigameInfotoggle { get; set; }
     public bool isInfoGiven { get; set; }
-    public bool bunnyPet { get; set; }
-    private bool isBunnyPetCooldownRunning { get; set; }
+    public bool bunnyPlay { get; set; }
+    private bool isBunnyPlayCooldownRunning { get; set; }
     public bool brushPet { get; set; }
     private bool isbrushBunnyCooldownRunning { get; set; }
+    private int activityInterval1 { get; set; }
+    private int activityInterval2 { get; set; }
+    public int activityToBeLaunched { get; set; }
+    public bool isActivityCooldownRunning { get; set; }
+    private int individualActivityCooldown { get; set; }
     private void Awake()
     {
         //TODO: read values below from memory. if null, create said values below
-        dayLenght = 210f;
+        evolutionLenght = 180f;
         happiness = 0.5f;
-        day = 1;
-        dayProgression = 0f;
+        evolution = 1;
+        evolutionProgression = 0f;
         happinessMultiplier = 1f;
         petDeathTimer = 20f;
+        activityInterval1 = 3;
+        activityInterval2 = 12;
+        individualActivityCooldown = 20;
         miniGamePlayed = false;
+        brushPet = false;
+        bunnyPlay = false;
         gameIsPaused = true;
         minigameCoroutineRunning = false;
+        isBunnyPlayCooldownRunning = false;
+        isbrushBunnyCooldownRunning = false;
         minigameInfotoggle = false;
         isInfoGiven = false;
         if (_instance)
@@ -75,10 +87,14 @@ public class GameManager : MonoBehaviour
                 happiness = 0;
                 petDeathTimer -= Time.deltaTime;
             }
-            dayProgression += Time.deltaTime;
-            if (dayProgression >= dayLenght && isDayChangeRunning == false)
+            evolutionProgression += Time.deltaTime;
+            if (evolutionProgression >= evolutionLenght && isEvolutionRunning == false)
             {
-                StartCoroutine("dayChange");
+                StartCoroutine("evolutionChange");
+            }
+            if (happiness > 0)
+            {
+                petDeathTimer = 20f;
             }
         }
         if (petDeathTimer <= 0 && gameIsPaused == false)
@@ -93,28 +109,40 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine("brushBunnyCooldown");
         }
-        if (bunnyPet && isBunnyPetCooldownRunning == false)
+        if (bunnyPlay && isBunnyPlayCooldownRunning == false)
         {
             StartCoroutine("playWithBunnyCooldown");
         }
+        if (isActivityCooldownRunning == false)
+        {
+            StartCoroutine("activityCooldown");
+        }
     }
-    IEnumerator dayChange()
+    IEnumerator evolutionChange()
     {
         gameIsPaused = true;
-        if (day == 6)
+        if (evolution == 6)
         {
             lastDayPetEnd();
         }
         else
         {
-            isDayChangeRunning = true;
-        // TODO: Fade black or similar that shows new day n shit
+            isEvolutionRunning = true;
+        // TODO: Fade black or similar that shows new evolution n shit
         yield return new WaitForSeconds(6);
-        day++;
+        evolution++;
         happinessMultiplier += 0.1f;
-        dayProgression = 0f;
-        Debug.Log("New Day Has Started");
-        isDayChangeRunning = false;
+        evolutionProgression = 0f;
+        if (evolution == 2)
+        {
+            evolutionLenght = 360f;
+        }
+        else if (evolution == 3)
+        {
+            evolutionLenght = 9999999999999999999f;
+        }
+        Debug.Log("Your pet is growing!!!");
+        isEvolutionRunning = false;
         gameIsPaused = false;
         }
     }
@@ -124,8 +152,8 @@ public class GameManager : MonoBehaviour
         gameIsPaused = true;
         activePet = false;
         CurrentlyPlayedPetName = "";
-        day = 1;
-        dayProgression = 0f;
+        evolution = 1;
+        evolutionProgression = 0f;
         happinessMultiplier = 1f;
         happiness = 0.5f;
         miniGamePlayed = false;
@@ -137,8 +165,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("you didn't attend to your pets needs, and its pathetic existence withered away.");
         activePet = false;
         CurrentlyPlayedPetName = "";
-        day = 1;
-        dayProgression = 0f;
+        evolution = 1;
+        evolutionProgression = 0f;
         happinessMultiplier = 1f;
         petDeathTimer = 20f;
         happiness = 0.5f;
@@ -148,22 +176,61 @@ public class GameManager : MonoBehaviour
     IEnumerator miniGamecooldown()
     {
         minigameCoroutineRunning = true;
-        yield return new WaitForSeconds (dayLenght - dayProgression);
+        yield return new WaitForSeconds (individualActivityCooldown);
         miniGamePlayed = false;
         minigameCoroutineRunning = false;
     }
     IEnumerator brushBunnyCooldown()
     {
         isbrushBunnyCooldownRunning = true;
-        yield return new WaitForSeconds ((dayLenght / 4) - 10);
+        yield return new WaitForSeconds (individualActivityCooldown);
         brushPet = false;
         isbrushBunnyCooldownRunning = false;
     }
     IEnumerator playWithBunnyCooldown()
     {
-        isBunnyPetCooldownRunning = true;
-        yield return new WaitForSeconds (dayLenght - dayProgression);
-        bunnyPet = false;
-        isBunnyPetCooldownRunning = false;
+        isBunnyPlayCooldownRunning = true;
+        yield return new WaitForSeconds (individualActivityCooldown);
+        bunnyPlay = false;
+        isBunnyPlayCooldownRunning = false;
+    }
+    IEnumerator activityCooldown()
+    {
+        isActivityCooldownRunning = true;
+        int activityInterval = Random.Range(activityInterval1, activityInterval2);
+        yield return new WaitForSeconds (activityInterval);
+        activityToBeLaunched = activityRandomizer();
+        while (activityToBeLaunched == 0)
+        {
+            activityToBeLaunched = activityRandomizer();
+            yield return new WaitForSeconds(1);
+        }
+        Debug.Log("minigame number :" + activityToBeLaunched);
+        isActivityCooldownRunning = false;
+    }
+    public int activityRandomizer()
+    {
+        int activityNumber = 0;
+        List<int> availableGames= new List<int>();
+        if (minigameCoroutineRunning == false)
+        {
+            availableGames.Add(1);
+        }
+        if(isbrushBunnyCooldownRunning == false)
+        {
+            availableGames.Add(2);
+        }
+        if(isBunnyPlayCooldownRunning == false)
+        {
+            availableGames.Add(3);
+        }
+        if (availableGames.Count == 0)
+        {
+            activityNumber = 0;
+            return activityNumber;
+        }
+        int pickActivity = Random.Range (0, availableGames.Count);
+        activityNumber = availableGames[pickActivity];
+        return activityNumber;
     }
 }

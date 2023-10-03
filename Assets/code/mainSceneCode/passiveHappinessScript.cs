@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class passiveHappinessScript : MonoBehaviour
 {
     [SerializeField] private happinessBar happinesbarScript;
-    [SerializeField] private int timer;
+    [SerializeField] private float timer;
     private bool isCoroutineRunning = false;
+    [SerializeField] private Button playWith;
+    [SerializeField] private Button brush;
+    [SerializeField] private Button minigame;
 
     void FixedUpdate()
     {
-        if (isCoroutineRunning == false && GameManager.Instance.gameIsPaused == false)
+        if (isCoroutineRunning == false && GameManager.Instance.gameIsPaused == false && playWith.interactable ||
+        isCoroutineRunning == false && GameManager.Instance.gameIsPaused == false && brush.interactable ||
+        isCoroutineRunning == false && GameManager.Instance.gameIsPaused == false && minigame.interactable)
         {
             StartCoroutine("passiveHappinessDecrease");
         }
