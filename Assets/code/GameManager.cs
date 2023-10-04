@@ -152,6 +152,8 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("you survived with your... pet? for a week. It has spared you from its terror, but it will not spare others. It has left to raise hell elsewhere, but it didnt leave you empty handed");
         gameIsPaused = true;
+        petCollection.Add(currentPet);
+        currentPet = null;
         activePet = false;
         CurrentlyPlayedPetName = "";
         evolution = 1;

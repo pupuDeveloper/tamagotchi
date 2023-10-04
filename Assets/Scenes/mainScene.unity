@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   happinesbarScript: {fileID: 2080038191}
-  timer: 1
+  timer: 0.75
   playWith: {fileID: 154399029}
   brush: {fileID: 2081175727}
   minigame: {fileID: 1386249381}
