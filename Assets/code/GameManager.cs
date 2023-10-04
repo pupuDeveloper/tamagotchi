@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
         isbrushBunnyCooldownRunning = false;
         minigameInfotoggle = false;
         isInfoGiven = false;
+        currentPet = null;
         if (_instance)
         {
             Destroy(gameObject);
@@ -98,14 +99,14 @@ public class GameManager : MonoBehaviour
             {
                 petDeathTimer = 20f;
             }
+            if (miniGamePlayed && minigameCoroutineRunning == false)
+            {
+                StartCoroutine("miniGamecooldown");
+            }
         }
         if (petDeathTimer <= 0 && gameIsPaused == false)
         {
             gameOver();
-        }
-        if (miniGamePlayed && minigameCoroutineRunning == false)
-        {
-            StartCoroutine("miniGamecooldown");
         }
         if (brushPet && isbrushBunnyCooldownRunning == false)
         {
