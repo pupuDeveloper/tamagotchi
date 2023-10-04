@@ -8,8 +8,8 @@ public class Minigame : MonoBehaviour
     [SerializeField] private GameObject _berryPrefab;
     //private float _xPos;
     //private Vector3 _newPos;
-    private float _fallSpeed = 6.0f;
-    private float _spinSpeed = 250.0f;
+    private float _fallSpeed = 2.0f;
+   // private float _spinSpeed = 250.0f;
     private GameObject popoutwindow;
     private void Awake()
     {
@@ -20,12 +20,16 @@ public class Minigame : MonoBehaviour
     {
         if (popoutwindow.activeSelf == false)
         {
+            SpawnBerries();
             //move the object down the screen
-            transform.Translate(Vector3.down * _fallSpeed * Time.deltaTime, Space.World);
-            transform.Rotate(Vector3.forward, _spinSpeed * Time.deltaTime);
-
-            Vector3 pos = new Vector3(Random.Range(-2.51f, 1.66f), 6, Random.Range(-2.51f, 1.66f));
-            Instantiate(_berryPrefab, pos, Quaternion.identity);
+            //transform.Translate(Vector3.down * _fallSpeed * Time.deltaTime, Space.World);
+           // transform.Rotate(Vector3.forward, _spinSpeed * Time.deltaTime);
         }
+    }
+
+    private void SpawnBerries()
+    {
+        Vector2 pos = new Vector2(Random.Range(-2.51f, 1.66f), 6);
+        Instantiate(_berryPrefab, pos, Quaternion.identity);
     }
 }
