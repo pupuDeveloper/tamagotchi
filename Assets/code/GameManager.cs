@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
     public int activityToBeLaunched { get; set; }
     public bool isActivityCooldownRunning { get; set; }
     private int individualActivityCooldown { get; set; }
+    public List<pet> petCollection { get; set; }
+    public pet currentPet { get; set; }
     private void Awake()
     {
         //TODO: read values below from memory. if null, create said values below
@@ -171,6 +173,8 @@ public class GameManager : MonoBehaviour
         petDeathTimer = 20f;
         happiness = 0.5f;
         miniGamePlayed = false;
+        petCollection.Add(currentPet);
+        currentPet = null;
         SceneManager.LoadScene("mainmenu");
     }
     IEnumerator miniGamecooldown()
