@@ -1197,7 +1197,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000015259, y: 185}
+  m_AnchoredPosition: {x: 0.000015258789, y: 185}
   m_SizeDelta: {x: 588.7519, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &511417310
@@ -3031,6 +3031,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1439361341}
   m_CullTransparentMesh: 1
+--- !u!1 &1455597765
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1455597767}
+  - component: {fileID: 1455597766}
+  m_Layer: 0
+  m_Name: petrandomiser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1455597766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455597765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f402102d30b379d4c80e44c6c8f64beb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upperBodySprites:
+  - {fileID: 21300000, guid: 88106425294dd124286ed79340100721, type: 3}
+  lowerBodySprites:
+  - {fileID: 21300000, guid: 8dd1d1757514a1f47bc350282e4acd69, type: 3}
+--- !u!4 &1455597767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455597765}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 628.58984, y: 534.6202, z: -132.5734}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1477967283
 GameObject:
   m_ObjectHideFlags: 0
@@ -3064,6 +3112,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popoutText: {fileID: 1477967285}
   readinputScript: {fileID: 1773545221}
+  petRandomiser: {fileID: 1455597766}
+  petOption: {fileID: 0}
 --- !u!114 &1477967285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3945,3 +3995,4 @@ SceneRoots:
   - {fileID: 100399765}
   - {fileID: 1773545220}
   - {fileID: 2058385647}
+  - {fileID: 1455597767}

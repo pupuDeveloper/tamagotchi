@@ -18,7 +18,7 @@ public class Counting : MonoBehaviour
     private void TrackingCount()
     {
         Debug.Log("good job you collected all the strawberries");
-        GameManager.Instance.happiness += 0.25f;
+        GameManager.Instance.happiness += 0.15f;
         button.interactable = true;
     }
     private void Update()
