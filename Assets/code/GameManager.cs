@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
     public int activityToBeLaunched { get; set; }
     public bool isActivityCooldownRunning { get; set; }
     private int individualActivityCooldown { get; set; }
+    public List<pet> petCollection { get; set; }
+    public pet currentPet { get; set; }
     private void Awake()
     {
         //TODO: read values below from memory. if null, create said values below
@@ -64,6 +66,7 @@ public class GameManager : MonoBehaviour
         isbrushBunnyCooldownRunning = false;
         minigameInfotoggle = false;
         isInfoGiven = false;
+        currentPet = null;
         if (_instance)
         {
             Destroy(gameObject);
@@ -96,14 +99,14 @@ public class GameManager : MonoBehaviour
             {
                 petDeathTimer = 20f;
             }
+            if (miniGamePlayed && minigameCoroutineRunning == false)
+            {
+                StartCoroutine("miniGamecooldown");
+            }
         }
         if (petDeathTimer <= 0 && gameIsPaused == false)
         {
             gameOver();
-        }
-        if (miniGamePlayed && minigameCoroutineRunning == false)
-        {
-            StartCoroutine("miniGamecooldown");
         }
         if (brushPet && isbrushBunnyCooldownRunning == false)
         {
@@ -150,6 +153,8 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("you survived with your... pet? for a week. It has spared you from its terror, but it will not spare others. It has left to raise hell elsewhere, but it didnt leave you empty handed");
         gameIsPaused = true;
+        petCollection.Add(currentPet);
+        currentPet = null;
         activePet = false;
         CurrentlyPlayedPetName = "";
         evolution = 1;
@@ -171,6 +176,8 @@ public class GameManager : MonoBehaviour
         petDeathTimer = 20f;
         happiness = 0.5f;
         miniGamePlayed = false;
+        petCollection.Add(currentPet);
+        currentPet = null;
         SceneManager.LoadScene("mainmenu");
     }
     IEnumerator miniGamecooldown()
