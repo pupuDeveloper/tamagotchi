@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6796272847141233655}
   - component: {fileID: 2455153261986162461}
-  - component: {fileID: 5708715308011771842}
   - component: {fileID: 4112175885954036247}
   - component: {fileID: 7058784328070166481}
   - component: {fileID: 6498069966379114187}
-  m_Layer: 0
+  - component: {fileID: 3043435673534617827}
+  m_Layer: 8
   m_Name: BunnyFood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6539596084682433880}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9, y: 4.05, z: 10}
+  m_LocalPosition: {x: 1.9, y: 4.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 57424459fa52c4b45b04f0c33e9bca5a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8dd1d1757514a1f47bc350282e4acd69, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -88,19 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5708715308011771842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6539596084682433880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf10376cbf3fd744c9b9eb1d112523a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  popoutwindow: {fileID: 0}
 --- !u!114 &4112175885954036247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,7 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115302d68afb38845bbe852757a82372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
 --- !u!50 &7058784328070166481
 Rigidbody2D:
   serializedVersion: 4
@@ -173,6 +159,18 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.018622994, y: 0.03743434}
+  m_Offset: {x: -0.018622994, y: 0.03233409}
   serializedVersion: 2
-  m_Radius: 0.45394206
+  m_Radius: 0.4726436
+--- !u!114 &3043435673534617827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6539596084682433880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d0decbb98fc74946a75eb8912c2508a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
