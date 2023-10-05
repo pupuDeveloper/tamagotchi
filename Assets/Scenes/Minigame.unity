@@ -1748,7 +1748,7 @@ Transform:
   m_GameObject: {fileID: 1892109976}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15, y: 5.96, z: -1.3097017}
+  m_LocalPosition: {x: -0.15, y: 5.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1767,8 +1767,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _berryPrefab: {fileID: 6539596084682433880, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
-  _minTime: 0
-  _maxTime: 10
 --- !u!1 &1939781264
 GameObject:
   m_ObjectHideFlags: 0

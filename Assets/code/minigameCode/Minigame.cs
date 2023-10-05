@@ -8,7 +8,7 @@ public class Minigame : MonoBehaviour
     [SerializeField] private GameObject _berryPrefab;
     //private float _xPos;
     //private Vector3 _newPos;
-    private float _fallSpeed = 2.0f;
+   // private float _fallSpeed = 2.0f;
    // private float _spinSpeed = 250.0f;
     private GameObject popoutwindow;
     private void Awake()
