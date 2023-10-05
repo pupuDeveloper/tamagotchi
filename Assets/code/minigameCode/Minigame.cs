@@ -6,10 +6,12 @@ using UnityEngine;
 public class Minigame : MonoBehaviour
 {
     [SerializeField] private GameObject _berryPrefab;
-    [SerializeField] private float _spawnTime;
-
+    [SerializeField] private int _maxAmount;
+    [SerializeField] private float _minSpawnDelay;
+    [SerializeField] private float _maxSpawnDelay;
     private GameObject popoutwindow;
-    private float _countDown = 5;
+    private int _countSpawn = 0;
+
     private void Awake()
     {
         popoutwindow = GameObject.Find("infoPopout");
@@ -17,20 +19,25 @@ public class Minigame : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // If infoWindow is not open, start spawning strawberries
         if (popoutwindow.activeSelf == false)
         {
-            SpawnBerries();
-            _countDown -= Time.fixedDeltaTime;
-            if(_countDown <= 0)
-            {
-                _countDown = _spawnTime;
-            }
+            StartCoroutine(SpawnBerriesWithDelay());
         }
     }
 
-    private void SpawnBerries()
+    // Spawning strawberries
+    private IEnumerator SpawnBerriesWithDelay()
     {
-        Vector2 pos = new Vector2(Random.Range(-2.51f, 1.66f), 6);
-        Instantiate(_berryPrefab, pos, Quaternion.identity);
+        Vector2 pos = new Vector2(Random.Range(-3.85f, 3.80f), 6);
+        float delay = Random.Range(_minSpawnDelay, _maxSpawnDelay);
+        yield return new WaitForSeconds(delay);
+
+        if (_countSpawn <= 14)
+        {
+            Instantiate(_berryPrefab, pos, Quaternion.identity);
+            _countSpawn++;
+        }
     }
 }
+
