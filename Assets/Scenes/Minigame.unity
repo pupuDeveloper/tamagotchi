@@ -1767,6 +1767,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _berryPrefab: {fileID: 6539596084682433880, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
+  _spawnTime: 10
+  _xMin: 1.66
+  _xMax: -2.51
 --- !u!1 &1939781264
 GameObject:
   m_ObjectHideFlags: 0

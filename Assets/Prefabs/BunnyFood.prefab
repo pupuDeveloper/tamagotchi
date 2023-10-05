@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4112175885954036247}
   - component: {fileID: 7058784328070166481}
   - component: {fileID: 6498069966379114187}
+  - component: {fileID: 3043435673534617827}
   m_Layer: 8
   m_Name: BunnyFood
   m_TagString: Untagged
@@ -114,7 +115,7 @@ Rigidbody2D:
   m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -161,3 +162,15 @@ CircleCollider2D:
   m_Offset: {x: -0.018622994, y: 0.03233409}
   serializedVersion: 2
   m_Radius: 0.4726436
+--- !u!114 &3043435673534617827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6539596084682433880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d0decbb98fc74946a75eb8912c2508a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

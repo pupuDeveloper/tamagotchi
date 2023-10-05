@@ -6,11 +6,10 @@ using UnityEngine;
 public class Minigame : MonoBehaviour
 {
     [SerializeField] private GameObject _berryPrefab;
-    //private float _xPos;
-    //private Vector3 _newPos;
-   // private float _fallSpeed = 2.0f;
-   // private float _spinSpeed = 250.0f;
+    [SerializeField] private float _spawnTime;
+
     private GameObject popoutwindow;
+    private float _countDown = 5;
     private void Awake()
     {
         popoutwindow = GameObject.Find("infoPopout");
@@ -21,9 +20,11 @@ public class Minigame : MonoBehaviour
         if (popoutwindow.activeSelf == false)
         {
             SpawnBerries();
-            //move the object down the screen
-            //transform.Translate(Vector3.down * _fallSpeed * Time.deltaTime, Space.World);
-           // transform.Rotate(Vector3.forward, _spinSpeed * Time.deltaTime);
+            _countDown -= Time.fixedDeltaTime;
+            if(_countDown <= 0)
+            {
+                _countDown = _spawnTime;
+            }
         }
     }
 
