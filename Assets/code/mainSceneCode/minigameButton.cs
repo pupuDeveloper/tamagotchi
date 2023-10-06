@@ -27,7 +27,7 @@ public class minigameButton : MonoBehaviour
     void FixedUpdate()
     {
         scene = SceneManager.GetActiveScene();
-        if (GameManager.Instance.miniGamePlayed == false && scene.name == "mainScene")
+        if (GameManager.Instance.miniGamePlayed == false && scene.name == "mainScene" && GameManager.Instance.activityToBeLaunched == 3)
         {
             minigamebutton.interactable = true;
         }
