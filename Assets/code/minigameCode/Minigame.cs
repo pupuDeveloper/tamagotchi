@@ -5,31 +5,39 @@ using UnityEngine;
 
 public class Minigame : MonoBehaviour
 {
-
-    public float _xPos;
-    public Vector3 _newPos;
-    public float _fallSpeed = 8.0f;
-    public float _spinSpeed = 250.0f;
+    [SerializeField] private GameObject _berryPrefab;
+    [SerializeField] private int _maxAmount;
+    [SerializeField] private float _minSpawnDelay;
+    [SerializeField] private float _maxSpawnDelay;
+    private GameObject popoutwindow;
+    private int _countSpawn = 0;
 
     private void Awake()
     {
-        _xPos = Random.Range(-4.8f, 4.8f);
-        _newPos = new Vector3(_xPos, 6, 0);
+        popoutwindow = GameObject.Find("infoPopout");
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        //move the object down the screen
-        transform.Translate(Vector3.down * _fallSpeed * Time.deltaTime, Space.World);
-        transform.Rotate(Vector3.forward, _spinSpeed * Time.deltaTime);
-
-        //if the object has reached the bottom of the screen
-        if(transform.position.y < -6)
+        // If infoWindow is not open, start spawning strawberries
+        if (popoutwindow.activeSelf == false)
         {
-            //move the object above the screen
-            _xPos = Random.Range(-4.5f, 4.5f);
-            _newPos = new Vector3(_xPos, 6, 0);
-            transform.position = _newPos;
+            StartCoroutine(SpawnBerriesWithDelay());
+        }
+    }
+
+    // Spawning strawberries
+    private IEnumerator SpawnBerriesWithDelay()
+    {
+        Vector2 pos = new Vector2(Random.Range(-3.85f, 3.80f), 6);
+        float delay = Random.Range(_minSpawnDelay, _maxSpawnDelay);
+        yield return new WaitForSeconds(delay);
+
+        if (_countSpawn <= 14)
+        {
+            Instantiate(_berryPrefab, pos, Quaternion.identity);
+            _countSpawn++;
         }
     }
 }
+
