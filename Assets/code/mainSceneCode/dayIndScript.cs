@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -44,4 +44,5 @@ public class dayIndScript : MonoBehaviour
             GetComponent<Image>().sprite = img4;
         }
     }
-}
+}*/
+//commented off for now, since it doesn't seem like there is use for this script anymore (this was the script that changed the moon icon on day change)
