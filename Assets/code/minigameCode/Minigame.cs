@@ -30,10 +30,13 @@ public class Minigame : MonoBehaviour
     // Spawning strawberries
     private IEnumerator SpawnBerriesWithDelay()
     {
+        // Sets the random x-axis position with random spawn delay
+        // when and where the berries start to spawn
         Vector2 pos = new Vector2(Random.Range(-3.85f, 3.80f), 6);
         float delay = Random.Range(_minSpawnDelay, _maxSpawnDelay);
         yield return new WaitForSeconds(delay);
 
+        // If there is less or equals 14 spawn the berries
         if (_countSpawn <= 14)
         {
             Instantiate(_berryPrefab, pos, Quaternion.identity);
