@@ -2012,6 +2012,7 @@ GameObject:
   - component: {fileID: 881301045}
   - component: {fileID: 881301044}
   - component: {fileID: 881301046}
+  - component: {fileID: 881301047}
   m_Layer: 0
   m_Name: Creature
   m_TagString: Untagged
