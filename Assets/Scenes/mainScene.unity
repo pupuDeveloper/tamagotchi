@@ -852,7 +852,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c0be4d00b9bc160438ac7c2b10c72c5c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 57e14ec2da3654642b5269a2be90fe6f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2012,6 +2012,7 @@ GameObject:
   - component: {fileID: 881301045}
   - component: {fileID: 881301044}
   - component: {fileID: 881301046}
+  - component: {fileID: 881301047}
   m_Layer: 0
   m_Name: Creature
   m_TagString: Untagged
