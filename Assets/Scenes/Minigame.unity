@@ -1260,7 +1260,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 13.400002, y: -0.0000076293945}
+  m_AnchoredPosition: {x: 13.399994, y: 0}
   m_SizeDelta: {x: 178.9, y: 53.445}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1228296164
@@ -2106,7 +2106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _berryPrefab: {fileID: 6539596084682433880, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
-  _eyePrefab: {fileID: 0}
+  _eyePrefab: {fileID: 4465895468418304981, guid: d3c6f33af461de54092b56faa24bc071, type: 3}
   _maxAmount: 15
   _minSpawnDelay: 1
   _maxSpawnDelay: 8.98
