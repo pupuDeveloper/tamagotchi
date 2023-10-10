@@ -2106,6 +2106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _berryPrefab: {fileID: 6539596084682433880, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
+  _eyePrefab: {fileID: 0}
   _maxAmount: 15
   _minSpawnDelay: 1
   _maxSpawnDelay: 8.98

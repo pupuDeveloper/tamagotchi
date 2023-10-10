@@ -43,5 +43,18 @@ namespace BunnyHole
             }
         }
 
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            // Are strawberries colliding with the basket? If yes, destroy
+            // the strawberry
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Strawberry"))
+            {
+                Destroy(collision.gameObject);
+                Debug.Log("Correct");
+                Counting._count++;
+                Debug.Log(Counting._count);
+            }
+        }
+
     }
 }
