@@ -99,10 +99,10 @@ public class GameManager : MonoBehaviour
             {
                 petDeathTimer = 20f;
             }
-            if (miniGamePlayed && minigameCoroutineRunning == false)
-            {
-                StartCoroutine("miniGamecooldown");
-            }
+        }
+        if (miniGamePlayed && minigameCoroutineRunning == false)
+        {
+            StartCoroutine("miniGamecooldown");
         }
         if (petDeathTimer <= 0 && gameIsPaused == false)
         {
