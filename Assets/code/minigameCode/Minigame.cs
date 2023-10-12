@@ -25,6 +25,7 @@ public class Minigame : MonoBehaviour
         if (popoutwindow.activeSelf == false)
         {
             StartCoroutine(SpawnBerriesWithDelay());
+            StartCoroutine(SpawnWrongCollectibles());
         }
     }
 
@@ -41,6 +42,19 @@ public class Minigame : MonoBehaviour
         if (_countSpawn <= 14)
         {
             Instantiate(_berryPrefab, pos, Quaternion.identity);
+            _countSpawn++;
+        }
+    }
+
+    private IEnumerator SpawnWrongCollectibles()
+    {
+        Vector2 pos = new Vector2(Random.Range(-3.85f, 3.80f), 6);
+        float delay = Random.Range(_minSpawnDelay, _maxSpawnDelay);
+        yield return new WaitForSeconds(delay);
+
+        if( _countSpawn <= 2)
+        {
+            Instantiate(_eyePrefab, pos, Quaternion.identity);
             _countSpawn++;
         }
     }
