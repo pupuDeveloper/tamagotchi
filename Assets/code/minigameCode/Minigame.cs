@@ -11,21 +11,26 @@ public class Minigame : MonoBehaviour
     [SerializeField] private int _maxAmount;
     [SerializeField] private float _minSpawnDelay;
     [SerializeField] private float _maxSpawnDelay;
+    private List<GameObject> _instantiatedEyes = new List<GameObject>();
+    private List<GameObject> _instantiatedBerries = new List<GameObject>();
     private GameObject popoutwindow;
     private int _countSpawn = 0;
+    private int _eyeCountSpawn = 0;
 
     private void Awake()
     {
         popoutwindow = GameObject.Find("infoPopout");
     }
-
+    private void Start()
+    {
+        _countSpawn = 0;
+    }
     private void FixedUpdate()
     {
-        // If infoWindow is not open, start spawning strawberries
+        // If infoWindow is not open, start spawning strawberries and eyeballs.
         if (popoutwindow.activeSelf == false)
         {
             StartCoroutine(SpawnBerriesWithDelay());
-            StartCoroutine(SpawnWrongCollectibles());
         }
     }
 
@@ -33,30 +38,27 @@ public class Minigame : MonoBehaviour
     private IEnumerator SpawnBerriesWithDelay()
     {
         // Sets the random x-axis position with random spawn delay
-        // when and where the berries start to spawn
+        // when and where the berries start to spawn.
         Vector2 pos = new Vector2(Random.Range(-3.85f, 3.80f), 6);
         float delay = Random.Range(_minSpawnDelay, _maxSpawnDelay);
         yield return new WaitForSeconds(delay);
 
-        // If there is less or equals 14 spawn the berries
-        if (_countSpawn <= 14)
+        // If there is less or equals 15 spawn the berries.
+        if (_countSpawn <= _maxAmount)
         {
-            Instantiate(_berryPrefab, pos, Quaternion.identity);
+            GameObject berries = Instantiate(_berryPrefab, pos, Quaternion.identity);
+            _instantiatedBerries.Add(berries);
             _countSpawn++;
-        }
-    }
 
-    private IEnumerator SpawnWrongCollectibles()
-    {
-        Vector2 pos = new Vector2(Random.Range(-3.85f, 3.80f), 6);
-        float delay = Random.Range(_minSpawnDelay, _maxSpawnDelay);
-        yield return new WaitForSeconds(delay);
-
-        if( _countSpawn <= 2)
-        {
-            Instantiate(_eyePrefab, pos, Quaternion.identity);
-            _countSpawn++;
+            // If there is less or equals 3 spawn the eyeballs.
+            if (_eyeCountSpawn <= 2)
+            {
+                GameObject eye = Instantiate(_eyePrefab, pos, Quaternion.identity);
+                _instantiatedEyes.Add(eye);
+                _eyeCountSpawn++;
+            }
         }
+
     }
 }
 

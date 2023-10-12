@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6484597979572737822}
   - component: {fileID: 1548455775136521562}
   - component: {fileID: 9042460958357237763}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: Eyeball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &1548455775136521562
 MonoBehaviour:

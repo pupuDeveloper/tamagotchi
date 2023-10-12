@@ -359,8 +359,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ok
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 90ec4b34a603f804a855733db060fe0a, type: 2}
-  m_sharedMaterial: {fileID: -4083078278764786417, guid: 90ec4b34a603f804a855733db060fe0a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -384,7 +384,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 5.45
+  m_fontSize: 13.4
   m_fontSizeBase: 17
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -714,8 +714,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: collect all strawberries by moving the basked with A/D keys
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 90ec4b34a603f804a855733db060fe0a, type: 2}
-  m_sharedMaterial: {fileID: -4083078278764786417, guid: 90ec4b34a603f804a855733db060fe0a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -739,7 +739,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6.4
+  m_fontSize: 18.25
   m_fontSizeBase: 9
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1285,8 +1285,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 15
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 90ec4b34a603f804a855733db060fe0a, type: 2}
-  m_sharedMaterial: {fileID: -4083078278764786417, guid: 90ec4b34a603f804a855733db060fe0a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1310,8 +1310,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6
-  m_fontSizeBase: 6
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1419,8 +1419,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: dont show this again
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 90ec4b34a603f804a855733db060fe0a, type: 2}
-  m_sharedMaterial: {fileID: -4083078278764786417, guid: 90ec4b34a603f804a855733db060fe0a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1444,7 +1444,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 4.2
+  m_fontSize: 11.1
   m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1716,8 +1716,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: back
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 90ec4b34a603f804a855733db060fe0a, type: 2}
-  m_sharedMaterial: {fileID: -4083078278764786417, guid: 90ec4b34a603f804a855733db060fe0a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1741,7 +1741,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 4.25
+  m_fontSize: 11.95
   m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2107,7 +2107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _berryPrefab: {fileID: 6539596084682433880, guid: f60a48ee12789274fa65d73452e0093b, type: 3}
   _eyePrefab: {fileID: 4465895468418304981, guid: d3c6f33af461de54092b56faa24bc071, type: 3}
-  _maxAmount: 15
+  _maxAmount: 14
   _minSpawnDelay: 1
   _maxSpawnDelay: 8.98
 --- !u!1 &1939781264

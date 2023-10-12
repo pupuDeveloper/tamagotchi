@@ -59,10 +59,9 @@ namespace BunnyHole
             {
                 Destroy(collision.gameObject);
                 Debug.Log("wrong");
-                Counting._count--;
-                Debug.Log(Counting._count);
+                Counting.eyeBallCount++;
+                Debug.Log(Counting.eyeBallCount);
             }
         }
-
     }
 }
