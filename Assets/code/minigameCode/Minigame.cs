@@ -5,7 +5,6 @@ using TMPro;
 
 namespace BunnyHole
 {
-
     public class Minigame : MonoBehaviour
     {
         [SerializeField] private GameObject _berryPrefab;

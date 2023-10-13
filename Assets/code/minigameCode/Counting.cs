@@ -4,48 +4,53 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Counting : MonoBehaviour
+namespace BunnyHole
 {
-    [SerializeField] private int _totalCount;
-    public Button button;
-    public static int _count = 0;
-    public TextMeshProUGUI countText;
-    public static int eyeBallCount = 0;
-    private bool completed = false;
 
-    private void Start()
+    public class Counting : MonoBehaviour
     {
-        completed = false;
-        _count = 0;
-        eyeBallCount = 0;
-        button.interactable = false;
-        countText.text = "Completion: " + _count + "/" + _totalCount;
-    }
-    private void TrackingCount()
-    {
-        // Debug.Log("good job you collected all the strawberries");
+        [SerializeField] private int _totalCount;
+        public Button button;
+        public static int _count = 0;
+        public TextMeshProUGUI countText;
+        public static int eyeBallCount = 0;
+        private bool completed = false;
 
-        GameManager.Instance.happiness += 0.15f;
-        button.interactable = true;
-    }
-    private void Update()
-    {
-        countText.text = "Completion: " + _count + "/" + _totalCount;
-        if (_count == _totalCount && completed == false)
+        private void Start()
         {
-            TrackingCount();
-            completed = true;
-            //_count = 0;
+            completed = false;
+            _count = 0;
+            eyeBallCount = 0;
+            button.interactable = false;
+            countText.text = "Completion: " + _count + "/" + _totalCount;
         }
-        else if(eyeBallCount == 3)
+        private void Update()
         {
-            MinigameFailed();
+            countText.text = "Completion: " + _count + "/" + _totalCount;
+            if (eyeBallCount == 3 && _count == _totalCount && completed == false)
+            {
+                FailedMinigame();
+                completed = true;
+            }
+            if (_count == _totalCount && completed == false && eyeBallCount < 3)
+            {
+                TrackingCount();
+                completed = true;
+                //_count = 0;
+            }
         }
-    }
+        private void TrackingCount()
+        {
+            // Debug.Log("good job you collected all the strawberries");
+            GameManager.Instance.happiness += 0.15f;
+            button.interactable = true;
+        }
 
-    private void MinigameFailed()
-    {
-        button.interactable = true;
-        Debug.Log(GameManager.Instance.happiness);
+        private void FailedMinigame()
+        {
+            GameManager.Instance.happiness += 0f;
+            button.interactable = true;
+            Debug.Log(GameManager.Instance.happiness);
+        }
     }
 }
