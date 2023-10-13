@@ -25,7 +25,7 @@ public class Counting : MonoBehaviour
     {
         // Debug.Log("good job you collected all the strawberries");
 
-        GameManager.Instance.happiness += 0.01f * _count;
+        GameManager.Instance.happiness += 0.15f;
         button.interactable = true;
     }
     private void Update()
@@ -37,5 +37,15 @@ public class Counting : MonoBehaviour
             completed = true;
             //_count = 0;
         }
+        else if(eyeBallCount == 3)
+        {
+            MinigameFailed();
+        }
+    }
+
+    private void MinigameFailed()
+    {
+        button.interactable = true;
+        Debug.Log(GameManager.Instance.happiness);
     }
 }
