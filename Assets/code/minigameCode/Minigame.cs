@@ -7,6 +7,7 @@ using TMPro;
 public class Minigame : MonoBehaviour
 {
     [SerializeField] private GameObject _berryPrefab;
+    [SerializeField] private GameObject _eyePrefab;
     [SerializeField] private int _maxAmount;
     [SerializeField] private float _minSpawnDelay;
     [SerializeField] private float _maxSpawnDelay;
