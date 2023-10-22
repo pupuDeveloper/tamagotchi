@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1eecaff8f96686444bd5480a2f5a5f69
+guid: d22e350bdcd248541809c52c33270c51
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Windows Store Apps
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -119,30 +119,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SkullParticleSheet_0
+      name: tausta_spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
-        width: 32
-        height: 32
+        y: 900
+        width: 340
+        height: 180
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,62 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 317f0809b00550341a8464ffd5666a17
-      internalID: -56305196
+      spriteID: 12994c5a2b9653b4c802b43fe4d5e9cc
+      internalID: -1213670819
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkullParticleSheet_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 17365eb67df3e544ab287ab32148770a
-      internalID: -34224790
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SkullParticleSheet_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 19ffd146d5d38874fbadef5f25b9c42f
-      internalID: 331265249
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SkullParticleSheet_3
+      name: tausta_spritesheet_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 32
-        height: 32
+        y: 720
+        width: 340
+        height: 180
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abdaa82e0be43204a9080455a8e11260
-      internalID: -1165967158
+      spriteID: 4e0d730d3229ed54299b6dfae947d3f0
+      internalID: -1286922853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkullParticleSheet_4
+      name: tausta_spritesheet_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
+        x: 0
+        y: 540
+        width: 340
+        height: 180
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb65b298ba0f1d3448480dd179cf9727
-      internalID: 66656484
+      spriteID: 1aa5c676186cd474697a352accd9f578
+      internalID: 1021318254
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkullParticleSheet_5
+      name: tausta_spritesheet_3
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
+        x: 0
+        y: 360
+        width: 340
+        height: 180
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,20 +200,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04ace8002852d5945b0aebb76b0ab5ec
-      internalID: 1240328341
+      spriteID: 46c70e5b4a3c6b84a82e35ddd7f2296d
+      internalID: -1529273265
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkullParticleSheet_6
+      name: tausta_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 180
+        width: 340
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1ac47b9598a91f4d808322fe8696fa2
+      internalID: -293518743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tausta_spritesheet_5
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 340
+        height: 180
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,50 +242,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8b132314f62d644c8f7c21d6b7da870
-      internalID: -828474579
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SkullParticleSheet_7
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a378e40f6fd87cf45a68fae6f50427d5
-      internalID: 487139714
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SkullParticleSheet_8
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d4f119b21e768a044a4fb81ca7666fbf
-      internalID: -1730691418
+      spriteID: 0c4f69fa373c29c438248d876cfd864b
+      internalID: -1981379646
       vertices: []
       indices: 
       edges: []
@@ -335,15 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SkullParticleSheet_0: -56305196
-      SkullParticleSheet_1: -34224790
-      SkullParticleSheet_2: 331265249
-      SkullParticleSheet_3: -1165967158
-      SkullParticleSheet_4: 66656484
-      SkullParticleSheet_5: 1240328341
-      SkullParticleSheet_6: -828474579
-      SkullParticleSheet_7: 487139714
-      SkullParticleSheet_8: -1730691418
+      tausta_spritesheet_0: -1213670819
+      tausta_spritesheet_1: -1286922853
+      tausta_spritesheet_2: 1021318254
+      tausta_spritesheet_3: -1529273265
+      tausta_spritesheet_4: -293518743
+      tausta_spritesheet_5: -1981379646
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
