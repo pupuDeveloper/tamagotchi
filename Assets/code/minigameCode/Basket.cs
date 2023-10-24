@@ -54,7 +54,14 @@ namespace BunnyHole
                 Counting._count++;
                 Debug.Log(Counting._count);
             }
-        }
 
+            if(collision.gameObject.layer == LayerMask.NameToLayer("Eyeball"))
+            {
+                Destroy(collision.gameObject);
+                Debug.Log("wrong");
+                Counting.eyeBallCount++;
+                Debug.Log(Counting.eyeBallCount);
+            }
+        }
     }
 }
