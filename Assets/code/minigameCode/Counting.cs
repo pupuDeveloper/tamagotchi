@@ -15,7 +15,7 @@ public class Counting : MonoBehaviour
     {
         _count = 0;
         button.interactable = false;
-        countText.text = "Completion: " + _count + "/" + _totalCount;
+        countText.text = "Completion: " + _count + " / " + _totalCount;
     }
     private void TrackingCount()
     {
