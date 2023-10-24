@@ -46,12 +46,12 @@ public class petButton : MonoBehaviour
         if (petProgress >= petAmount && isBrushingOn && GameManager.Instance.brushPet == false)
         {
         GameManager.Instance.happiness += 0.15f;
+        isBrushingOn = false;
         happinessbar.UpdateHappinessBar();
         petbutton.interactable = false;
         GameManager.Instance.brushPet = true;
         petAmount = 0;
         petProgress = 0;
-        isBrushingOn = false;
         Cursor.SetCursor(null, hotSpot, cursorMode);
         }
     }
