@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,36 +123,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: particle_sydan_sliced
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 346
-        width: 17
-        height: 131
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a37e028db9c158b42bd116d22db2cecc
-      internalID: 1940250985
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: particle_sydan_1
       rect:
         serializedVersion: 2
-        x: 12
-        y: 336
-        width: 5
-        height: 5
+        x: 0
+        y: 416
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,12 +147,12 @@ TextureImporter:
       name: particle_sydan_2
       rect:
         serializedVersion: 2
-        x: 18
-        y: 340
-        width: 5
-        height: 5
+        x: 0
+        y: 384
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,12 +168,12 @@ TextureImporter:
       name: particle_sydan_3
       rect:
         serializedVersion: 2
-        x: 4
-        y: 332
-        width: 5
-        height: 5
+        x: 0
+        y: 352
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,12 +189,12 @@ TextureImporter:
       name: particle_sydan_4
       rect:
         serializedVersion: 2
-        x: 18
-        y: 328
-        width: 5
-        height: 5
+        x: 0
+        y: 320
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -231,12 +210,12 @@ TextureImporter:
       name: particle_sydan_5
       rect:
         serializedVersion: 2
-        x: 9
-        y: 325
-        width: 5
-        height: 5
+        x: 0
+        y: 288
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -252,12 +231,12 @@ TextureImporter:
       name: particle_sydan_6
       rect:
         serializedVersion: 2
-        x: 7
-        y: 313
-        width: 5
-        height: 5
+        x: 0
+        y: 256
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -273,12 +252,12 @@ TextureImporter:
       name: particle_sydan_7
       rect:
         serializedVersion: 2
-        x: 12
-        y: 303
-        width: 5
-        height: 5
+        x: 0
+        y: 224
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -294,12 +273,12 @@ TextureImporter:
       name: particle_sydan_8
       rect:
         serializedVersion: 2
-        x: 18
-        y: 307
-        width: 5
-        height: 5
+        x: 0
+        y: 192
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -315,12 +294,12 @@ TextureImporter:
       name: particle_sydan_9
       rect:
         serializedVersion: 2
-        x: 4
-        y: 300
-        width: 5
-        height: 5
+        x: 0
+        y: 160
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -336,12 +315,12 @@ TextureImporter:
       name: particle_sydan_10
       rect:
         serializedVersion: 2
-        x: 9
-        y: 292
-        width: 5
-        height: 5
+        x: 0
+        y: 128
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -357,12 +336,12 @@ TextureImporter:
       name: particle_sydan_11
       rect:
         serializedVersion: 2
-        x: 18
-        y: 295
-        width: 5
-        height: 5
+        x: 0
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -378,12 +357,12 @@ TextureImporter:
       name: particle_sydan_12
       rect:
         serializedVersion: 2
-        x: 6
-        y: 280
-        width: 7
-        height: 7
+        x: 0
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -399,12 +378,12 @@ TextureImporter:
       name: particle_sydan_13
       rect:
         serializedVersion: 2
-        x: 11
-        y: 270
-        width: 13
-        height: 11
+        x: 0
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -420,12 +399,12 @@ TextureImporter:
       name: particle_sydan_14
       rect:
         serializedVersion: 2
-        x: 3
-        y: 267
-        width: 7
-        height: 7
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -438,673 +417,22 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: particle_sydan_15
+      name: particle_sydan_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 262
-        width: 7
-        height: 7
+        x: 0
+        y: 448
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b048756264966f4489e9c2141ace128
-      internalID: 1318841928
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_16
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 259
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 86f90f63189300447afabef2dd3335c6
-      internalID: -464310985
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_17
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 234
-        width: 23
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 67b08ac91555fbf4e817f7327bb41fed
-      internalID: -1523282370
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_18
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 247
-        width: 9
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7d2de500c47f61046b07c0e4c8d12842
-      internalID: -876673947
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_19
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 226
-        width: 18
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8e972698a30bc3a4a90f5e23d3e1d52e
-      internalID: 776603565
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_20
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 183
-        width: 25
-        height: 35
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d9e03efa468d27c439490eda80d147bb
-      internalID: -1838751638
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_21
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 213
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8e06f3400e94ea3409946d4a87bbd9e5
-      internalID: 426360768
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_22
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 170
-        width: 23
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ce5fda0ddd37b94790c70702c9f7308
-      internalID: -15882466
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_23
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 162
-        width: 18
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b0c4f2a3bcf8d924391fd352267f7bcb
-      internalID: 998072537
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_24
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 152
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f9ebc0c625ed664ba3e7cf9f98e72cc
-      internalID: -1161647003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_25
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 142
-        width: 13
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6d187644802779b45a815043a5575453
-      internalID: -1392026907
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_26
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 139
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b1ea8a83311625409d406cb537b0974
-      internalID: -1901483068
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_27
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 134
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 07cdd8836130fd644b84561982052662
-      internalID: -1580392134
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_28
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 131
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 46d14bdb46100d44a8b25e08e9f79edc
-      internalID: -1699932820
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_29
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 121
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aaf0124a5653fc64e8a15a8014a16d20
-      internalID: 1521591248
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_30
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 111
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0eba2a9b2983e264d926234faf71e738
-      internalID: 857490321
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_31
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 115
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 95d7b8e33c6955548aaa8e4631182801
-      internalID: -1805601155
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_32
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 108
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 57bc6ab37f0bab24a9b16f05f1760231
-      internalID: 937930075
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_33
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 100
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cfc866ede33490f41bce35fbed6e50fa
-      internalID: 1378454497
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_34
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 103
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6fdae858a171c4e43bdd0f151e434624
-      internalID: 474781466
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_35
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 88
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf2081f2e26aec14aabb6b0d3470a7c6
-      internalID: 5207112
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_36
-      rect:
-        serializedVersion: 2
-        x: 14
-        y: 78
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 05fdf74159ad8144fbe938ed437ddf35
-      internalID: 1008239058
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_37
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 82
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ced8a867eb189c04b9894be3ffd56d23
-      internalID: -471171662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_38
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 74
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 360aa372d18c40b4396f979764ab45fd
-      internalID: 14591883
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_39
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 70
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d6d2b7544b17484bb1e8382178c89db
-      internalID: -911771006
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_40
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 67
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3d6e68dc9a205d4e8a83699cc341b6b
-      internalID: 479019961
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_41
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 55
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0ce824fd6b6c0ad4998500ae2aa8cd3a
-      internalID: -1310069735
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_42
-      rect:
-        serializedVersion: 2
-        x: 13
-        y: 45
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6e8262bb21a3f7d4fb2b351068bf34f1
-      internalID: 1880464785
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_43
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 49
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ffdd9c62f765a814189832e06fd2532e
-      internalID: -1548505073
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_44
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 42
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 67a52d189675b724988f010574c7e1e1
-      internalID: -1771847555
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_45
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 2
-        width: 18
-        height: 37
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 93a6252bd2f0c3f49a68774019c0485d
-      internalID: 1870750492
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: particle_sydan_46
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 37
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2d57a76c1bf129444bb8db41b163639b
-      internalID: 1500274932
+      spriteID: 9ef8c1ceee8099e439c5899b9ba3cbb0
+      internalID: 193234629
       vertices: []
       indices: 
       edges: []
@@ -1120,53 +448,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      particle_sydan_0: 193234629
       particle_sydan_1: 1569346373
       particle_sydan_10: -978605368
       particle_sydan_11: 979479495
       particle_sydan_12: 937568353
       particle_sydan_13: -1486138088
       particle_sydan_14: -1891232890
-      particle_sydan_15: 1318841928
-      particle_sydan_16: -464310985
-      particle_sydan_17: -1523282370
-      particle_sydan_18: -876673947
-      particle_sydan_19: 776603565
       particle_sydan_2: -352380977
-      particle_sydan_20: -1838751638
-      particle_sydan_21: 426360768
-      particle_sydan_22: -15882466
-      particle_sydan_23: 998072537
-      particle_sydan_24: -1161647003
-      particle_sydan_25: -1392026907
-      particle_sydan_26: -1901483068
-      particle_sydan_27: -1580392134
-      particle_sydan_28: -1699932820
-      particle_sydan_29: 1521591248
       particle_sydan_3: 1000038544
-      particle_sydan_30: 857490321
-      particle_sydan_31: -1805601155
-      particle_sydan_32: 937930075
-      particle_sydan_33: 1378454497
-      particle_sydan_34: 474781466
-      particle_sydan_35: 5207112
-      particle_sydan_36: 1008239058
-      particle_sydan_37: -471171662
-      particle_sydan_38: 14591883
-      particle_sydan_39: -911771006
       particle_sydan_4: 55399459
-      particle_sydan_40: 479019961
-      particle_sydan_41: -1310069735
-      particle_sydan_42: 1880464785
-      particle_sydan_43: -1548505073
-      particle_sydan_44: -1771847555
-      particle_sydan_45: 1870750492
-      particle_sydan_46: 1500274932
       particle_sydan_5: 944191704
       particle_sydan_6: 1144858599
       particle_sydan_7: -1074015403
       particle_sydan_8: -605475253
       particle_sydan_9: -555797957
-      particle_sydan_sliced: 1940250985
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

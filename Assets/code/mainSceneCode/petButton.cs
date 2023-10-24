@@ -51,6 +51,7 @@ public class petButton : MonoBehaviour
         GameManager.Instance.brushPet = true;
         petAmount = 0;
         petProgress = 0;
+        isBrushingOn = false;
         Cursor.SetCursor(null, hotSpot, cursorMode);
         }
     }
