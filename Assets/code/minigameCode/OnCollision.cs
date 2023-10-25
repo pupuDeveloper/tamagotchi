@@ -10,14 +10,14 @@ public class Collision : MonoBehaviour
     {
         // Are strawberries colliding with the basket? If yes, destroy
         // the strawberry
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Basket"))
+      /*  if (collision.gameObject.layer == LayerMask.NameToLayer("Basket"))
         {
             Destroy(gameObject);
             Debug.Log("correct");
             // Adds count to the Counting script when colliding with the basket
             Counting._count++;
             Debug.Log(Counting._count);
-        }
+        }*/
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Floor"))
         {

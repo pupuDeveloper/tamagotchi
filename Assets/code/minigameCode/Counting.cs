@@ -4,33 +4,53 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Counting : MonoBehaviour
+namespace BunnyHole
 {
-    [SerializeField] private int _totalCount;
-    public Button button;
-    public static int _count = 0;
-    public TextMeshProUGUI countText;
 
-    private void Start()
+    public class Counting : MonoBehaviour
     {
-        _count = 0;
-        button.interactable = false;
-        countText.text = "Completion: " + _count + "/" + _totalCount;
-    }
-    private void TrackingCount()
-    {
-        Debug.Log("good job you collected all the strawberries");
-        GameManager.Instance.happiness += 0.15f;
-        button.interactable = true;
-    }
-    private void Update()
-    {
+        [SerializeField] private int _totalCount;
+        public Button button;
+        public static int _count = 0;
+        public TextMeshProUGUI countText;
+        public static int eyeBallCount = 0;
+        private bool completed = false;
 
-        countText.text = "Completion: " + _count + "/" + _totalCount;
-        if (_count == _totalCount)
+        private void Start()
         {
-           // _count = 0;
-            TrackingCount();
+            completed = false;
+            _count = 0;
+            eyeBallCount = 0;
+            button.interactable = false;
+            countText.text = "Completion: " + _count + "/" + _totalCount;
+        }
+        private void Update()
+        {
+            countText.text = "Completion: " + _count + "/" + _totalCount;
+            if (eyeBallCount == 3 && _count == _totalCount && completed == false)
+            {
+                FailedMinigame();
+                completed = true;
+            }
+            if (_count == _totalCount && completed == false && eyeBallCount < 3)
+            {
+                TrackingCount();
+                completed = true;
+                //_count = 0;
+            }
+        }
+        private void TrackingCount()
+        {
+            // Debug.Log("good job you collected all the strawberries");
+            GameManager.Instance.happiness += 0.15f;
+            button.interactable = true;
+        }
+
+        private void FailedMinigame()
+        {
+            GameManager.Instance.happiness += 0f;
+            button.interactable = true;
+            Debug.Log(GameManager.Instance.happiness);
         }
     }
 }
