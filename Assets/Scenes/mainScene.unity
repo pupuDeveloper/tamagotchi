@@ -1057,7 +1057,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 35, y: 100}
+  m_SizeDelta: {x: 35, y: 150}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &370375016
 MonoBehaviour:
@@ -1446,7 +1446,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 35, y: 100}
+  m_SizeDelta: {x: 35, y: 150}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &613812237
 MonoBehaviour:
@@ -2083,7 +2083,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1545643282, guid: 3c8dafa003e6c974d8343cbd13b194a4, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2091,7 +2091,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &881301045
@@ -2125,8 +2125,8 @@ MonoBehaviour:
   playedPet:
     petName: 
     ageInSeconds: 0
-    upperBody: {fileID: 0}
-    lowerBody: {fileID: 0}
+    childSprite: {fileID: 0}
+    adultSprite: {fileID: 0}
 --- !u!95 &881301047
 Animator:
   serializedVersion: 5

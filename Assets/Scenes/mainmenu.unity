@@ -613,7 +613,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &267455814
 RectTransform:
   m_ObjectHideFlags: 0
@@ -652,7 +652,6 @@ MonoBehaviour:
   resolutions:
   - sideLenght: 480
   - sideLenght: 360
-  - sideLenght: 240
   resolutionLabel: {fileID: 383409938}
 --- !u!1 &347676401
 GameObject:
@@ -1161,7 +1160,7 @@ RectTransform:
   m_Father: {fileID: 1115085822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3755,10 +3754,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f402102d30b379d4c80e44c6c8f64beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upperBodySprites:
-  - {fileID: 21300000, guid: 88106425294dd124286ed79340100721, type: 3}
-  lowerBodySprites:
-  - {fileID: 21300000, guid: 8dd1d1757514a1f47bc350282e4acd69, type: 3}
+  pet1:
+    petName: 
+    ageInSeconds: 0
+    childSprite: {fileID: -1372548038, guid: c059eb1024d85a941879c59f023fbe7e, type: 3}
+    adultSprite: {fileID: 1541089401, guid: 242a0db5f698c474199bdbbe5df16392, type: 3}
+  pet2:
+    petName: 
+    ageInSeconds: 0
+    childSprite: {fileID: 170022629, guid: 008334bf62182b7469523bf2a09fcf2e, type: 3}
+    adultSprite: {fileID: -1713487399, guid: 3518e69c73d78f646898b7e95b58316c, type: 3}
+  pet3:
+    petName: 
+    ageInSeconds: 0
+    childSprite: {fileID: 1760906238, guid: 20e65e9fcb8b0c04fb111abd4e7300a2, type: 3}
+    adultSprite: {fileID: 741968437, guid: f5b8a1f982f9e764dadeaaac730fc411, type: 3}
+  pets: []
 --- !u!4 &1455597767
 Transform:
   m_ObjectHideFlags: 0
@@ -3811,8 +3822,8 @@ MonoBehaviour:
   petOption:
     petName: 
     ageInSeconds: 0
-    upperBody: {fileID: 0}
-    lowerBody: {fileID: 0}
+    childSprite: {fileID: 0}
+    adultSprite: {fileID: 0}
 --- !u!114 &1477967285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4822,7 +4833,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2114321889
 RectTransform:
   m_ObjectHideFlags: 0

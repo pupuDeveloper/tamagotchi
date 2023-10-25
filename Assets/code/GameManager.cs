@@ -135,7 +135,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(6);
         evolution++;
         happinessMultiplier += 0.1f;
-        evolutionProgression = 0f;
         if (evolution == 2)
         {
             evolutionLenght = 360f;
