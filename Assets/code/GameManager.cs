@@ -1,3 +1,4 @@
+using BunnyHole.States;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,6 +46,11 @@ public class GameManager : MonoBehaviour
     private int individualActivityCooldown { get; set; }
     public List<pet> petCollection { get; set; }
     public pet currentPet { get; set; }
+
+    // Contains all states
+    private List<GameStateBase> _states = new List<GameStateBase>();
+    // The currently active state.
+    public GameStateBase CurrentState { get; private set; }
     private void Awake()
     {
         //TODO: read values below from memory. if null, create said values below
@@ -76,6 +82,8 @@ public class GameManager : MonoBehaviour
             _instance = this;
         }
         DontDestroyOnLoad(this);
+
+        InitializeState();
     }
     void Update()
     {
@@ -239,5 +247,75 @@ public class GameManager : MonoBehaviour
         int pickActivity = Random.Range (0, availableGames.Count);
         activityNumber = availableGames[pickActivity];
         return activityNumber;
+    }
+
+    private void InitializeState()
+    {
+        GameStateBase initialState = new MainMenuState();
+        //Create all states.
+        _states.Add(initialState);
+        _states.Add(new MainSceneState());
+        _states.Add(new GameOverState());
+        _states.Add(new MinigameState());
+
+#if UNITY_EDITOR
+        string activeSceneName = SceneManager.GetActiveScene().name.ToLower();
+        foreach(GameStateBase state in _states)
+        {
+            if(state.SceneName.ToLower() == activeSceneName)
+            {
+                initialState = state;
+                break;
+            }
+        }
+#endif
+
+        CurrentState = initialState;
+        CurrentState.Activate();
+    }
+
+    private GameStateBase GetState(StateType type)
+    {
+        // Loop through all states.
+        foreach(GameStateBase state in _states)
+        {
+            // If the state type matches the request type, return the state.
+            if(state.Type == type)
+            {
+                return state;
+            }
+        }
+        // If no state was found, return null. Null is used as an error value here.
+        return null;
+    }
+
+    public bool Go(StateType targetStateType)
+    {
+        // Is the transition from the current state to target state allowed?
+        if(!CurrentState.IsValidTarget(targetStateType))
+        {
+            // The transition from current state to the target is not legal.
+            // Prevent the transition
+            Debug.Log($"Transition from {CurrentState.Type} to {targetStateType} is not allowed.");
+            return false;
+        }
+
+        // Get the target state.
+        GameStateBase targetState = GetState(targetStateType);
+
+        if( targetState == null )
+        {
+            Debug.Log($"Target state {targetStateType} is not found.");
+            return false;
+        }
+
+        // Deactivate the current state.
+        CurrentState.Deactivate();
+        // Change the state.
+        CurrentState = targetState;
+        // Activate the new state.
+        CurrentState.Activate();
+
+        return true;
     }
 }
