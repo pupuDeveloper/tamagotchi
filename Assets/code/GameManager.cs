@@ -1,6 +1,7 @@
 using BunnyHole.States;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -51,6 +52,9 @@ public class GameManager : MonoBehaviour
     private List<GameStateBase> _states = new List<GameStateBase>();
     // The currently active state.
     public GameStateBase CurrentState { get; private set; }
+
+    private GameStateBase PreviousState { get; set; }
+
     private void Awake()
     {
         //TODO: read values below from memory. if null, create said values below
@@ -257,6 +261,8 @@ public class GameManager : MonoBehaviour
         _states.Add(new MainSceneState());
         _states.Add(new GameOverState());
         _states.Add(new MinigameState());
+        _states.Add(new OptionsState());
+        //_states.Add(new PauseState());
 
 #if UNITY_EDITOR
         string activeSceneName = SceneManager.GetActiveScene().name.ToLower();
@@ -311,11 +317,19 @@ public class GameManager : MonoBehaviour
 
         // Deactivate the current state.
         CurrentState.Deactivate();
+        // Stores a reference to the previous state. Used in Go Back
+        //functionality
+        PreviousState = CurrentState;
         // Change the state.
         CurrentState = targetState;
         // Activate the new state.
         CurrentState.Activate();
 
         return true;
+    }
+
+    public bool GoBack()
+    {
+        return Go(PreviousState.Type);
     }
 }
