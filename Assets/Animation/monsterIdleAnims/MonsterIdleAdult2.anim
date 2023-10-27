@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MonsterIdle
+  m_Name: MonsterIdleAdult2
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,11 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 1541089401, guid: 242a0db5f698c474199bdbbe5df16392, type: 3}
+      value: {fileID: -1713487399, guid: 3518e69c73d78f646898b7e95b58316c, type: 3}
     - time: 0.14285715
-      value: {fileID: -1199540381, guid: 242a0db5f698c474199bdbbe5df16392, type: 3}
+      value: {fileID: -1879387567, guid: 3518e69c73d78f646898b7e95b58316c, type: 3}
     - time: 0.2857143
-      value: {fileID: 768965676, guid: 242a0db5f698c474199bdbbe5df16392, type: 3}
+      value: {fileID: -1903827272, guid: 3518e69c73d78f646898b7e95b58316c, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,9 +48,9 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 1541089401, guid: 242a0db5f698c474199bdbbe5df16392, type: 3}
-    - {fileID: -1199540381, guid: 242a0db5f698c474199bdbbe5df16392, type: 3}
-    - {fileID: 768965676, guid: 242a0db5f698c474199bdbbe5df16392, type: 3}
+    - {fileID: -1713487399, guid: 3518e69c73d78f646898b7e95b58316c, type: 3}
+    - {fileID: -1879387567, guid: 3518e69c73d78f646898b7e95b58316c, type: 3}
+    - {fileID: -1903827272, guid: 3518e69c73d78f646898b7e95b58316c, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
