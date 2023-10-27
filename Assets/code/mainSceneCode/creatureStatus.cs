@@ -7,7 +7,7 @@ public class creatureStatus : MonoBehaviour
     public pet playedPet;
     private int animInt;
     
-    void Start()
+    void Awake()
     {
         playedPet = GameManager.Instance.currentPet;
         GameManager.Instance.currentPet.petName = GameManager.Instance.CurrentlyPlayedPetName;

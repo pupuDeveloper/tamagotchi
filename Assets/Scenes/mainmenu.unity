@@ -650,8 +650,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resolutions:
+  - sideLenght: 640
   - sideLenght: 480
-  - sideLenght: 360
+  - sideLenght: 320
   resolutionLabel: {fileID: 383409938}
 --- !u!1 &347676401
 GameObject:
