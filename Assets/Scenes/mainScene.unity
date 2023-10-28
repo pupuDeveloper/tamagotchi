@@ -790,7 +790,6 @@ GameObject:
   - component: {fileID: 270602407}
   - component: {fileID: 270602408}
   - component: {fileID: 270602409}
-  - component: {fileID: 270602410}
   m_Layer: 0
   m_Name: background
   m_TagString: Untagged
@@ -890,19 +889,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &270602410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 270602406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a64efe9745a017438503f3f3d5093b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkAspectRatio: 1
 --- !u!1 &341771607
 GameObject:
   m_ObjectHideFlags: 0
@@ -2480,9 +2466,9 @@ MonoBehaviour:
   m_RefResolutionY: 240
   m_UpscaleRT: 0
   m_PixelSnapping: 0
-  m_CropFrameX: 0
+  m_CropFrameX: 1
   m_CropFrameY: 1
-  m_StretchFill: 0
+  m_StretchFill: 1
 --- !u!1 &1061176720
 GameObject:
   m_ObjectHideFlags: 0
