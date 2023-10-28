@@ -14,7 +14,7 @@ public class popoutTextScript : MonoBehaviour
 
     void Start()
     {
-        popoutText.text = "do you want to name your pet " + readinputScript.SuggestedInput + " and start the game?";
+        popoutText.text = "Create " + readinputScript.SuggestedInput + " and start game?";
         GameManager.Instance.CurrentlyPlayedPetName = readinputScript.SuggestedInput;
         petOption = petRandomiser.petRandomiseAndCreate();
         Debug.Log(petOption);
