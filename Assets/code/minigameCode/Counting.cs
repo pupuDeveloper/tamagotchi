@@ -22,11 +22,11 @@ namespace BunnyHole
             _count = 0;
             eyeBallCount = 0;
             button.interactable = false;
-            countText.text = "Completion: " + _count + "/" + _totalCount;
+            countText.text = _count + "/" + _totalCount;
         }
         private void Update()
         {
-            countText.text = "Completion: " + _count + "/" + _totalCount;
+            countText.text = _count + "/" + _totalCount;
             if (eyeBallCount == 3 && _count == _totalCount && completed == false)
             {
                 FailedMinigame();
