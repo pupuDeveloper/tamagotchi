@@ -74,6 +74,34 @@ namespace GA.BunnyHole.Generated
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Systems"",
+            ""id"": ""1b91656c-ba62-40c3-9577-779654f6ece2"",
+            ""actions"": [
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""ce1be035-6a43-4b9b-bab2-35458f5f5f2a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""8938ec45-5a06-49fb-a43a-27cc85472394"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -93,6 +121,9 @@ namespace GA.BunnyHole.Generated
             // Basket
             m_Basket = asset.FindActionMap("Basket", throwIfNotFound: true);
             m_Basket_Move = m_Basket.FindAction("Move", throwIfNotFound: true);
+            // Systems
+            m_Systems = asset.FindActionMap("Systems", throwIfNotFound: true);
+            m_Systems_Pause = m_Systems.FindAction("Pause", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -196,6 +227,52 @@ namespace GA.BunnyHole.Generated
             }
         }
         public BasketActions @Basket => new BasketActions(this);
+
+        // Systems
+        private readonly InputActionMap m_Systems;
+        private List<ISystemsActions> m_SystemsActionsCallbackInterfaces = new List<ISystemsActions>();
+        private readonly InputAction m_Systems_Pause;
+        public struct SystemsActions
+        {
+            private @Inputs m_Wrapper;
+            public SystemsActions(@Inputs wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Pause => m_Wrapper.m_Systems_Pause;
+            public InputActionMap Get() { return m_Wrapper.m_Systems; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(SystemsActions set) { return set.Get(); }
+            public void AddCallbacks(ISystemsActions instance)
+            {
+                if (instance == null || m_Wrapper.m_SystemsActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_SystemsActionsCallbackInterfaces.Add(instance);
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
+            }
+
+            private void UnregisterCallbacks(ISystemsActions instance)
+            {
+                @Pause.started -= instance.OnPause;
+                @Pause.performed -= instance.OnPause;
+                @Pause.canceled -= instance.OnPause;
+            }
+
+            public void RemoveCallbacks(ISystemsActions instance)
+            {
+                if (m_Wrapper.m_SystemsActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(ISystemsActions instance)
+            {
+                foreach (var item in m_Wrapper.m_SystemsActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_SystemsActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public SystemsActions @Systems => new SystemsActions(this);
         private int m_KeyboardSchemeIndex = -1;
         public InputControlScheme KeyboardScheme
         {
@@ -208,6 +285,10 @@ namespace GA.BunnyHole.Generated
         public interface IBasketActions
         {
             void OnMove(InputAction.CallbackContext context);
+        }
+        public interface ISystemsActions
+        {
+            void OnPause(InputAction.CallbackContext context);
         }
     }
 }

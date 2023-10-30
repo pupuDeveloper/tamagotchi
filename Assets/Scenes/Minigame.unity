@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _totalCount: 15
-  button: {fileID: 1725431587}
+  button: {fileID: 0}
   countText: {fileID: 1228296164}
 --- !u!1 &139128754
 GameObject:
