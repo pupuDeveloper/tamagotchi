@@ -6,9 +6,18 @@ namespace BunnyHole.UI
 {
     public class MainMenuController : MonoBehaviour
     {
+        [SerializeField] private GameObject _namePet;
         public void OnNewGame()
         {
-            GameManager.Instance.Go(States.StateType.MainScene);
+            if (GameManager.Instance.activePet)
+            {
+                GameManager.Instance.gameIsPaused = false;
+                GameManager.Instance.Go(States.StateType.MainScene);
+            }
+            else
+            {
+                _namePet.SetActive(true);
+            }
         }
 
         public void OnOptions()
