@@ -3247,6 +3247,7 @@ MonoBehaviour:
   cursorTexture: {fileID: 2800000, guid: 6d61dfaef2de3aa43a50ac9a324b0ef1, type: 3}
   cursorMode: 0
   hotSpot: {x: 0, y: 0}
+  creature: {fileID: 881301043}
 --- !u!4 &1943622002
 Transform:
   m_ObjectHideFlags: 0
