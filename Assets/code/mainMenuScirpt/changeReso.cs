@@ -50,7 +50,6 @@ public class changeReso : MonoBehaviour
     }
 }
 
-
 [System.Serializable]
 public class ResItem
 {

@@ -5,27 +5,32 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class popoutTextScript : MonoBehaviour
+namespace BunnyHole.UI
 {
-    [SerializeField] private TMP_Text popoutText;
-    public readInput readinputScript;
-    public newPetRandomiserBD petRandomiser;
-    public pet petOption;
-
-    void Start()
+    public class popoutTextScript : MonoBehaviour
     {
-        popoutText.text = "do you want to name your pet " + readinputScript.SuggestedInput + " and start the game?";
-        GameManager.Instance.CurrentlyPlayedPetName = readinputScript.SuggestedInput;
-        petOption = petRandomiser.petRandomiseAndCreate();
-        Debug.Log(petOption);
-    }
+        [SerializeField] private TMP_Text popoutText;
+        public readInput readinputScript;
+        public newPetRandomiserBD petRandomiser;
+        public pet petOption;
 
-    public void startGame()
-    {
-        GameManager.Instance.activePet = true;
-        GameManager.Instance.gameIsPaused = false;
-        GameManager.Instance.currentPet = petOption;
-        Debug.Log(GameManager.Instance.currentPet);
-        SceneManager.LoadScene("mainScene");
+        void Start()
+        {
+            popoutText.text = "Create " + readinputScript.SuggestedInput + " and start game?";
+            GameManager.Instance.CurrentlyPlayedPetName = readinputScript.SuggestedInput;
+            petOption = petRandomiser.petRandomiseAndCreate();
+            Debug.Log(petOption);
+        }
+
+        public void startGame()
+        {
+            GameManager.Instance.activePet = true;
+            GameManager.Instance.gameIsPaused = false;
+            GameManager.Instance.currentPet = petOption;
+            Debug.Log(GameManager.Instance.currentPet);
+            GameManager.Instance.Go(States.StateType.MainScene);
+        }
     }
 }
+
+
