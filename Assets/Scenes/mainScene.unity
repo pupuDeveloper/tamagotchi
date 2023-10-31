@@ -1217,7 +1217,6 @@ GameObject:
   - component: {fileID: 864655556}
   - component: {fileID: 864655555}
   - component: {fileID: 864655559}
-  - component: {fileID: 864655561}
   - component: {fileID: 864655562}
   m_Layer: 5
   m_Name: UIcanvas
@@ -1310,7 +1309,6 @@ RectTransform:
   - {fileID: 613812235}
   - {fileID: 370375014}
   - {fileID: 2080038190}
-  - {fileID: 1026590734}
   - {fileID: 1007684006}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1332,19 +1330,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minigamebutton: {fileID: 1386249381}
---- !u!114 &864655561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 864655554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bba0fbd2de43514593c3f0e4eac51fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  infoPanelObject: {fileID: 1026590733}
 --- !u!114 &864655562
 MonoBehaviour:
   m_ObjectHideFlags: 0
