@@ -20,6 +20,7 @@ public class poopScript : MonoBehaviour
     public Texture2D cursorTexture;
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotSpot = Vector2.zero;
+    public GameObject creature;
 
     void Awake()
     {
@@ -63,7 +64,7 @@ public class poopScript : MonoBehaviour
         isCoroutineRunning = true;
         int spawnTime = Random.Range(spawnInterval1, spawnInterval2);
         yield return new WaitForSeconds (spawnTime);
-        Vector2 pos = new Vector2(Random.Range(-5.2f, 5.2f), Random.Range(-3f,-1.5f));
+        Vector2 pos = new Vector2 (creature.transform.position.x, creature.transform.position.y - 0.3f);
         GameObject instancedPoop = Instantiate(poopPrefab, pos, Quaternion.identity);
         GameManager.Instance.poopAmount++;
         poops.Add(instancedPoop);
@@ -120,11 +121,13 @@ public class poopScript : MonoBehaviour
         {
             isCleaningOn = false;
             Cursor.SetCursor(null, hotSpot, cursorMode);
+            creature.GetComponentInChildren<BoxCollider2D>().enabled = true;
         }
         else
         {
             isCleaningOn = true;
             Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
+            creature.GetComponentInChildren<BoxCollider2D>().enabled = false;
         }
     }
 }

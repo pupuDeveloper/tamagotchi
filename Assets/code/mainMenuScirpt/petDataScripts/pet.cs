@@ -7,15 +7,15 @@ public class pet
 {
     public string petName;
     public float ageInSeconds;
-    public Sprite upperBody;
-    public Sprite lowerBody;
+    public Sprite childSprite;
+    public Sprite adultSprite;
 
-    public pet(string petName, float ageInSeconds, Sprite upperBody, Sprite lowerBody)
+    public pet(string petName, float ageInSeconds, Sprite childSprite, Sprite adultSprite)
     {
         this.petName = petName;
         this.ageInSeconds = ageInSeconds;
-        this.upperBody = upperBody;
-        this.lowerBody = lowerBody;
+        this.childSprite = childSprite;
+        this.adultSprite = adultSprite;
     }
 }
 

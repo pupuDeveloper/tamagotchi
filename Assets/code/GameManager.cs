@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
     public bool miniGamePlayed { get; set; }
     private bool minigameCoroutineRunning { get; set; }
     public bool minigameInfotoggle { get; set; }
-    public bool isInfoGiven { get; set; }
     public bool bunnyPlay { get; set; }
     private bool isBunnyPlayCooldownRunning { get; set; }
     public bool brushPet { get; set; }
@@ -75,7 +74,6 @@ public class GameManager : MonoBehaviour
         isBunnyPlayCooldownRunning = false;
         isbrushBunnyCooldownRunning = false;
         minigameInfotoggle = false;
-        isInfoGiven = false;
         currentPet = null;
         if (_instance)
         {
@@ -147,7 +145,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(6);
         evolution++;
         happinessMultiplier += 0.1f;
-        evolutionProgression = 0f;
         if (evolution == 2)
         {
             evolutionLenght = 360f;
