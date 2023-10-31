@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class clickblocker : MonoBehaviour
 {
+    [SerializeField] private GameObject pauseMenu;
     void FixedUpdate()
     {
-        if (GameManager.Instance.gameIsPaused)
+        if (pauseMenu.activeSelf)
         {
             gameObject.GetComponent<Image>().enabled = true;
         }
