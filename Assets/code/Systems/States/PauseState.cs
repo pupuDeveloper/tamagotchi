@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace BunnyHole.States
 {
@@ -16,18 +17,18 @@ namespace BunnyHole.States
 
         public override void Activate(bool forceLoad = false)
         {
-            base.Activate(forceLoad);
-            
+            base.Activate(forceLoad);  
             // Pauses the time
             Time.timeScale = 0;
+            GameManager.Instance.gameIsPaused = true;
         }
 
         public override void Deactivate()
         {
             base.Deactivate();
-
             // Resumes the time
             Time.timeScale = 1;
+            GameManager.Instance.gameIsPaused = false;
         }
     }
 }

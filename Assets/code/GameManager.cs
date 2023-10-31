@@ -262,7 +262,7 @@ public class GameManager : MonoBehaviour
         _states.Add(new GameOverState());
         _states.Add(new MinigameState());
         _states.Add(new OptionsState());
-        //_states.Add(new PauseState());
+        _states.Add(new BunnyHole.States.PauseState());
 
 #if UNITY_EDITOR
         string activeSceneName = SceneManager.GetActiveScene().name.ToLower();

@@ -7,6 +7,7 @@ namespace BunnyHole.UI
     public class MainMenuController : MonoBehaviour
     {
         [SerializeField] private GameObject _namePet;
+        [SerializeField] private GameObject _mainMenu;
         public void OnNewGame()
         {
             if (GameManager.Instance.activePet)
@@ -17,6 +18,7 @@ namespace BunnyHole.UI
             else
             {
                 _namePet.SetActive(true);
+                _mainMenu.SetActive(false);
             }
         }
 
