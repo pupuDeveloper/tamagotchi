@@ -220,12 +220,12 @@ public class GameManager : MonoBehaviour
         //Create all states.
         _states.Add(initialState);
         _states.Add(new MainSceneState());
-        _states.Add(new GameOverState());
-        _states.Add(new MinigameState());
         _states.Add(new OptionsState());
+        _states.Add(new MinigameState());
+        _states.Add(new GameOverState());
        //states.Add(new BunnyHole.States.PauseState());
 
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
         string activeSceneName = SceneManager.GetActiveScene().name.ToLower();
         foreach(GameStateBase state in _states)
         {
@@ -235,7 +235,7 @@ public class GameManager : MonoBehaviour
                 break;
             }
         }
-#endif
+//#endif
 
         CurrentState = initialState;
         CurrentState.Activate();

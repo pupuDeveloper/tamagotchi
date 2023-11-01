@@ -42,8 +42,9 @@ namespace BunnyHole
         }
         public void loadMenu()
         {
-            //GameManager.Instance.Go(States.StateType.MainMenu);
-            SceneManager.LoadScene("mainMenu");
+            // Goes back to Main Menu from Pause.
+            GameManager.Instance.Go(States.StateType.MainMenu);
+           // SceneManager.LoadScene("mainMenu");
             Time.timeScale = 1f;
         }
         public void quitGame()
