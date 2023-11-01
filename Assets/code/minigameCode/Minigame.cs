@@ -20,6 +20,7 @@ namespace BunnyHole
         private void Awake()
         {
             popoutwindow = GameObject.Find("infoPopout");
+            Debug.Log(GameManager.Instance.gameIsPaused);
         }
         private void Start()
         {

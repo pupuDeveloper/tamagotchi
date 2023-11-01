@@ -12,11 +12,9 @@ public class minigameButton : MonoBehaviour
     public void Switch()
     {
         Scene scene = SceneManager.GetActiveScene();
-        if (scene.name == "Minigame")
+        if (scene.name == "mainScene")
         {
-            GameManager.Instance.gameIsPaused = false;
-            GameManager.Instance.miniGamePlayed = true;
-           // SceneManager.LoadScene (sceneName:"mainScene");
+            GameManager.Instance.gameIsPaused = true;
         }
     }
     void FixedUpdate()
