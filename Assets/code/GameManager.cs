@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     private int individualActivityCooldown { get; set; }
     public List<pet> petCollection { get; set; }
     public pet currentPet { get; set; }
+    public Vector3 creaturePosition { get; set; }
 
     // Contains all states
     private List<GameStateBase> _states = new List<GameStateBase>();
@@ -74,6 +75,7 @@ public class GameManager : MonoBehaviour
         isbrushBunnyCooldownRunning = false;
         minigameInfotoggle = false;
         currentPet = null;
+        creaturePosition = new Vector3(0, -2, -9);
         if (_instance)
         {
             Destroy(gameObject);

@@ -1333,6 +1333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minigamebutton: {fileID: 1386249381}
+  creature: {fileID: 881301043}
 --- !u!114 &864655561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1346,6 +1347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuUI: {fileID: 1473897522}
+  creature: {fileID: 881301043}
 --- !u!114 &864655562
 MonoBehaviour:
   m_ObjectHideFlags: 0
