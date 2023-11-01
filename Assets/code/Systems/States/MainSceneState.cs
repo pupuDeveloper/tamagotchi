@@ -10,6 +10,9 @@ namespace BunnyHole.States
             AddTargetState(StateType.GameOver);
             AddTargetState(StateType.Pause);
             AddTargetState(StateType.Minigame);
+            AddTargetState(StateType.MainMenu);
+            AddTargetState(StateType.Options);
+            AddTargetState(StateType.MainScene);
         }
     }
 }
