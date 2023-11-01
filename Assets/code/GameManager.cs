@@ -108,6 +108,10 @@ public class GameManager : MonoBehaviour
             {
             StartCoroutine("miniGamecooldown");
             }
+            if (isActivityCooldownRunning == false)
+            {
+                StartCoroutine("activityCooldown");
+            }
         }
         if (petDeathTimer <= 0 && gameIsPaused == false)
         {
@@ -120,10 +124,6 @@ public class GameManager : MonoBehaviour
         if (bunnyPlay && isBunnyPlayCooldownRunning == false)
         {
             StartCoroutine("playWithBunnyCooldown");
-        }
-        if (isActivityCooldownRunning == false)
-        {
-            StartCoroutine("activityCooldown");
         }
     }
     public void evolutionChange()
