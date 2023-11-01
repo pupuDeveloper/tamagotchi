@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
-    public int poopAmount { get; set; }
     public float happiness { get; set; }
     public int evolution { get; set; }
     public float evolutionProgression { get; set; }
@@ -44,6 +43,7 @@ public class GameManager : MonoBehaviour
     public bool isActivityCooldownRunning { get; set; }
     private int individualActivityCooldown { get; set; }
     public List<pet> petCollection { get; set; }
+    public List<Vector3> poops { get; set; }
     public pet currentPet { get; set; }
     public Vector3 creaturePosition { get; set; }
 
@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
         minigameInfotoggle = false;
         currentPet = null;
         creaturePosition = new Vector3(0, -2, -9);
+        poops = new List<Vector3>();
         if (_instance)
         {
             Destroy(gameObject);

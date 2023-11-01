@@ -17,9 +17,8 @@ public class poopDestroyingScript : MonoBehaviour
     {
         if (poopscript.isCleaningOn)
         {
-        poopscript.poops.Remove(gameObject);
+        GameManager.Instance.poops.Remove(gameObject.transform.position);
         GameManager.Instance.happiness += 0.03f;
-        GameManager.Instance.poopAmount--;
         happinessbar.UpdateHappinessBar();
         Destroy(gameObject);
         }
