@@ -16,7 +16,6 @@ public class poopScript : MonoBehaviour
     private happinessBar happinessbar;
     public GameObject happinessBarScriptHolder;
     public Button cleanpoopButton;
-    public List<GameObject> poops = new List<GameObject>();
     public Texture2D cursorTexture;
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotSpot = Vector2.zero;
@@ -25,11 +24,10 @@ public class poopScript : MonoBehaviour
     void Awake()
     {
         happinessbar = happinessBarScriptHolder.GetComponent<happinessBar>();
-        for (int i = 0; i < GameManager.Instance.poopAmount; i++)
+        for (int i = 0; i < GameManager.Instance.poops.Count; i++)
         {
-            Vector2 pos = new Vector2(Random.Range(-8.5f, 8.5f), Random.Range(-2.5f,0.5f));
+            Vector3 pos = GameManager.Instance.poops[i];
             GameObject instancedPoop = Instantiate(poopPrefab, pos, Quaternion.identity);
-            poops.Add(instancedPoop);
         }
     }
 
@@ -37,11 +35,11 @@ public class poopScript : MonoBehaviour
     //before running the spawner script
     void FixedUpdate()
     {
-        if (GameManager.Instance.poopAmount < 5 && isCoroutineRunning == false && GameManager.Instance.gameIsPaused == false)
+        if (GameManager.Instance.poops.Count < 5 && isCoroutineRunning == false && GameManager.Instance.gameIsPaused == false)
         {
             StartCoroutine("spawnPoops");
         }
-        if (GameManager.Instance.poopAmount < 1 && isCleaningOn == false)
+        if (GameManager.Instance.poops.Count < 1 && isCleaningOn == false)
         {
             cleanpoopButton.interactable = false;
         }
@@ -66,19 +64,18 @@ public class poopScript : MonoBehaviour
         yield return new WaitForSeconds (spawnTime);
         Vector2 pos = new Vector2 (creature.transform.position.x, creature.transform.position.y - 0.3f);
         GameObject instancedPoop = Instantiate(poopPrefab, pos, Quaternion.identity);
-        GameManager.Instance.poopAmount++;
-        poops.Add(instancedPoop);
+        Vector3 addedVector = instancedPoop.transform.position;
+        GameManager.Instance.poops.Add(addedVector);
         GameManager.Instance.happiness -= (0.02f * GameManager.Instance.happinessMultiplier);
         happinessbar.UpdateHappinessBar();
         isCoroutineRunning = false;
-        Debug.Log("poopamount in gamemanager :" + GameManager.Instance.poopAmount);
-        Debug.Log("poopamount in poopscript :" + poops);
+        Debug.Log("poopamount in gamemanager :" + GameManager.Instance.poops.Count);
     }
 
     IEnumerator passiveHappinessChange()
     {
         isPassiveCoroutineRunning = true;
-        switch (GameManager.Instance.poopAmount)
+        switch (GameManager.Instance.poops.Count)
         {
             case 0:
             break;

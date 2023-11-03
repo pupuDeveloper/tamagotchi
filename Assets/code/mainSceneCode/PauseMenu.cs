@@ -9,6 +9,7 @@ namespace BunnyHole
     public class PauseMenu : MonoBehaviour
     {
         [SerializeField] private GameObject PauseMenuUI;
+        [SerializeField] private GameObject creature;
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -42,9 +43,11 @@ namespace BunnyHole
         }
         public void loadMenu()
         {
-            //GameManager.Instance.Go(States.StateType.MainMenu);
-            SceneManager.LoadScene("mainMenu");
+            // Goes back to Main Menu from Pause.
             Time.timeScale = 1f;
+            GameManager.Instance.creaturePosition = creature.transform.position;
+            GameManager.Instance.Go(States.StateType.MainMenu);
+           // SceneManager.LoadScene("mainMenu");
         }
         public void quitGame()
         {

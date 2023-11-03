@@ -47,5 +47,6 @@ public class creatureStatus : MonoBehaviour
             gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", 5);
             break;
         }
+        gameObject.transform.position = GameManager.Instance.creaturePosition;
     }
 }

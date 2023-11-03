@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
-    public int poopAmount { get; set; }
     public float happiness { get; set; }
     public int evolution { get; set; }
     public float evolutionProgression { get; set; }
@@ -44,7 +43,9 @@ public class GameManager : MonoBehaviour
     public bool isActivityCooldownRunning { get; set; }
     private int individualActivityCooldown { get; set; }
     public List<pet> petCollection { get; set; }
+    public List<Vector3> poops { get; set; }
     public pet currentPet { get; set; }
+    public Vector3 creaturePosition { get; set; }
 
     // Contains all states
     private List<GameStateBase> _states = new List<GameStateBase>();
@@ -74,6 +75,8 @@ public class GameManager : MonoBehaviour
         isbrushBunnyCooldownRunning = false;
         minigameInfotoggle = false;
         currentPet = null;
+        creaturePosition = new Vector3(0, -2, -9);
+        poops = new List<Vector3>();
         if (_instance)
         {
             Destroy(gameObject);
@@ -108,6 +111,10 @@ public class GameManager : MonoBehaviour
             {
             StartCoroutine("miniGamecooldown");
             }
+            if (isActivityCooldownRunning == false)
+            {
+                StartCoroutine("activityCooldown");
+            }
         }
         if (petDeathTimer <= 0 && gameIsPaused == false)
         {
@@ -120,10 +127,6 @@ public class GameManager : MonoBehaviour
         if (bunnyPlay && isBunnyPlayCooldownRunning == false)
         {
             StartCoroutine("playWithBunnyCooldown");
-        }
-        if (isActivityCooldownRunning == false)
-        {
-            StartCoroutine("activityCooldown");
         }
     }
     public void evolutionChange()
@@ -220,12 +223,12 @@ public class GameManager : MonoBehaviour
         //Create all states.
         _states.Add(initialState);
         _states.Add(new MainSceneState());
-        _states.Add(new GameOverState());
-        _states.Add(new MinigameState());
         _states.Add(new OptionsState());
+        _states.Add(new MinigameState());
+        _states.Add(new GameOverState());
        //states.Add(new BunnyHole.States.PauseState());
 
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
         string activeSceneName = SceneManager.GetActiveScene().name.ToLower();
         foreach(GameStateBase state in _states)
         {
@@ -235,7 +238,7 @@ public class GameManager : MonoBehaviour
                 break;
             }
         }
-#endif
+//#endif
 
         CurrentState = initialState;
         CurrentState.Activate();
