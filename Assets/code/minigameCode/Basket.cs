@@ -14,6 +14,8 @@ namespace BunnyHole
         [SerializeField] private GameObject popoutwindow;
         [SerializeField] private ParticleSystem successParticles;
         [SerializeField] private ParticleSystem eyeballParticles;
+        public SpriteRenderer spriteRenderer;
+        [SerializeField] private Sprite[] spriteArray;
 
         private void Awake()
         {
@@ -65,6 +67,7 @@ namespace BunnyHole
                 Counting.eyeBallCount++;
                 Debug.Log(Counting.eyeBallCount);
                 eyeballParticles.Play();
+                spriteRenderer.sprite = spriteArray[Counting.eyeBallCount];
             }
         }
     }
