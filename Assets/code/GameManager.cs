@@ -261,7 +261,6 @@ public class GameManager : MonoBehaviour
         _states.Add(new GameOverState());
        //states.Add(new BunnyHole.States.PauseState());
 
-//#if UNITY_EDITOR
         string activeSceneName = SceneManager.GetActiveScene().name.ToLower();
         foreach(GameStateBase state in _states)
         {
@@ -271,7 +270,6 @@ public class GameManager : MonoBehaviour
                 break;
             }
         }
-//#endif
 
         CurrentState = initialState;
         CurrentState.Activate();
