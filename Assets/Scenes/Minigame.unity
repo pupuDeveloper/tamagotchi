@@ -11395,6 +11395,12 @@ MonoBehaviour:
   popoutwindow: {fileID: 1882071072}
   successParticles: {fileID: 1368691963}
   eyeballParticles: {fileID: 981520499}
+  spriteRenderer: {fileID: 1417575156}
+  spriteArray:
+  - {fileID: -430760693, guid: 0e1f04d4fa01f5440865fe36a6003f79, type: 3}
+  - {fileID: -1516376307, guid: 0e1f04d4fa01f5440865fe36a6003f79, type: 3}
+  - {fileID: -909647936, guid: 0e1f04d4fa01f5440865fe36a6003f79, type: 3}
+  - {fileID: 133256132, guid: 0e1f04d4fa01f5440865fe36a6003f79, type: 3}
 --- !u!50 &1417575160
 Rigidbody2D:
   serializedVersion: 4
@@ -12008,6 +12014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minigamebutton: {fileID: 0}
+  creature: {fileID: 0}
 --- !u!114 &1939781270
 MonoBehaviour:
   m_ObjectHideFlags: 0
