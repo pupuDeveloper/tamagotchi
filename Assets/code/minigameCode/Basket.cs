@@ -12,6 +12,10 @@ namespace BunnyHole
         private Rigidbody2D _rb2D;
         private Vector2 _moveInput;
         [SerializeField] private GameObject popoutwindow;
+        [SerializeField] private ParticleSystem successParticles;
+        [SerializeField] private ParticleSystem eyeballParticles;
+        public SpriteRenderer spriteRenderer;
+        [SerializeField] private Sprite[] spriteArray;
 
         private void Awake()
         {
@@ -53,6 +57,7 @@ namespace BunnyHole
                 Debug.Log("Correct");
                 Counting._count++;
                 Debug.Log(Counting._count);
+                successParticles.Play();
             }
 
             if(collision.gameObject.layer == LayerMask.NameToLayer("Eyeball"))
@@ -61,6 +66,8 @@ namespace BunnyHole
                 Debug.Log("wrong");
                 Counting.eyeBallCount++;
                 Debug.Log(Counting.eyeBallCount);
+                eyeballParticles.Play();
+                spriteRenderer.sprite = spriteArray[Counting.eyeBallCount];
             }
         }
     }
