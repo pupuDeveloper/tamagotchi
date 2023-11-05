@@ -12,11 +12,11 @@ public class creatureStatus : MonoBehaviour
         playedPet = GameManager.Instance.currentPet;
         GameManager.Instance.currentPet.petName = GameManager.Instance.CurrentlyPlayedPetName;
         Debug.Log("Make sure you take good care of " + GameManager.Instance.CurrentlyPlayedPetName + "!");
-        if (GameManager.Instance.evolution == 1 || GameManager.Instance.evolution == 2)
+        if (GameManager.Instance.evolution == 1)
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = playedPet.childSprite;
         }
-        if (GameManager.Instance.evolution == 3)
+        if (GameManager.Instance.evolution == 2)
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = playedPet.adultSprite;
         }
@@ -47,5 +47,6 @@ public class creatureStatus : MonoBehaviour
             gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", 5);
             break;
         }
+        gameObject.transform.position = GameManager.Instance.creaturePosition;
     }
 }

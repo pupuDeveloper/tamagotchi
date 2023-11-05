@@ -837,7 +837,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -26.099998, y: 2.5}
+  m_AnchoredPosition: {x: -26.099976, y: 2.5}
   m_SizeDelta: {x: 28, y: 28}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &440082740
@@ -1333,6 +1333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minigamebutton: {fileID: 1386249381}
+  creature: {fileID: 881301043}
 --- !u!114 &864655561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1346,6 +1347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuUI: {fileID: 1473897522}
+  creature: {fileID: 881301043}
 --- !u!114 &864655562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1514,7 +1516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1007684006
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2003,7 +2005,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: quit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 90ec4b34a603f804a855733db060fe0a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
   m_sharedMaterial: {fileID: -4083078278764786417, guid: 90ec4b34a603f804a855733db060fe0a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2067,7 +2069,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1210850455
@@ -2943,7 +2945,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: resume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 90ec4b34a603f804a855733db060fe0a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
   m_sharedMaterial: {fileID: -4083078278764786417, guid: 90ec4b34a603f804a855733db060fe0a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3007,7 +3009,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1864990007
@@ -3132,7 +3134,6 @@ MonoBehaviour:
   poopPrefab: {fileID: 8875750602958446050, guid: 7e38b13932f057f42bdbf4cc055c0487, type: 3}
   happinessBarScriptHolder: {fileID: 2080038189}
   cleanpoopButton: {fileID: 1318539178}
-  poops: []
   cursorTexture: {fileID: 2800000, guid: 6d61dfaef2de3aa43a50ac9a324b0ef1, type: 3}
   cursorMode: 0
   hotSpot: {x: 0, y: 0}
@@ -3211,7 +3212,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 90ec4b34a603f804a855733db060fe0a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
   m_sharedMaterial: {fileID: -4083078278764786417, guid: 90ec4b34a603f804a855733db060fe0a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3275,7 +3276,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1998290731

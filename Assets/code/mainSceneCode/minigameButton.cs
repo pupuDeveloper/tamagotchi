@@ -9,14 +9,14 @@ public class minigameButton : MonoBehaviour
     private bool isButtonAvailable;
     public Button minigamebutton;
     private Scene scene;
+    [SerializeField] private GameObject creature;
     public void Switch()
     {
         Scene scene = SceneManager.GetActiveScene();
-        if (scene.name == "Minigame")
+        if (scene.name == "mainScene")
         {
-            GameManager.Instance.gameIsPaused = false;
-            GameManager.Instance.miniGamePlayed = true;
-           // SceneManager.LoadScene (sceneName:"mainScene");
+            GameManager.Instance.creaturePosition = creature.transform.position;
+            GameManager.Instance.gameIsPaused = true;
         }
     }
     void FixedUpdate()

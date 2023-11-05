@@ -21,12 +21,10 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
-    public int poopAmount { get; set; }
     public float happiness { get; set; }
     public int evolution { get; set; }
     public float evolutionProgression { get; set; }
     public float evolutionLenght { get; set; }
-    private bool isEvolutionRunning { get; set; }
     public float happinessMultiplier { get; set; }
     public bool activePet { get; set; }
     public string CurrentlyPlayedPetName { get; set; }
@@ -45,7 +43,9 @@ public class GameManager : MonoBehaviour
     public bool isActivityCooldownRunning { get; set; }
     private int individualActivityCooldown { get; set; }
     public List<pet> petCollection { get; set; }
+    public List<Vector3> poops { get; set; }
     public pet currentPet { get; set; }
+    public Vector3 creaturePosition { get; set; }
 
     // Contains all states
     private List<GameStateBase> _states = new List<GameStateBase>();
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         //TODO: read values below from memory. if null, create said values below
-        evolutionLenght = 180f;
+        evolutionLenght = 100f;
         happiness = 0.5f;
         evolution = 1;
         evolutionProgression = 0f;
@@ -75,6 +75,8 @@ public class GameManager : MonoBehaviour
         isbrushBunnyCooldownRunning = false;
         minigameInfotoggle = false;
         currentPet = null;
+        creaturePosition = new Vector3(0, -2, -9);
+        poops = new List<Vector3>();
         if (_instance)
         {
             Destroy(gameObject);
@@ -101,10 +103,6 @@ public class GameManager : MonoBehaviour
                 petDeathTimer -= Time.deltaTime;
             }
             evolutionProgression += Time.deltaTime;
-            if (evolutionProgression >= evolutionLenght && isEvolutionRunning == false)
-            {
-                StartCoroutine("evolutionChange");
-            }
             if (happiness > 0)
             {
                 petDeathTimer = 20f;
@@ -112,6 +110,10 @@ public class GameManager : MonoBehaviour
             if (miniGamePlayed && minigameCoroutineRunning == false)
             {
             StartCoroutine("miniGamecooldown");
+            }
+            if (isActivityCooldownRunning == false)
+            {
+                StartCoroutine("activityCooldown");
             }
         }
         if (petDeathTimer <= 0 && gameIsPaused == false)
@@ -126,52 +128,17 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine("playWithBunnyCooldown");
         }
-        if (isActivityCooldownRunning == false)
-        {
-            StartCoroutine("activityCooldown");
-        }
     }
-    IEnumerator evolutionChange()
+    public void evolutionChange()
     {
-        gameIsPaused = true;
-        if (evolution == 6)
-        {
-            lastDayPetEnd();
-        }
-        else
-        {
-            isEvolutionRunning = true;
-        // TODO: Fade black or similar that shows new evolution n shit
-        yield return new WaitForSeconds(6);
+        // TODO: evolution after minigame played and age is above x
         evolution++;
         happinessMultiplier += 0.1f;
         if (evolution == 2)
         {
-            evolutionLenght = 360f;
-        }
-        else if (evolution == 3)
-        {
             evolutionLenght = 9999999999999999999f;
         }
         Debug.Log("Your pet is growing!!!");
-        isEvolutionRunning = false;
-        gameIsPaused = false;
-        }
-    }
-    void lastDayPetEnd()
-    {
-        Debug.Log("you survived with your... pet? for a week. It has spared you from its terror, but it will not spare others. It has left to raise hell elsewhere, but it didnt leave you empty handed");
-        gameIsPaused = true;
-        petCollection.Add(currentPet);
-        currentPet = null;
-        activePet = false;
-        CurrentlyPlayedPetName = "";
-        evolution = 1;
-        evolutionProgression = 0f;
-        happinessMultiplier = 1f;
-        happiness = 0.5f;
-        miniGamePlayed = false;
-        SceneManager.LoadScene("mainmenu");
     }
     void gameOver()
     {

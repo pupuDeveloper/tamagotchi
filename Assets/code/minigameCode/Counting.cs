@@ -43,16 +43,26 @@ namespace BunnyHole
         {
             // Debug.Log("good job you collected all the strawberries");
             GameManager.Instance.happiness += 0.15f;
-            GameManager.Instance.Go(States.StateType.MainScene);
             GameManager.Instance.gameIsPaused = false;
+            GameManager.Instance.miniGamePlayed = true;
+            if (GameManager.Instance.evolutionProgression >= GameManager.Instance.evolutionLenght)
+            {
+                GameManager.Instance.evolutionChange();
+            }
+            GameManager.Instance.Go(States.StateType.MainScene);
             //button.interactable = true;
         }
 
         private void FailedMinigame()
         {
             GameManager.Instance.happiness += 0f;
-            GameManager.Instance.Go(States.StateType.MainScene);
             GameManager.Instance.gameIsPaused = false;
+            GameManager.Instance.miniGamePlayed = true;
+            if (GameManager.Instance.evolutionProgression >= GameManager.Instance.evolutionLenght)
+            {
+                GameManager.Instance.evolutionChange();
+            }
+            GameManager.Instance.Go(States.StateType.MainScene);
             //button.interactable = true;
             Debug.Log(GameManager.Instance.happiness);
         }
