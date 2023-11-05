@@ -8,15 +8,14 @@ public class passiveHappinessScript : MonoBehaviour
     [SerializeField] private happinessBar happinesbarScript;
     [SerializeField] private float timer;
     private bool isCoroutineRunning = false;
-    [SerializeField] private Button playWith;
     [SerializeField] private Button brush;
     [SerializeField] private Button minigame;
 
     void FixedUpdate()
     {
-        if (isCoroutineRunning == false && GameManager.Instance.gameIsPaused == false && playWith.interactable ||
-        isCoroutineRunning == false && GameManager.Instance.gameIsPaused == false && brush.interactable ||
-        isCoroutineRunning == false && GameManager.Instance.gameIsPaused == false && minigame.interactable)
+        if (isCoroutineRunning == false && GameManager.Instance.gameIsPaused == false && brush.interactable ||
+        isCoroutineRunning == false && GameManager.Instance.gameIsPaused == false && minigame.interactable ||
+        isCoroutineRunning == false && GameManager.Instance.gameIsPaused && GameObject.FindWithTag("toy") != null)
         {
             StartCoroutine("passiveHappinessDecrease");
         }
