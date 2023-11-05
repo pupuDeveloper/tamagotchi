@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         //TODO: read values below from memory. if null, create said values below
-        evolutionLenght = 2f;
+        evolutionLenght = 100f;
         happiness = 0.5f;
         evolution = 1;
         evolutionProgression = 0f;

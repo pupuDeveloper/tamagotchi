@@ -22,7 +22,7 @@ public class pettingDetection : MonoBehaviour
         if (petbutton.isBrushingOn)
         {
             petbutton.petProgress++;
-            Vector2 pos = new Vector2(Random.Range(currentXpos - 0.5f, currentXpos + 0.5f), Random.Range(currentYpos + 0.4f, currentYpos + 0.1f));
+            Vector2 pos = new Vector2(Random.Range(currentXpos - 0.5f, currentXpos + 0.5f), Random.Range(currentYpos + 1f, currentYpos + 0.8f));
             GameObject instancedParticleEffect = Instantiate(heartParticle, pos, Quaternion.identity);
         }
     }
