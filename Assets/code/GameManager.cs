@@ -154,7 +154,7 @@ public class GameManager : MonoBehaviour
         miniGamePlayed = false;
         petCollection.Add(currentPet);
         currentPet = null;
-        SceneManager.LoadScene("mainmenu");
+        Go(StateType.GameOver);
     }
     IEnumerator miniGamecooldown()
     {

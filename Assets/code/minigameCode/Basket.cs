@@ -8,14 +8,14 @@ namespace BunnyHole
     public class Basket : MonoBehaviour
     {
         [SerializeField] private float _speed = 1.0f;
-        private Inputs _inputs;
-        private Rigidbody2D _rb2D;
-        private Vector2 _moveInput;
         [SerializeField] private GameObject popoutwindow;
         [SerializeField] private ParticleSystem successParticles;
         [SerializeField] private ParticleSystem eyeballParticles;
-        public SpriteRenderer spriteRenderer;
         [SerializeField] private Sprite[] spriteArray;
+        private Inputs _inputs;
+        private Rigidbody2D _rb2D;
+        private Vector2 _moveInput;
+        public SpriteRenderer spriteRenderer;
 
         private void Awake()
         {
