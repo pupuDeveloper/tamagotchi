@@ -16,11 +16,14 @@ namespace BunnyHole
         private Rigidbody2D _rb2D;
         private Vector2 _moveInput;
         public SpriteRenderer spriteRenderer;
+        //Strawberry open audio effect
+        private AudioSource _openAudio;
 
         private void Awake()
         {
             _inputs = new Inputs();
             _rb2D = GetComponent<Rigidbody2D>();
+            _openAudio = GetComponent<AudioSource>();
         }
 
         private void OnEnable()
@@ -53,6 +56,11 @@ namespace BunnyHole
             // the strawberry
             if (collision.gameObject.layer == LayerMask.NameToLayer("Strawberry"))
             {
+                // Play audio
+                if (_openAudio != null)
+                {
+                    AudioManager.PlayClip(_openAudio, Config.SoundEffect.Strawberry);
+                }
                 Destroy(collision.gameObject);
                 Debug.Log("Correct");
                 Counting._count++;
@@ -60,7 +68,7 @@ namespace BunnyHole
                 successParticles.Play();
             }
 
-            if(collision.gameObject.layer == LayerMask.NameToLayer("Eyeball"))
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Eyeball"))
             {
                 Destroy(collision.gameObject);
                 Debug.Log("wrong");
