@@ -22,8 +22,8 @@ public class creatureMove : MonoBehaviour
         xpoint2 = 5.2f;
         ypoint1 = -2.5f;
         ypoint2 = -1.5f;
-        moveint1 = 5;
-        moveint2 = 30;
+        moveint1 = 2;
+        moveint2 = 10;
         movespeed = 1.5f;
         target = new Vector3(0,-2,-9);
         zeroVector = new Vector3(0,-2,-9);
@@ -35,7 +35,7 @@ public class creatureMove : MonoBehaviour
         {
             StartCoroutine("move");
         }
-        if (gameObject.transform.position != target && !isTimerRunning && target != zeroVector)
+        if (gameObject.transform.position != target && !isTimerRunning)
         {
             gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, target, movespeed * Time.deltaTime);
         }

@@ -26,7 +26,7 @@ public class minigameButton : MonoBehaviour
         {
             minigamebutton.interactable = true;
         }
-        else if (GameManager.Instance.miniGamePlayed)
+        else if (GameManager.Instance.miniGamePlayed && scene.name == "mainScene")
         {
             minigamebutton.interactable = false;
         }

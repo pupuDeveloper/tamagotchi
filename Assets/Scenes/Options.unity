@@ -1175,6 +1175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resolutions:
+  - sideLenght: 800
   - sideLenght: 640
   - sideLenght: 480
   resolutionLabel: {fileID: 2003837023}
