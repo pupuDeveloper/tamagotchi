@@ -10,7 +10,6 @@ namespace BunnyHole
     public class Counting : MonoBehaviour
     {
         [SerializeField] private int _totalCount;
-       // public Button button;
         public static int _count = 0;
         public TextMeshProUGUI countText;
         public static int eyeBallCount = 0;
@@ -21,7 +20,6 @@ namespace BunnyHole
             completed = false;
             _count = 0;
             eyeBallCount = 0;
-            //button.interactable = false;
             countText.text = _count + "/" + _totalCount;
         }
         private void Update()
@@ -50,7 +48,6 @@ namespace BunnyHole
                 GameManager.Instance.evolutionChange();
             }
             GameManager.Instance.Go(States.StateType.MainScene);
-            //button.interactable = true;
         }
 
         private void FailedMinigame()
@@ -63,7 +60,6 @@ namespace BunnyHole
                 GameManager.Instance.evolutionChange();
             }
             GameManager.Instance.Go(States.StateType.MainScene);
-            //button.interactable = true;
             Debug.Log(GameManager.Instance.happiness);
         }
     }
