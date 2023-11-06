@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class lostToyEvent : MonoBehaviour
 {
-    [SerializeField] private Sprite teddyNormal;
-    [SerializeField] private Sprite teddyHover;
     public GameObject teddy;
     private happinessBar happinessbar;
     public GameObject happinessBarScriptHolder;
@@ -26,30 +24,27 @@ public class lostToyEvent : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GameManager.Instance.activityToBeLaunched == 1 && GameManager.Instance.lostToy == false && !toyspawned)
+        if (GameManager.Instance.activityToBeLaunched == 1 && GameManager.Instance.lostToy == false && toyspawned == false)
         {
-            float xpos = Random.Range(xpoint1,xpoint2);
-            float ypos = Random.Range(ypoint1,ypoint2); 
+            float xpos = Random.Range(xpoint1, xpoint2);
+            float ypos = Random.Range(ypoint1, ypoint2); 
             Vector2 pos = new Vector2(xpos, ypos);
             GameObject instancedTeddy = Instantiate(teddy, pos, Quaternion.identity);
             toyspawned = true;
         }
     }
 
-    void OnMouseDown()
+    void OnTriggerEnter2D(Collider2D col)
     {
-        GameManager.Instance.happiness += 0.175f;
-        happinessbar.UpdateHappinessBar();
-        GameManager.Instance.lostToy = true;
-        toyspawned = false;
-    }
-    void OnMouseOver()
-    {
-        gameObject.GetComponent<SpriteRenderer>().sprite = teddyHover;
-    }
-
-    void OnMouseExit()
-    {
-        gameObject.GetComponent<SpriteRenderer>().sprite = teddyNormal;
+        Debug.Log(col.transform.gameObject.name);
+        if (col.gameObject.name == "toy(Clone)" && GameManager.Instance.dragging)
+        {
+            GameManager.Instance.happiness += 0.125f;
+            happinessbar.UpdateHappinessBar();
+            GameManager.Instance.lostToy = true;
+            toyspawned = false;
+            GameManager.Instance.dragging = false;
+            Destroy(col.gameObject);
+        }
     }
 }

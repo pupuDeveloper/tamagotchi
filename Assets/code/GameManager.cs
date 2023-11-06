@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     public bool minigameInfotoggle { get; set; }
     public bool lostToy { get; set; }
     private bool isLostToyCooldownRunning { get; set; }
+    public bool dragging { get; set; }
     public bool brushPet { get; set; }
     private bool isbrushBunnyCooldownRunning { get; set; }
     private int activityInterval1 { get; set; }
@@ -74,6 +75,7 @@ public class GameManager : MonoBehaviour
         isLostToyCooldownRunning = false;
         isbrushBunnyCooldownRunning = false;
         minigameInfotoggle = false;
+        dragging = false;
         currentPet = null;
         creaturePosition = new Vector3(0, -2, -9);
         poops = new List<Vector3>();
@@ -228,7 +230,6 @@ public class GameManager : MonoBehaviour
         _states.Add(new GameOverState());
        //states.Add(new BunnyHole.States.PauseState());
 
-//#if UNITY_EDITOR
         string activeSceneName = SceneManager.GetActiveScene().name.ToLower();
         foreach(GameStateBase state in _states)
         {
@@ -238,7 +239,6 @@ public class GameManager : MonoBehaviour
                 break;
             }
         }
-//#endif
 
         CurrentState = initialState;
         CurrentState.Activate();
