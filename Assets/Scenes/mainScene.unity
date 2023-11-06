@@ -8064,7 +8064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCleaningOn: 0
-  spawnInterval1: 3
+  spawnInterval1: 10
   spawnInterval2: 15
   passiveTimer: 1
   poopPrefab: {fileID: 8875750602958446050, guid: 7e38b13932f057f42bdbf4cc055c0487, type: 3}

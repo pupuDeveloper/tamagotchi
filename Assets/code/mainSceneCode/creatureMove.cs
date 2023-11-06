@@ -22,8 +22,8 @@ public class creatureMove : MonoBehaviour
         xpoint2 = 5.2f;
         ypoint1 = -2.5f;
         ypoint2 = -1.5f;
-        moveint1 = 5;
-        moveint2 = 15;
+        moveint1 = 2;
+        moveint2 = 10;
         movespeed = 1.5f;
         target = new Vector3(0,-2,-9);
         zeroVector = new Vector3(0,-2,-9);
