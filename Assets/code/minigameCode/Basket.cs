@@ -76,6 +76,10 @@ namespace BunnyHole
                 Debug.Log(Counting.eyeBallCount);
                 eyeballParticles.Play();
                 spriteRenderer.sprite = spriteArray[Counting.eyeBallCount];
+                if (_openAudio != null)
+                {
+                    AudioManager.PlayClip(_openAudio, Config.SoundEffect.BasketDamaged);
+                }
             }
         }
     }

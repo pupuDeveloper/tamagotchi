@@ -1,7 +1,7 @@
 ﻿namespace BunnyHole.Config
 {
     public enum SoundEffect
-        {
+    {
         None = 0,
         HealthBarGrowth,
         HealthBarDecrease,
@@ -10,6 +10,7 @@
         Strawberry,
         EyeBall,
         PetHappy,
-        PetAngry
+        PetAngry,
+        BasketDamaged
     }
 }
