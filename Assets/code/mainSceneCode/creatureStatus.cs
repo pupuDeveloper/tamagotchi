@@ -5,8 +5,7 @@ using UnityEngine;
 public class creatureStatus : MonoBehaviour
 {
     public pet playedPet;
-    private int animInt;
-    
+
     void Awake()
     {
         playedPet = GameManager.Instance.currentPet;
@@ -20,33 +19,53 @@ public class creatureStatus : MonoBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = playedPet.adultSprite;
         }
-
-        switch (gameObject.GetComponent<SpriteRenderer>().sprite.name)
-        {
-            case ("baby1_0"):
-            gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", 0);
-            break;
-
-            case ("adult1_0"):
-            gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", 1);
-            break;
-
-            case ("baby2_0"):
-            gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", 2);
-            break;
-
-            case ("adult2_0"):
-            gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", 3);
-            break;
-
-            case ("baby3_0"):
-            gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", 4);
-            break;
-
-            case ("adult3_0"):
-            gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", 5);
-            break;
-        }
         gameObject.transform.position = GameManager.Instance.creaturePosition;
+        triggerIdleAnim();
+    }
+
+    public void triggerIdleAnim()
+    {
+        if (GameManager.Instance.evolution == 1)
+        {
+            switch (GameManager.Instance.currentPet.childSprite.name)
+            {
+                case ("baby1_0"):
+                    gameObject.GetComponent<Animator>().SetBool("happyanim", false);
+                    gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", 0);
+                    break;
+
+                case ("baby2_0"):
+                    gameObject.GetComponent<Animator>().SetBool("happyanim", false);
+                    gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", 2);
+                    break;
+
+                case ("baby3_0"):
+                    gameObject.GetComponent<Animator>().SetBool("happyanim", false);
+                    gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", 4);
+                    break;
+            }
+        }
+        
+        if (GameManager.Instance.evolution == 2)
+
+        {
+            switch (GameManager.Instance.currentPet.adultSprite.name)
+            {
+                case ("adult1_0"):
+                    gameObject.GetComponent<Animator>().SetBool("happyanim", false);
+                    gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", 1);
+                    break;
+
+                case ("adult2_0"):
+                    gameObject.GetComponent<Animator>().SetBool("happyanim", false);
+                    gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", 3);
+                    break;
+
+                case ("adult3_0"):
+                    gameObject.GetComponent<Animator>().SetBool("happyanim", false);
+                    gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", 5);
+                    break;
+            }
+        }
     }
 }

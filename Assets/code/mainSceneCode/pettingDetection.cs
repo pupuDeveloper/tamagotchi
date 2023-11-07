@@ -2,35 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pettingDetection : MonoBehaviour
+namespace BunnyHole
 {
-    private petButton petbutton;
-    private happinessBar happinessbar;
-    [SerializeField] private GameObject heartParticle;
-    int animLayer = 0;
-    private float currentXpos;
-    private float currentYpos;
-
-    void Awake()
+    public class pettingDetection : MonoBehaviour
     {
-        petbutton = GameObject.Find("Main Camera").GetComponent<petButton>();
-        happinessbar = GameObject.Find("happinesbarBackground").GetComponent<happinessBar>();
-    }
+        private petButton petbutton;
+        private happinessBar happinessbar;
+        [SerializeField] private GameObject heartParticle;
+        int animLayer = 0;
+        private float currentXpos;
+        private float currentYpos;
 
-    void OnMouseEnter()
-    {
-        if (petbutton.isBrushingOn)
+        void Awake()
         {
-            petbutton.petProgress++;
-            Vector2 pos = new Vector2(Random.Range(currentXpos - 0.5f, currentXpos + 0.5f), Random.Range(currentYpos + 1f, currentYpos + 0.8f));
-            GameObject instancedParticleEffect = Instantiate(heartParticle, pos, Quaternion.identity);
+            petbutton = GameObject.Find("Main Camera").GetComponent<petButton>();
+            happinessbar = GameObject.Find("happinesbarBackground").GetComponent<happinessBar>();
         }
-    }
 
-    void FixedUpdate()
-    {
-        currentXpos = transform.position.x;
-        currentYpos = transform.position.y;
+        void OnMouseEnter()
+        {
+            if (petbutton.isBrushingOn)
+            {
+                petbutton.petProgress++;
+                Vector2 pos = new Vector2(Random.Range(currentXpos - 0.5f, currentXpos + 0.5f), Random.Range(currentYpos + 1f, currentYpos + 0.8f));
+                GameObject instancedParticleEffect = Instantiate(heartParticle, pos, Quaternion.identity);
+            }
+        }
+
+        void FixedUpdate()
+        {
+            currentXpos = transform.position.x;
+            currentYpos = transform.position.y;
+        }
     }
 }
 

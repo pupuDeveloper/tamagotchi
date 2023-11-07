@@ -15,3 +15,7 @@ MonoBehaviour:
   _soundEffects:
   - Type: 5
     Clip: {fileID: 8300000, guid: 0bf831055dea5ba479a02b58c2345183, type: 3}
+  - Type: 5
+    Clip: {fileID: 8300000, guid: 0bf831055dea5ba479a02b58c2345183, type: 3}
+  - Type: 7
+    Clip: {fileID: 8300000, guid: 0d5fc0209f052364abe8a870bad33d67, type: 3}
