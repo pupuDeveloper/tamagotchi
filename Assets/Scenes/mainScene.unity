@@ -1241,6 +1241,7 @@ GameObject:
   - component: {fileID: 864655559}
   - component: {fileID: 864655562}
   - component: {fileID: 864655561}
+  - component: {fileID: 864655563}
   m_Layer: 5
   m_Name: UIcanvas
   m_TagString: Untagged
@@ -1378,6 +1379,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f105838a6f0d5e044929cb0af22247c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &864655563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864655554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c50140403e45874c9521c03dcde14be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &881301043
@@ -2227,6 +2240,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 864655563}
+        m_TargetAssemblyTypeName: BunnyHole.playButtonSound, Assembly-CSharp
+        m_MethodName: buttonSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 864655561}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: loadMenu
@@ -7828,6 +7853,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 864655563}
+        m_TargetAssemblyTypeName: BunnyHole.playButtonSound, Assembly-CSharp
+        m_MethodName: buttonSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 864655561}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: quitGame
@@ -8516,6 +8553,18 @@ MonoBehaviour:
       - m_Target: {fileID: 864655561}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 864655563}
+        m_TargetAssemblyTypeName: BunnyHole.playButtonSound, Assembly-CSharp
+        m_MethodName: buttonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

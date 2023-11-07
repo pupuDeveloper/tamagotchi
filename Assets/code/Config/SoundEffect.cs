@@ -10,6 +10,7 @@
         Strawberry,
         EyeBall,
         PetHappy,
-        PetAngry
+        PetAngry,
+        menuButton
     }
 }
