@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: AudioData
   m_EditorClassIdentifier: 
   _soundEffects:
-  - Type: 5
+  - Type: 9
+    Clip: {fileID: 8300000, guid: 5723ff9dfdaa01f4f9d7dbde5656053b, type: 3}
+  - Type: 7
     Clip: {fileID: 8300000, guid: 0bf831055dea5ba479a02b58c2345183, type: 3}
+  - Type: 8
+    Clip: {fileID: 8300000, guid: e7546a1519adf044485730447c2f6e64, type: 3}
+  - Type: 2
+    Clip: {fileID: 8300000, guid: 1d6145005e86f8d479b8a3c5e5c7d804, type: 3}
