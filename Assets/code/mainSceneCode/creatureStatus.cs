@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System;
 
 public class creatureStatus : MonoBehaviour
 {
     public pet playedPet;
+    private bool showText;
+    [SerializeField] private GameObject ageText;
 
     void Awake()
     {
+        ageText.SetActive(false);
         playedPet = GameManager.Instance.currentPet;
         GameManager.Instance.currentPet.petName = GameManager.Instance.CurrentlyPlayedPetName;
         Debug.Log("Make sure you take good care of " + GameManager.Instance.CurrentlyPlayedPetName + "!");
@@ -21,6 +26,28 @@ public class creatureStatus : MonoBehaviour
         }
         gameObject.transform.position = GameManager.Instance.creaturePosition;
         triggerIdleAnim();
+    }
+
+    void FixedUpdate()
+    {
+        Vector2 pos = new Vector2(gameObject.transform.position.x + 1.25f, gameObject.transform.position.y + 1.75f);
+        ageText.transform.position = pos;
+        GameManager.Instance.currentPet.ageInSeconds = GameManager.Instance.evolutionProgression;
+        float hours = TimeSpan.FromSeconds(GameManager.Instance.currentPet.ageInSeconds).Hours;
+        float minutes = TimeSpan.FromSeconds(GameManager.Instance.currentPet.ageInSeconds).Minutes; 
+        float seconds = TimeSpan.FromSeconds(GameManager.Instance.currentPet.ageInSeconds).Seconds;
+        string textFieldHours = hours.ToString();
+        string textFieldMinutes = minutes.ToString();
+        string textFieldSeconds = minutes.ToString();
+        if (showText)
+        {
+            ageText.SetActive(true);
+            ageText.GetComponent<TMP_Text>().text = "age:\n" + hours + " day\n" + minutes + " h\n" + seconds + " min";
+        }
+        else
+        {
+            ageText.SetActive(false);
+        }
     }
 
     public void triggerIdleAnim()
@@ -66,6 +93,17 @@ public class creatureStatus : MonoBehaviour
                     gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", 5);
                     break;
             }
+        }
+    }
+    void OnMouseDown()
+    {
+        if (!showText)
+        {
+            showText = true;
+        }
+        else
+        {
+            showText = false;
         }
     }
 }
