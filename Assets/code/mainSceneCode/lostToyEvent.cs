@@ -36,7 +36,7 @@ namespace BunnyHole
             {
                 float xpos = Random.Range(xpoint1, xpoint2);
                 float ypos = Random.Range(ypoint1, ypoint2);
-                Vector2 pos = new Vector2(xpos, ypos);
+                Vector3 pos = new Vector3(xpos, ypos, -9);
                 GameObject instancedTeddy = Instantiate(teddy, pos, Quaternion.identity);
                 toyspawned = true;
             }

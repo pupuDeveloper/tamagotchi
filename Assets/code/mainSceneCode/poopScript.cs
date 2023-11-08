@@ -64,7 +64,7 @@ public class poopScript : MonoBehaviour
         yield return new WaitForSeconds (spawnTime);
         float rWidth = Random.Range(-0.5f,0.5f);
         float rHeight = Random.Range(-0.9f,-0.75f);
-        Vector2 pos = new Vector2 (creature.transform.position.x + rWidth, creature.transform.position.y + rHeight);
+        Vector3 pos = new Vector3 (creature.transform.position.x + rWidth, creature.transform.position.y + rHeight, -9);
         GameObject instancedPoop = Instantiate(poopPrefab, pos, Quaternion.identity);
         Vector3 addedVector = instancedPoop.transform.position;
         GameManager.Instance.poops.Add(addedVector);
