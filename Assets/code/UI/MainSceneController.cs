@@ -7,6 +7,7 @@ namespace BunnyHole.UI
     {
         public void OnMinigameButton()
         {
+            GameManager.Instance.gameIsPaused = true;
             GameManager.Instance.Go(States.StateType.Minigame);
         }
     }
