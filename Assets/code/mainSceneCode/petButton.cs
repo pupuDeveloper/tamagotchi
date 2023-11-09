@@ -3,56 +3,77 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class petButton : MonoBehaviour
+
+namespace BunnyHole
 {
-    private bool isButtonAvailable;
-    public bool isBrushingOn;
-    private happinessBar happinessbar;
-    public GameObject happinessBarScriptHolder;
-    public Button petbutton;
-    public int petAmount;
-    public int petProgress;
-    public Texture2D cursorTexture;
-    public CursorMode cursorMode = CursorMode.Auto;
-    public Vector2 hotSpot = Vector2.zero;
-    void Awake()
+    public class petButton : MonoBehaviour
     {
-        happinessbar = happinessBarScriptHolder.GetComponent<happinessBar>();
-        isBrushingOn = false;
-        petProgress = 0;
-    }
-
-    public void petbuttonFunc()
-    {
-        if (isBrushingOn)
+        private bool isButtonAvailable;
+        public bool isBrushingOn;
+        private happinessBar happinessbar;
+        public GameObject happinessBarScriptHolder;
+        public Button petbutton;
+        public int petAmount;
+        public int petProgress;
+        public Texture2D cursorTexture;
+        public CursorMode cursorMode = CursorMode.Auto;
+        public Vector2 hotSpot = Vector2.zero;
+        private AudioSource _openAudio;
+        private creatureStatus creatureStatusScript;
+        private creatureHappyanim creatureHappyanimScript;
+        void Awake()
         {
+            happinessbar = happinessBarScriptHolder.GetComponent<happinessBar>();
             isBrushingOn = false;
-            Cursor.SetCursor(null, hotSpot, cursorMode);
+            petProgress = 0;
+            _openAudio = GetComponent<AudioSource>();
+            creatureStatusScript = GameObject.Find("Creature").GetComponent<creatureStatus>();
+            creatureHappyanimScript = GameObject.Find("Creature").GetComponent<creatureHappyanim>();
         }
-        else
-        {
-            isBrushingOn = true;
-            Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
-            petAmount = Random.Range(10,20);
-        }
-    }
 
-    void FixedUpdate()
-    {
-        if (GameManager.Instance.activityToBeLaunched == 2 && GameManager.Instance.brushPet == false)
+        public void petbuttonFunc()
         {
-            petbutton.interactable = true;
+            if (isBrushingOn)
+            {
+                isBrushingOn = false;
+                Cursor.SetCursor(null, hotSpot, cursorMode);
+            }
+            else
+            {
+                isBrushingOn = true;
+                Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
+                petAmount = Random.Range(10, 20);
+            }
         }
-        if (petProgress >= petAmount && isBrushingOn && GameManager.Instance.brushPet == false)
+
+        void FixedUpdate()
         {
-        GameManager.Instance.happiness += 0.15f;
-        isBrushingOn = false;
-        happinessbar.UpdateHappinessBar();
-        petbutton.interactable = false;
-        GameManager.Instance.brushPet = true;
-        petAmount = 0;
-        petProgress = 0;
-        Cursor.SetCursor(null, hotSpot, cursorMode);
+            if (GameManager.Instance.activityToBeLaunched == 2 && GameManager.Instance.brushPet == false)
+            {
+                petbutton.interactable = true;
+            }
+            if (petProgress >= petAmount && isBrushingOn && GameManager.Instance.brushPet == false)
+            {
+                if (_openAudio != null)
+                {
+                    AudioManager.PlayClip(_openAudio, Config.SoundEffect.PetHappy);
+                }
+                creatureHappyanimScript.triggerHappyAnim();
+                StartCoroutine("animCooldown");
+                GameManager.Instance.happiness += 0.15f;
+                isBrushingOn = false;
+                happinessbar.UpdateHappinessBar();
+                petbutton.interactable = false;
+                GameManager.Instance.brushPet = true;
+                petAmount = 0;
+                petProgress = 0;
+                Cursor.SetCursor(null, hotSpot, cursorMode);
+            }
+        }
+        IEnumerator animCooldown()
+        {
+            yield return new WaitForSeconds(1.5f);
+            creatureStatusScript.triggerIdleAnim();
         }
     }
 }

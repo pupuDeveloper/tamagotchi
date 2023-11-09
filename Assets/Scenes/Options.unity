@@ -1370,6 +1370,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1923678517}
+        m_TargetAssemblyTypeName: BunnyHole.playButtonSound, Assembly-CSharp
+        m_MethodName: buttonSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1923678516}
         m_TargetAssemblyTypeName: BunnyHole.OptionsController, Assembly-CSharp
         m_MethodName: OnClose
@@ -2181,6 +2193,7 @@ GameObject:
   - component: {fileID: 1923678513}
   - component: {fileID: 1923678512}
   - component: {fileID: 1923678516}
+  - component: {fileID: 1923678517}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged

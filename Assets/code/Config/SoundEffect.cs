@@ -1,4 +1,4 @@
-﻿namespace BunnyHole.Config
+namespace BunnyHole.Config
 {
     public enum SoundEffect
     {
