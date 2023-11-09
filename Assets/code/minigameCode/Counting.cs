@@ -25,7 +25,7 @@ namespace BunnyHole
         private void Update()
         {
             countText.text = _count + "/" + _totalCount;
-            if (eyeBallCount == 3 && _count == _totalCount && completed == false)
+            if (eyeBallCount == 3 && completed == false)
             {
                 FailedMinigame();
                 completed = true;
@@ -37,6 +37,11 @@ namespace BunnyHole
                 //_count = 0;
             }
         }
+
+        // Adds points for successfully compliting the minigame in to the happiness meter.
+        // game is still paused in the main scene, and minigame has been played.
+        // Checks the evolution progression in the game manager.
+        // Coroutine waits before exiting the minigame to go back to the main scene.
         private void TrackingCount()
         {
             // Debug.Log("good job you collected all the strawberries");
@@ -47,9 +52,12 @@ namespace BunnyHole
             {
                 GameManager.Instance.evolutionChange();
             }
-            GameManager.Instance.Go(States.StateType.MainScene);
+            StartCoroutine(WaitBeforeExit());
         }
 
+        // No points to happines meter, game is still paused and minigame has been played
+        // Checks the evolution progression for the pet and after that goes to the Coroutine
+        // method that waits before exiting the minigame.
         private void FailedMinigame()
         {
             GameManager.Instance.happiness += 0f;
@@ -59,8 +67,22 @@ namespace BunnyHole
             {
                 GameManager.Instance.evolutionChange();
             }
-            GameManager.Instance.Go(States.StateType.MainScene);
+            StartCoroutine(WaitBeforeExit());
             Debug.Log(GameManager.Instance.happiness);
+        }
+
+        // Waits 1.2 second, before going to Exit method
+        private IEnumerator WaitBeforeExit()
+        {
+            float _waiting = 1.2f;
+            yield return new WaitForSeconds(_waiting);
+            Exit();
+        }
+
+        // Changes the scene back to Main Scene after waiting 1.2second.
+        private void Exit()
+        {
+            GameManager.Instance.Go(States.StateType.MainScene);
         }
     }
 }

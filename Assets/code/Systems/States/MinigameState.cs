@@ -7,7 +7,6 @@ namespace BunnyHole.States
 
         public MinigameState() : base()
         {
-            AddTargetState(StateType.MainScene);
-        }
+            AddTargetState(StateType.MainScene);        }
     }
 }
