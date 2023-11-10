@@ -60,7 +60,7 @@ public class happinessBar : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         StartCoroutine("particle", 15);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         GameManager.Instance.happiness += 0.15f;
     }
 }
