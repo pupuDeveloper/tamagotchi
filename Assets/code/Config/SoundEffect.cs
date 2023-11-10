@@ -1,4 +1,4 @@
-namespace BunnyHole.Config
+﻿namespace BunnyHole.Config
 {
     public enum SoundEffect
     {
@@ -11,6 +11,7 @@ namespace BunnyHole.Config
         EyeBall,
         PetHappy,
         PetAngry,
-        BasketDamaged
+        BasketDamaged,
+        menuButton
     }
 }
