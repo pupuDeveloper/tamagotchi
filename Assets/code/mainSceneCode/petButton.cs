@@ -60,7 +60,6 @@ namespace BunnyHole
                 }
                 creatureHappyanimScript.triggerHappyAnim();
                 StartCoroutine("animCooldown");
-                GameManager.Instance.happiness += 0.15f;
                 isBrushingOn = false;
                 StartCoroutine(happinessbar.particle(15));
                 petbutton.interactable = false;
@@ -68,6 +67,7 @@ namespace BunnyHole
                 petAmount = 0;
                 petProgress = 0;
                 Cursor.SetCursor(null, hotSpot, cursorMode);
+                GameManager.Instance.happiness += 0.15f;
             }
         }
         IEnumerator animCooldown()
