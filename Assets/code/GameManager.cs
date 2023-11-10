@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
         currentPet = null;
         creaturePosition = new Vector3(0, -2, -9);
         poops = new List<Vector3>();
+        petCollection = new List<pet>();
         if (_instance)
         {
             Destroy(gameObject);
@@ -145,6 +146,7 @@ public class GameManager : MonoBehaviour
     void gameOver()
     {
         gameIsPaused = true;
+        petCollection.Add(currentPet);
         Debug.Log("you didn't attend to your pets needs, and its pathetic existence withered away.");
         activePet = false;
         CurrentlyPlayedPetName = "";
@@ -154,7 +156,6 @@ public class GameManager : MonoBehaviour
         petDeathTimer = 20f;
         happiness = 0.5f;
         miniGamePlayed = false;
-        petCollection.Add(currentPet);
         currentPet = null;
         Go(StateType.GameOver);
     }
@@ -190,7 +191,6 @@ public class GameManager : MonoBehaviour
             activityToBeLaunched = activityRandomizer();
             yield return new WaitForSeconds(1);
         }
-        Debug.Log("minigame number :" + activityToBeLaunched);
         isActivityCooldownRunning = false;
     }
     public int activityRandomizer()
