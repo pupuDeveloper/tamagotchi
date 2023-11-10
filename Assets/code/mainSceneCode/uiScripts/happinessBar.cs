@@ -13,6 +13,15 @@ public class happinessBar : MonoBehaviour
     void Awake()
     {
         UpdateHappinessBar();
+        if (!GameManager.Instance.returningFromMinigame && !GameManager.Instance.minigameWasSuccess)
+        {
+            UpdateHappinessBar();
+        }
+        else if (GameManager.Instance.returningFromMinigame && GameManager.Instance.minigameWasSuccess)
+        {
+            GameManager.Instance.returningFromMinigame = false;
+            StartCoroutine("minigameCD");
+        }
     }
 
     void Update()
@@ -25,6 +34,11 @@ public class happinessBar : MonoBehaviour
                 barAnimator.SetTrigger("StableHealth");
             }
         }
+    }
+
+    void FixedUpdate()
+    {
+        Debug.Log(GameManager.Instance.happiness);
     }
 
 //this function adds or subtracts happiness points from the bar. 0 is 0 and 1 is full (0.5 is half bar)
@@ -45,5 +59,11 @@ public class happinessBar : MonoBehaviour
         }
         yield return new WaitForSeconds(0.3f);
         successParticle.Stop();
+    }
+    IEnumerator minigameCD()
+    {
+        yield return new WaitForSeconds(1);
+        GameManager.Instance.happiness += 0.15f;
+        StartCoroutine("particle", 15);
     }
 }

@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class creatureHappyanim : MonoBehaviour
+
+namespace BunnyHole
 {
-    private creatureStatus creatureStatusScript;
-
-    void Awake()
+    public class creatureHappyanim : MonoBehaviour
     {
-        creatureStatusScript = gameObject.GetComponent<creatureStatus>();
-    }
+        private creatureStatus creatureStatusScript;
 
-    public void triggerHappyAnim()
-    {
-        gameObject.GetComponent<Animator>().SetBool("happyanim", true);
+        void Awake()
+        {
+            creatureStatusScript = gameObject.GetComponent<creatureStatus>();
+        }
+
+        public void triggerHappyAnim()
+        {
+            gameObject.GetComponent<Animator>().SetBool("happyanim", true);
+        }
     }
 }

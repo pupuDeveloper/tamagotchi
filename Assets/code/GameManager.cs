@@ -47,6 +47,9 @@ public class GameManager : MonoBehaviour
     public List<Vector3> poops { get; set; }
     public pet currentPet { get; set; }
     public Vector3 creaturePosition { get; set; }
+    public bool returningFromMinigame { get; set; }
+    public bool minigameWasSuccess { get; set; }
+    public int idleAnimInt { get; set; }
 
     // Contains all states
     private List<GameStateBase> _states = new List<GameStateBase>();
@@ -80,6 +83,8 @@ public class GameManager : MonoBehaviour
         creaturePosition = new Vector3(0, -2, -9);
         poops = new List<Vector3>();
         petCollection = new List<pet>();
+        returningFromMinigame = false;
+        idleAnimInt = -1;
         if (_instance)
         {
             Destroy(gameObject);

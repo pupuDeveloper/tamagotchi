@@ -45,7 +45,7 @@ namespace BunnyHole
         private void TrackingCount()
         {
             // Debug.Log("good job you collected all the strawberries");
-            GameManager.Instance.happiness += 0.15f;
+            GameManager.Instance.minigameWasSuccess = true;
             GameManager.Instance.gameIsPaused = false;
             GameManager.Instance.miniGamePlayed = true;
             if (GameManager.Instance.evolutionProgression >= GameManager.Instance.evolutionLenght)
@@ -60,7 +60,7 @@ namespace BunnyHole
         // method that waits before exiting the minigame.
         private void FailedMinigame()
         {
-            GameManager.Instance.happiness += 0f;
+            GameManager.Instance.minigameWasSuccess = false;
             GameManager.Instance.gameIsPaused = false;
             GameManager.Instance.miniGamePlayed = true;
             if (GameManager.Instance.evolutionProgression >= GameManager.Instance.evolutionLenght)
@@ -82,6 +82,7 @@ namespace BunnyHole
         // Changes the scene back to Main Scene after waiting 1.2second.
         private void Exit()
         {
+            GameManager.Instance.returningFromMinigame = true;
             GameManager.Instance.Go(States.StateType.MainScene);
         }
     }
