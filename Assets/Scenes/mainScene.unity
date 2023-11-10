@@ -610,7 +610,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -5
   m_Sprite: {fileID: -1213670819, guid: d22e350bdcd248541809c52c33270c51, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1458,6 +1458,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 647232586}
   - {fileID: 1099466503}
   - {fileID: 1275176725}
   - {fileID: 1683814077}
@@ -1468,7 +1469,6 @@ RectTransform:
   - {fileID: 2080038190}
   - {fileID: 1007684006}
   - {fileID: 1473897523}
-  - {fileID: 647232586}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1716,7 +1716,7 @@ BoxCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 1
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295

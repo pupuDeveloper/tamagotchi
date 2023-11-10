@@ -30,7 +30,6 @@ namespace BunnyHole
             }
             else
             {
-                gameObject.GetComponent<Animator>().SetBool("happyanim", false);
                 gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", GameManager.Instance.idleAnimInt);
             }
             if (GameManager.Instance.returningFromMinigame && GameManager.Instance.minigameWasSuccess)

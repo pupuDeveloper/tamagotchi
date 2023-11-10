@@ -13,11 +13,7 @@ public class happinessBar : MonoBehaviour
     void Awake()
     {
         UpdateHappinessBar();
-        if (!GameManager.Instance.returningFromMinigame && !GameManager.Instance.minigameWasSuccess)
-        {
-            UpdateHappinessBar();
-        }
-        else if (GameManager.Instance.returningFromMinigame && GameManager.Instance.minigameWasSuccess)
+        if (GameManager.Instance.returningFromMinigame && GameManager.Instance.minigameWasSuccess)
         {
             GameManager.Instance.returningFromMinigame = false;
             StartCoroutine("minigameCD");
@@ -63,7 +59,8 @@ public class happinessBar : MonoBehaviour
     IEnumerator minigameCD()
     {
         yield return new WaitForSeconds(1);
-        GameManager.Instance.happiness += 0.15f;
         StartCoroutine("particle", 15);
+        yield return new WaitForSeconds(1.5f);
+        GameManager.Instance.happiness += 0.15f;
     }
 }
