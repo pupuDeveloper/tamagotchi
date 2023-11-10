@@ -1618,7 +1618,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -2, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1283781689}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &881301046
@@ -2671,11 +2672,11 @@ Transform:
   m_GameObject: {fileID: 1283781688}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.3899994, y: -1.6699982, z: -2.51}
+  m_LocalPosition: {x: 0, y: 1, z: 6.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 881301045}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!199 &1283781690
 ParticleSystemRenderer:
@@ -2757,16 +2758,16 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1283781688}
   serializedVersion: 8
-  lengthInSec: 1
+  lengthInSec: 0.05
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -3319,8 +3320,8 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    gravitySource: 0
-    maxNumParticles: 1000
+    gravitySource: 1
+    maxNumParticles: 999
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -8798,6 +8799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   happinessbarFill: {fileID: 90870670}
   barAnimator: {fileID: 90870672}
+  successParticle: {fileID: 1283781691}
 --- !u!114 &2080038192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8980,5 +8982,4 @@ SceneRoots:
   - {fileID: 881301045}
   - {fileID: 191726398}
   - {fileID: 270602407}
-  - {fileID: 1283781689}
   - {fileID: 154399028}
