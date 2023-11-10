@@ -33,8 +33,9 @@ public class GameManager : MonoBehaviour
     public bool miniGamePlayed { get; set; }
     private bool minigameCoroutineRunning { get; set; }
     public bool minigameInfotoggle { get; set; }
-    public bool bunnyPlay { get; set; }
-    private bool isBunnyPlayCooldownRunning { get; set; }
+    public bool lostToy { get; set; }
+    private bool isLostToyCooldownRunning { get; set; }
+    public bool dragging { get; set; }
     public bool brushPet { get; set; }
     private bool isbrushBunnyCooldownRunning { get; set; }
     private int activityInterval1 { get; set; }
@@ -68,12 +69,13 @@ public class GameManager : MonoBehaviour
         individualActivityCooldown = 20;
         miniGamePlayed = false;
         brushPet = false;
-        bunnyPlay = false;
+        lostToy = false;
         gameIsPaused = true;
         minigameCoroutineRunning = false;
-        isBunnyPlayCooldownRunning = false;
+        isLostToyCooldownRunning = false;
         isbrushBunnyCooldownRunning = false;
         minigameInfotoggle = false;
+        dragging = false;
         currentPet = null;
         creaturePosition = new Vector3(0, -2, -9);
         poops = new List<Vector3>();
@@ -124,9 +126,9 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine("brushBunnyCooldown");
         }
-        if (bunnyPlay && isBunnyPlayCooldownRunning == false)
+        if (lostToy && isLostToyCooldownRunning == false)
         {
-            StartCoroutine("playWithBunnyCooldown");
+            StartCoroutine("lostToyBunnyCooldown");
         }
     }
     public void evolutionChange()
@@ -154,7 +156,7 @@ public class GameManager : MonoBehaviour
         miniGamePlayed = false;
         petCollection.Add(currentPet);
         currentPet = null;
-        SceneManager.LoadScene("mainmenu");
+        Go(StateType.GameOver);
     }
     IEnumerator miniGamecooldown()
     {
@@ -170,12 +172,12 @@ public class GameManager : MonoBehaviour
         brushPet = false;
         isbrushBunnyCooldownRunning = false;
     }
-    IEnumerator playWithBunnyCooldown()
+    IEnumerator lostToyBunnyCooldown()
     {
-        isBunnyPlayCooldownRunning = true;
+        isLostToyCooldownRunning = true;
         yield return new WaitForSeconds (individualActivityCooldown);
-        bunnyPlay = false;
-        isBunnyPlayCooldownRunning = false;
+        lostToy = false;
+        isLostToyCooldownRunning = false;
     }
     IEnumerator activityCooldown()
     {
@@ -203,7 +205,7 @@ public class GameManager : MonoBehaviour
         {
             availableGames.Add(2);
         }
-        if(isBunnyPlayCooldownRunning == false)
+        if(isLostToyCooldownRunning == false)
         {
             availableGames.Add(3);
         }
