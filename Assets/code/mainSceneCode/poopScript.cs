@@ -51,6 +51,12 @@ public class poopScript : MonoBehaviour
         {
             StartCoroutine("passiveHappinessChange");
         }
+        if (GameManager.Instance.poops.Count == 0)
+        {
+            isCleaningOn = false;
+            Cursor.SetCursor(null, hotSpot, cursorMode);
+            creature.GetComponentInChildren<BoxCollider2D>().enabled = true;
+        }
     }
 
     //IEnumerator coroutine randomises time between spawnInterval1 and Spawninterval2

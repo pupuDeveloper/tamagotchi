@@ -44,13 +44,11 @@ public class creatureMove : MonoBehaviour
     IEnumerator move()
     {
         isTimerRunning = true;
-        Debug.Log("move started");
         moveTime = Random.Range(moveint1, moveint2);
         yield return new WaitForSeconds(moveTime);
         float xpos = Random.Range(xpoint1,xpoint2);
         float ypos = Random.Range(ypoint1,ypoint2); 
         target = new Vector3(xpos, ypos, -9);
         isTimerRunning = false;
-        Debug.Log("move completed");
     }
 }

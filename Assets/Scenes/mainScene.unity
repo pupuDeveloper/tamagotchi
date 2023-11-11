@@ -7726,6 +7726,9 @@ GameObject:
   - component: {fileID: 1318539180}
   - component: {fileID: 1318539179}
   - component: {fileID: 1318539178}
+  - component: {fileID: 1318539181}
+  - component: {fileID: 1318539182}
+  - component: {fileID: 1318539183}
   m_Layer: 5
   m_Name: cleanPoopButton
   m_TagString: Untagged
@@ -7781,7 +7784,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: ba376ebcd20d8054ba6d0c7296941cb6, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: ddf78e8d121ee69429740ee7ae6f6934, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 5689c2e7180477b4e80beae1933127f9, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 21300000, guid: 522f8816f42a33a4a932442131eb369c, type: 3}
@@ -7846,6 +7849,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318539176}
   m_CullTransparentMesh: 1
+--- !u!95 &1318539181
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318539176}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da4ea5f1dd2be9d43ab5ad31e9f69ee5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1318539182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318539176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0238c9675e0551649b7e0484e9deb6f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1318539183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318539176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1318539182}
+          m_TargetAssemblyTypeName: buttonAnims, Assembly-CSharp
+          m_MethodName: selectedAnim
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1386249379
 GameObject:
   m_ObjectHideFlags: 0
@@ -7858,6 +7923,9 @@ GameObject:
   - component: {fileID: 1386249383}
   - component: {fileID: 1386249382}
   - component: {fileID: 1386249381}
+  - component: {fileID: 1386249386}
+  - component: {fileID: 1386249385}
+  - component: {fileID: 1386249384}
   m_Layer: 5
   m_Name: minigameButton
   m_TagString: Untagged
@@ -7913,7 +7981,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: ba376ebcd20d8054ba6d0c7296941cb6, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: ddf78e8d121ee69429740ee7ae6f6934, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 5689c2e7180477b4e80beae1933127f9, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 21300000, guid: 522f8816f42a33a4a932442131eb369c, type: 3}
@@ -7990,6 +8058,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1386249379}
   m_CullTransparentMesh: 1
+--- !u!114 &1386249384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386249379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1386249385}
+          m_TargetAssemblyTypeName: buttonAnims, Assembly-CSharp
+          m_MethodName: selectedAnim
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1386249385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386249379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0238c9675e0551649b7e0484e9deb6f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1386249386
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386249379}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da4ea5f1dd2be9d43ab5ad31e9f69ee5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1473897522
 GameObject:
   m_ObjectHideFlags: 0
@@ -9061,6 +9191,9 @@ GameObject:
   - component: {fileID: 2081175729}
   - component: {fileID: 2081175728}
   - component: {fileID: 2081175727}
+  - component: {fileID: 2081175732}
+  - component: {fileID: 2081175731}
+  - component: {fileID: 2081175730}
   m_Layer: 5
   m_Name: petButton
   m_TagString: Untagged
@@ -9116,7 +9249,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: ba376ebcd20d8054ba6d0c7296941cb6, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: ddf78e8d121ee69429740ee7ae6f6934, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 5689c2e7180477b4e80beae1933127f9, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 21300000, guid: 522f8816f42a33a4a932442131eb369c, type: 3}
@@ -9181,6 +9314,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081175725}
   m_CullTransparentMesh: 1
+--- !u!114 &2081175730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081175725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2081175731}
+          m_TargetAssemblyTypeName: buttonAnims, Assembly-CSharp
+          m_MethodName: selectedAnim
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &2081175731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081175725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0238c9675e0551649b7e0484e9deb6f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &2081175732
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081175725}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da4ea5f1dd2be9d43ab5ad31e9f69ee5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
