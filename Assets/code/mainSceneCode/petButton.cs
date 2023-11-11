@@ -55,19 +55,19 @@ namespace BunnyHole
             if (petProgress >= petAmount && isBrushingOn && GameManager.Instance.brushPet == false)
             {
                 if (_openAudio != null)
-                {
+                { 
                     AudioManager.PlayClip(_openAudio, Config.SoundEffect.PetHappy);
                 }
                 creatureHappyanimScript.triggerHappyAnim();
                 StartCoroutine("animCooldown");
-                GameManager.Instance.happiness += 0.15f;
                 isBrushingOn = false;
-                happinessbar.UpdateHappinessBar();
+                StartCoroutine(happinessbar.particle(15));
                 petbutton.interactable = false;
                 GameManager.Instance.brushPet = true;
                 petAmount = 0;
                 petProgress = 0;
                 Cursor.SetCursor(null, hotSpot, cursorMode);
+                GameManager.Instance.happiness += 0.15f;
             }
         }
         IEnumerator animCooldown()

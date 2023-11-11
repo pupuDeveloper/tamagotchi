@@ -18,15 +18,15 @@ public class creatureMove : MonoBehaviour
 
     void Start()
     {
-        xpoint1 = -5.2f;
-        xpoint2 = 5.2f;
-        ypoint1 = -2.5f;
-        ypoint2 = -1.5f;
+        xpoint1 = -4.5f;
+        xpoint2 = 4.5f;
+        ypoint1 = -1.5f;
+        ypoint2 = -0.25f;
         moveint1 = 2;
         moveint2 = 10;
         movespeed = 1.5f;
-        target = new Vector3(0,-2,-9);
-        zeroVector = new Vector3(0,-2,-9);
+        target = new Vector3(0,-1,-9);
+        zeroVector = new Vector3(0,-1,-9);
         isTimerRunning = false;
     }
     void Update()

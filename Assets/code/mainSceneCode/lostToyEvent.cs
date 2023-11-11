@@ -53,8 +53,8 @@ namespace BunnyHole
                 }
                 creatureHappyanimScript.triggerHappyAnim();
                 StartCoroutine("animCooldown");
-                GameManager.Instance.happiness += 0.125f;
-                happinessbar.UpdateHappinessBar();
+                GameManager.Instance.happiness += 0.13f;
+                StartCoroutine(happinessbar.particle(13));
                 GameManager.Instance.lostToy = true;
                 toyspawned = false;
                 GameManager.Instance.dragging = false;
