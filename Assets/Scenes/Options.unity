@@ -283,7 +283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6020434532665629965, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
       propertyPath: m_fontSize
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6020434532665629965, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
       propertyPath: m_fontAsset
@@ -291,7 +291,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
     - target: {fileID: 6020434532665629965, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
       propertyPath: m_fontSizeBase
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6020434532665629965, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
       propertyPath: m_sharedMaterial
@@ -578,7 +578,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &751565543
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2142,6 +2142,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 979663596}
+        m_TargetAssemblyTypeName: changeReso, Assembly-CSharp
+        m_MethodName: setReso
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1891366169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2328,7 +2340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6020434532665629965, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
       propertyPath: m_fontSize
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6020434532665629965, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
       propertyPath: m_fontAsset
@@ -2336,7 +2348,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
     - target: {fileID: 6020434532665629965, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
       propertyPath: m_fontSizeBase
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6020434532665629965, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
       propertyPath: m_sharedMaterial
@@ -2356,7 +2368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6047499023853990666, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
       propertyPath: m_fontSize
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6047499023853990666, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
       propertyPath: m_fontAsset
@@ -2364,7 +2376,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
     - target: {fileID: 6047499023853990666, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
       propertyPath: m_fontSizeBase
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6047499023853990666, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
       propertyPath: m_sharedMaterial
@@ -2792,7 +2804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6020434532665629965, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
       propertyPath: m_fontSize
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6020434532665629965, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
       propertyPath: m_margin.x
@@ -2804,7 +2816,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
     - target: {fileID: 6020434532665629965, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
       propertyPath: m_fontSizeBase
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6020434532665629965, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
       propertyPath: m_sharedMaterial
