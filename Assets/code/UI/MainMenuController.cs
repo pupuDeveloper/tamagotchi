@@ -8,6 +8,7 @@ namespace BunnyHole.UI
     {
         [SerializeField] private GameObject _namePet;
         [SerializeField] private GameObject _mainMenu;
+
         public void OnNewGame()
         {
             if (GameManager.Instance.activePet)

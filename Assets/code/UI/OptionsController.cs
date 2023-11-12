@@ -22,9 +22,8 @@ namespace BunnyHole.UI
             _musicVolume.Setup(_mixer, _musicVolumeName);
             _sfxVolume.Setup(_mixer, _sfxVolumeName);
         }
-        public void OnSave()
+        public void OnApply()
         {
-            //TODO: Saving mechanics
             _masterVolume.Save();
             _musicVolume.Save();
             _sfxVolume.Save();

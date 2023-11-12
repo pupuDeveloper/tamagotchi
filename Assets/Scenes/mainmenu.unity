@@ -230,7 +230,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1773545224}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BunnyHole.playButtonSound, Assembly-CSharp
         m_MethodName: buttonSound
         m_Mode: 1
@@ -1832,7 +1832,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1773545224}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BunnyHole.playButtonSound, Assembly-CSharp
         m_MethodName: buttonSound
         m_Mode: 1
@@ -2751,7 +2751,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1773545224}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BunnyHole.playButtonSound, Assembly-CSharp
         m_MethodName: buttonSound
         m_Mode: 1
@@ -3085,7 +3085,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8603271293267510546, guid: 07c146a112b16f946897bb656b936bf5, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3265,7 +3265,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1773545224}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BunnyHole.playButtonSound, Assembly-CSharp
         m_MethodName: buttonSound
         m_Mode: 1
