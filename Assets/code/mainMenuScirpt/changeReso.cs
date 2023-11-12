@@ -46,6 +46,11 @@ public class changeReso : MonoBehaviour
     public void UpdateResLabel()
     {
         resolutionLabel.text = resolutions[selectedResolution].sideLenght.ToString() + " x " + resolutions[selectedResolution].sideLenght.ToString();
+        //Screen.SetResolution(resolutions[selectedResolution].sideLenght, resolutions[selectedResolution].sideLenght, false);
+    }
+
+    public void setReso()
+    {
         Screen.SetResolution(resolutions[selectedResolution].sideLenght, resolutions[selectedResolution].sideLenght, false);
     }
 }

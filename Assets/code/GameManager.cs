@@ -33,8 +33,9 @@ public class GameManager : MonoBehaviour
     public bool miniGamePlayed { get; set; }
     private bool minigameCoroutineRunning { get; set; }
     public bool minigameInfotoggle { get; set; }
-    public bool bunnyPlay { get; set; }
-    private bool isBunnyPlayCooldownRunning { get; set; }
+    public bool lostToy { get; set; }
+    private bool isLostToyCooldownRunning { get; set; }
+    public bool dragging { get; set; }
     public bool brushPet { get; set; }
     private bool isbrushBunnyCooldownRunning { get; set; }
     private int activityInterval1 { get; set; }
@@ -46,6 +47,9 @@ public class GameManager : MonoBehaviour
     public List<Vector3> poops { get; set; }
     public pet currentPet { get; set; }
     public Vector3 creaturePosition { get; set; }
+    public bool returningFromMinigame { get; set; }
+    public bool minigameWasSuccess { get; set; }
+    public int idleAnimInt { get; set; }
 
     // Contains all states
     private List<GameStateBase> _states = new List<GameStateBase>();
@@ -68,15 +72,19 @@ public class GameManager : MonoBehaviour
         individualActivityCooldown = 20;
         miniGamePlayed = false;
         brushPet = false;
-        bunnyPlay = false;
+        lostToy = false;
         gameIsPaused = true;
         minigameCoroutineRunning = false;
-        isBunnyPlayCooldownRunning = false;
+        isLostToyCooldownRunning = false;
         isbrushBunnyCooldownRunning = false;
         minigameInfotoggle = false;
+        dragging = false;
         currentPet = null;
         creaturePosition = new Vector3(0, -2, -9);
         poops = new List<Vector3>();
+        petCollection = new List<pet>();
+        returningFromMinigame = false;
+        idleAnimInt = -1;
         if (_instance)
         {
             Destroy(gameObject);
@@ -124,9 +132,9 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine("brushBunnyCooldown");
         }
-        if (bunnyPlay && isBunnyPlayCooldownRunning == false)
+        if (lostToy && isLostToyCooldownRunning == false)
         {
-            StartCoroutine("playWithBunnyCooldown");
+            StartCoroutine("lostToyBunnyCooldown");
         }
     }
     public void evolutionChange()
@@ -143,6 +151,7 @@ public class GameManager : MonoBehaviour
     void gameOver()
     {
         gameIsPaused = true;
+        petCollection.Add(currentPet);
         Debug.Log("you didn't attend to your pets needs, and its pathetic existence withered away.");
         activePet = false;
         CurrentlyPlayedPetName = "";
@@ -152,9 +161,8 @@ public class GameManager : MonoBehaviour
         petDeathTimer = 20f;
         happiness = 0.5f;
         miniGamePlayed = false;
-        petCollection.Add(currentPet);
         currentPet = null;
-        SceneManager.LoadScene("mainmenu");
+        Go(StateType.GameOver);
     }
     IEnumerator miniGamecooldown()
     {
@@ -170,12 +178,12 @@ public class GameManager : MonoBehaviour
         brushPet = false;
         isbrushBunnyCooldownRunning = false;
     }
-    IEnumerator playWithBunnyCooldown()
+    IEnumerator lostToyBunnyCooldown()
     {
-        isBunnyPlayCooldownRunning = true;
+        isLostToyCooldownRunning = true;
         yield return new WaitForSeconds (individualActivityCooldown);
-        bunnyPlay = false;
-        isBunnyPlayCooldownRunning = false;
+        lostToy = false;
+        isLostToyCooldownRunning = false;
     }
     IEnumerator activityCooldown()
     {
@@ -188,7 +196,6 @@ public class GameManager : MonoBehaviour
             activityToBeLaunched = activityRandomizer();
             yield return new WaitForSeconds(1);
         }
-        Debug.Log("minigame number :" + activityToBeLaunched);
         isActivityCooldownRunning = false;
     }
     public int activityRandomizer()
@@ -203,7 +210,7 @@ public class GameManager : MonoBehaviour
         {
             availableGames.Add(2);
         }
-        if(isBunnyPlayCooldownRunning == false)
+        if(isLostToyCooldownRunning == false)
         {
             availableGames.Add(3);
         }
@@ -228,7 +235,6 @@ public class GameManager : MonoBehaviour
         _states.Add(new GameOverState());
        //states.Add(new BunnyHole.States.PauseState());
 
-//#if UNITY_EDITOR
         string activeSceneName = SceneManager.GetActiveScene().name.ToLower();
         foreach(GameStateBase state in _states)
         {
@@ -238,7 +244,6 @@ public class GameManager : MonoBehaviour
                 break;
             }
         }
-//#endif
 
         CurrentState = initialState;
         CurrentState.Activate();

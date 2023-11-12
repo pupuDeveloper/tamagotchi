@@ -18,9 +18,15 @@ public class poopDestroyingScript : MonoBehaviour
         if (poopscript.isCleaningOn)
         {
         GameManager.Instance.poops.Remove(gameObject.transform.position);
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
         GameManager.Instance.happiness += 0.03f;
-        happinessbar.UpdateHappinessBar();
-        Destroy(gameObject);
+        StartCoroutine(happinessbar.particle(3));
+        StartCoroutine("destroyDelay");
         }
+    }
+    IEnumerator destroyDelay()
+    {
+        yield return new WaitForSeconds(0.46f);
+        Destroy(gameObject);
     }
 }

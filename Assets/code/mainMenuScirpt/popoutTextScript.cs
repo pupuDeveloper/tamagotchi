@@ -19,7 +19,6 @@ namespace BunnyHole.UI
             popoutText.text = "Create " + readinputScript.SuggestedInput + " and start game?";
             GameManager.Instance.CurrentlyPlayedPetName = readinputScript.SuggestedInput;
             petOption = petRandomiser.petRandomiseAndCreate();
-            Debug.Log(petOption);
         }
 
         public void startGame()

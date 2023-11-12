@@ -10,7 +10,6 @@ namespace BunnyHole
     public class Counting : MonoBehaviour
     {
         [SerializeField] private int _totalCount;
-       // public Button button;
         public static int _count = 0;
         public TextMeshProUGUI countText;
         public static int eyeBallCount = 0;
@@ -21,13 +20,12 @@ namespace BunnyHole
             completed = false;
             _count = 0;
             eyeBallCount = 0;
-            //button.interactable = false;
             countText.text = _count + "/" + _totalCount;
         }
         private void Update()
         {
             countText.text = _count + "/" + _totalCount;
-            if (eyeBallCount == 3 && _count == _totalCount && completed == false)
+            if (eyeBallCount == 3 && completed == false)
             {
                 FailedMinigame();
                 completed = true;
@@ -39,32 +37,53 @@ namespace BunnyHole
                 //_count = 0;
             }
         }
+
+        // Adds points for successfully compliting the minigame in to the happiness meter.
+        // game is still paused in the main scene, and minigame has been played.
+        // Checks the evolution progression in the game manager.
+        // Coroutine waits before exiting the minigame to go back to the main scene.
         private void TrackingCount()
         {
             // Debug.Log("good job you collected all the strawberries");
-            GameManager.Instance.happiness += 0.15f;
+            GameManager.Instance.minigameWasSuccess = true;
             GameManager.Instance.gameIsPaused = false;
             GameManager.Instance.miniGamePlayed = true;
             if (GameManager.Instance.evolutionProgression >= GameManager.Instance.evolutionLenght)
             {
                 GameManager.Instance.evolutionChange();
             }
-            GameManager.Instance.Go(States.StateType.MainScene);
-            //button.interactable = true;
+            StartCoroutine(WaitBeforeExit());
         }
 
+        // No points to happines meter, game is still paused and minigame has been played
+        // Checks the evolution progression for the pet and after that goes to the Coroutine
+        // method that waits before exiting the minigame.
         private void FailedMinigame()
         {
-            GameManager.Instance.happiness += 0f;
+            GameManager.Instance.minigameWasSuccess = false;
             GameManager.Instance.gameIsPaused = false;
             GameManager.Instance.miniGamePlayed = true;
             if (GameManager.Instance.evolutionProgression >= GameManager.Instance.evolutionLenght)
             {
                 GameManager.Instance.evolutionChange();
             }
-            GameManager.Instance.Go(States.StateType.MainScene);
-            //button.interactable = true;
+            StartCoroutine(WaitBeforeExit());
             Debug.Log(GameManager.Instance.happiness);
+        }
+
+        // Waits 1.2 second, before going to Exit method
+        private IEnumerator WaitBeforeExit()
+        {
+            float _waiting = 1.2f;
+            yield return new WaitForSeconds(_waiting);
+            Exit();
+        }
+
+        // Changes the scene back to Main Scene after waiting 1.2second.
+        private void Exit()
+        {
+            GameManager.Instance.returningFromMinigame = true;
+            GameManager.Instance.Go(States.StateType.MainScene);
         }
     }
 }
