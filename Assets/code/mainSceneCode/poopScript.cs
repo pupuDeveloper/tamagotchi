@@ -20,6 +20,7 @@ public class poopScript : MonoBehaviour
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotSpot = Vector2.zero;
     public GameObject creature;
+    public bool poopHasSpawned;
 
     void Awake()
     {
@@ -69,15 +70,16 @@ public class poopScript : MonoBehaviour
         int spawnTime = Random.Range(spawnInterval1, spawnInterval2);
         yield return new WaitForSeconds (spawnTime);
         float rWidth = Random.Range(-0.5f,0.5f);
-        float rHeight = Random.Range(-0.9f,-0.75f);
+        //float rHeight = Random.Range(-0.9f,-0.75f);
+        float rHeight = -0.6f;
         Vector3 pos = new Vector3 (creature.transform.position.x + rWidth, creature.transform.position.y + rHeight, -9);
         GameObject instancedPoop = Instantiate(poopPrefab, pos, Quaternion.identity);
         Vector3 addedVector = instancedPoop.transform.position;
+        poopHasSpawned = true;
         GameManager.Instance.poops.Add(addedVector);
         GameManager.Instance.happiness -= (0.02f * GameManager.Instance.happinessMultiplier);
         happinessbar.UpdateHappinessBar();
         isCoroutineRunning = false;
-        Debug.Log("poopamount in gamemanager :" + GameManager.Instance.poops.Count);
     }
 
     IEnumerator passiveHappinessChange()

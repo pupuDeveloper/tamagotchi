@@ -15,6 +15,8 @@ public class creatureMove : MonoBehaviour
     private float movespeed;
     private Vector3 target;
     private Vector3 zeroVector;
+    [SerializeField] GameObject poopObject;
+    private poopScript poopscript;
 
     void Start()
     {
@@ -28,14 +30,21 @@ public class creatureMove : MonoBehaviour
         target = new Vector3(0,-1,-9);
         zeroVector = new Vector3(0,-1,-9);
         isTimerRunning = false;
+        poopscript = poopObject.GetComponent<poopScript>();
     }
     void Update()
     {
+        if(poopscript.poopHasSpawned)
+        {
+            poopscript.poopHasSpawned = false;
+            StopCoroutine("move");
+            moveWhenPooped();
+        }
         if (!isTimerRunning && gameObject.transform.position == target)
         {
             StartCoroutine("move");
         }
-        if (gameObject.transform.position != target && !isTimerRunning)
+        if (gameObject.transform.position != target)
         {
             gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, target, movespeed * Time.deltaTime);
         }
@@ -50,5 +59,11 @@ public class creatureMove : MonoBehaviour
         float ypos = Random.Range(ypoint1,ypoint2); 
         target = new Vector3(xpos, ypos, -9);
         isTimerRunning = false;
+    }
+    private void moveWhenPooped()
+    {
+        float xpos = Random.Range(xpoint1,xpoint2);
+        float ypos = Random.Range(ypoint1,ypoint2); 
+        target = new Vector3(xpos, ypos, -9);
     }
 }

@@ -1714,7 +1714,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1793,6 +1793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841e328baea877946844f81f97934f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poopObject: {fileID: 1943622000}
 --- !u!114 &881301049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8791,6 +8792,7 @@ MonoBehaviour:
   cursorMode: 0
   hotSpot: {x: 0, y: 0}
   creature: {fileID: 881301043}
+  poopHasSpawned: 0
 --- !u!4 &1943622002
 Transform:
   m_ObjectHideFlags: 0
