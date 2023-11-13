@@ -231,9 +231,9 @@ public class GameManager : MonoBehaviour
         _states.Add(initialState);
         _states.Add(new MainSceneState());
         _states.Add(new OptionsState());
+        _states.Add(new CreditsState());
         _states.Add(new MinigameState());
         _states.Add(new GameOverState());
-       //states.Add(new BunnyHole.States.PauseState());
 
         string activeSceneName = SceneManager.GetActiveScene().name.ToLower();
         foreach(GameStateBase state in _states)
