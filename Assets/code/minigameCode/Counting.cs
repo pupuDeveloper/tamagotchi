@@ -74,7 +74,7 @@ namespace BunnyHole
         // Waits 1.2 second, before going to Exit method
         private IEnumerator WaitBeforeExit()
         {
-            float _waiting = 1.2f;
+            float _waiting = 1.0f;
             yield return new WaitForSeconds(_waiting);
             Exit();
         }

@@ -28,6 +28,11 @@ namespace BunnyHole.UI
             GameManager.Instance.Go(States.StateType.Options);
         }
 
+        public void OnCredits()
+        {
+            GameManager.Instance.Go(States.StateType.Credits);
+        }
+
         public void OnQuit()
         {
             Application.Quit();
