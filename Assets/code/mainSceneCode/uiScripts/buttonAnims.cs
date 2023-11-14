@@ -1,45 +1,61 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
 
 public class buttonAnims : MonoBehaviour
 {
     private Button b;
+    [SerializeField] private GameObject animations;
+    private SpriteRenderer animRenderer;
     private Animator banimator;
     private bool selected;
     private bool reset;
     void Awake()
     {
         b = gameObject.GetComponent<Button>();
-        banimator = gameObject.GetComponent<Animator>();
-        b.interactable = false;
+        animRenderer = animations.GetComponent<SpriteRenderer>();
+        banimator = animations.GetComponent<Animator>();
+        animRenderer.enabled = false;
+        selected = false;
         reset = false;
     }
-
-    void Update()
+    
+    void FixedUpdate()
     {
-        if (b.interactable == false)
-        {
-            reset = false;
-            banimator.SetInteger("selected", 3);
-        }
-        else if (b.interactable && reset == false)
+        if (gameObject.name == "cleanPoopButton" && GameManager.Instance.poops.Count < 1 || gameObject.name == "minigameButton" && GameManager.Instance.miniGamePlayed || gameObject.name == "petButton" && GameManager.Instance.brushPet)
         {
             reset = true;
-            banimator.SetTrigger("activation");
+            animRenderer.enabled = false;
+            selected = false;
+        }
+        else if(b.interactable && reset)
+        {
+            reset = false;
+            StartCoroutine("cd");
+            banimator.SetTrigger("startAnim2");
+            animRenderer.enabled = true;
         }
     }
-    public void selectedAnim()
+    public void selectButton()
     {
-        if (banimator.GetInteger("selected") != 2)
+        if (selected == false)
         {
-            banimator.SetInteger("selected", 2);
+            b.interactable = true;
+            selected = true;
+            animRenderer.enabled = true;
+            banimator.SetTrigger("startAnim");
         }
-        else if (banimator.GetInteger("selected") == 2)
+        else
         {
-            banimator.SetInteger("selected", 1);
+            b.interactable = true;
+            selected = false;
+            animRenderer.enabled = false;
         }
+    }
+    IEnumerator cd()
+    {
+        yield return new WaitForSeconds(0.35f);
+        animRenderer.enabled = true;
     }
 }
