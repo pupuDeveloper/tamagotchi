@@ -32,30 +32,23 @@ public class buttonAnims : MonoBehaviour
         else if(b.interactable && reset)
         {
             reset = false;
-            StartCoroutine("cd");
-            banimator.SetTrigger("startAnim2");
             animRenderer.enabled = true;
+            banimator.SetTrigger("startAnim2");
+            banimator.ResetTrigger("startAnim");
         }
     }
     public void selectButton()
     {
         if (selected == false)
         {
-            b.interactable = true;
             selected = true;
             animRenderer.enabled = true;
             banimator.SetTrigger("startAnim");
         }
         else
         {
-            b.interactable = true;
             selected = false;
             animRenderer.enabled = false;
         }
-    }
-    IEnumerator cd()
-    {
-        yield return new WaitForSeconds(0.35f);
-        animRenderer.enabled = true;
     }
 }
