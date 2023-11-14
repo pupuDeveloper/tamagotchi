@@ -23,7 +23,7 @@ public class buttonAnims : MonoBehaviour
     
     void FixedUpdate()
     {
-        if (gameObject.name == "cleanPoopButton" && GameManager.Instance.poops.Count < 1 || gameObject.name == "minigameButton" && GameManager.Instance.miniGamePlayed || gameObject.name == "petButton" && GameManager.Instance.brushPet)
+        if (b.interactable == false)
         {
             reset = true;
             animRenderer.enabled = false;
