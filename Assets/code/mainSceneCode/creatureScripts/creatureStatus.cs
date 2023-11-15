@@ -34,7 +34,7 @@ namespace BunnyHole
             }
             if (GameManager.Instance.returningFromMinigame && GameManager.Instance.minigameWasSuccess)
             {
-                gameObject.GetComponent<creatureHappyanim>().triggerHappyAnim();
+                gameObject.GetComponent<creatureAnims>().triggerHappyAnim();
                 StartCoroutine("cd");
             }
             ageText.SetActive(false);
@@ -129,12 +129,20 @@ namespace BunnyHole
         IEnumerator cd()
         {
             yield return new WaitForSeconds(1);
-            if (_openAudio != null)
+            if (_openAudio != null )
                 {
                     AudioManager.PlayClip(_openAudio, Config.SoundEffect.PetHappy);
                 }
             yield return new WaitForSeconds(1);
             gameObject.GetComponent<Animator>().SetBool("happyanim", false);
+            gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", GameManager.Instance.idleAnimInt);
+        }
+        IEnumerator cd2()
+        {
+            yield return new WaitForSeconds(1);
+            //TODO: add sad sfx
+            yield return new WaitForSeconds(1);
+            gameObject.GetComponent<Animator>().SetBool("sadanim", false);
             gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", GameManager.Instance.idleAnimInt);
         }
     }

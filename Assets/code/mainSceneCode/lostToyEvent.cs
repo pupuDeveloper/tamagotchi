@@ -16,7 +16,7 @@ namespace BunnyHole
         private bool toyspawned;
         private AudioSource _openAudio;
         private creatureStatus creatureStatusScript;
-        private creatureHappyanim creatureHappyanimScript;
+        private creatureAnims creatureAnimScript;
         void Awake()
         {
             happinessbar = happinessBarScriptHolder.GetComponent<happinessBar>();
@@ -27,7 +27,7 @@ namespace BunnyHole
             toyspawned = false;
             _openAudio = GetComponent<AudioSource>();
             creatureStatusScript = gameObject.GetComponent<creatureStatus>();
-            creatureHappyanimScript = gameObject.GetComponent<creatureHappyanim>();
+            creatureAnimScript = gameObject.GetComponent<creatureAnims>();
         }
 
         void FixedUpdate()
@@ -51,7 +51,7 @@ namespace BunnyHole
                 {
                     AudioManager.PlayClip(_openAudio, Config.SoundEffect.PetHappy);
                 }
-                creatureHappyanimScript.triggerHappyAnim();
+                creatureAnimScript.triggerHappyAnim();
                 StartCoroutine("animCooldown");
                 GameManager.Instance.happiness += 0.13f;
                 StartCoroutine(happinessbar.particle(13));
