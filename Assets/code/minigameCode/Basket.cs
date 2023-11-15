@@ -15,9 +15,10 @@ namespace BunnyHole
         private Inputs _inputs;
         private Rigidbody2D _rb2D;
         private Vector2 _moveInput;
-        public SpriteRenderer spriteRenderer;
         //Strawberry open audio effect
         private AudioSource _openAudio;
+
+        public SpriteRenderer spriteRenderer;
 
         private void Awake()
         {
@@ -70,16 +71,16 @@ namespace BunnyHole
 
             if (collision.gameObject.layer == LayerMask.NameToLayer("Eyeball"))
             {
+                if (_openAudio != null)
+                {
+                    AudioManager.PlayClip(_openAudio, Config.SoundEffect.BasketDamaged);
+                }
                 Destroy(collision.gameObject);
                 Debug.Log("wrong");
                 Counting.eyeBallCount++;
                 Debug.Log(Counting.eyeBallCount);
                 eyeballParticles.Play();
                 spriteRenderer.sprite = spriteArray[Counting.eyeBallCount];
-                if (_openAudio != null)
-                {
-                    AudioManager.PlayClip(_openAudio, Config.SoundEffect.BasketDamaged);
-                }
             }
         }
     }
