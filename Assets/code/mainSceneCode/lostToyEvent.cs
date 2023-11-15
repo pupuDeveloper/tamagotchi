@@ -22,8 +22,8 @@ namespace BunnyHole
             happinessbar = happinessBarScriptHolder.GetComponent<happinessBar>();
             xpoint1 = -5.2f;
             xpoint2 = 5.2f;
-            ypoint1 = -2.5f;
-            ypoint2 = -1.5f;
+            ypoint1 = -2f;
+            ypoint2 = -0.4f;
             toyspawned = false;
             _openAudio = GetComponent<AudioSource>();
             creatureStatusScript = gameObject.GetComponent<creatureStatus>();

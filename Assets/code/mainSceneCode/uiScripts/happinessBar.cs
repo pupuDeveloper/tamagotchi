@@ -32,11 +32,6 @@ public class happinessBar : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-        Debug.Log(GameManager.Instance.happiness);
-    }
-
 //this function adds or subtracts happiness points from the bar. 0 is 0 and 1 is full (0.5 is half bar)
     public void UpdateHappinessBar()
     {
