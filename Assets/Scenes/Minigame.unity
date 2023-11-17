@@ -303,8 +303,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ok
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
-  m_sharedMaterial: {fileID: 6586579265419024204, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 28bb345f311416140aaa990d9dfe7734, type: 2}
+  m_sharedMaterial: {fileID: 1247626520409245666, guid: 28bb345f311416140aaa990d9dfe7734, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -658,8 +658,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Collect the strawberries.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
-  m_sharedMaterial: {fileID: 6586579265419024204, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 28bb345f311416140aaa990d9dfe7734, type: 2}
+  m_sharedMaterial: {fileID: 1247626520409245666, guid: 28bb345f311416140aaa990d9dfe7734, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -683,7 +683,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 13.75
+  m_fontSize: 13.7
   m_fontSizeBase: 9
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -908,7 +908,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -67.7, y: 5}
+  m_AnchoredPosition: {x: -67.70001, y: 5}
   m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &558408892
@@ -1028,8 +1028,8 @@ Transform:
   m_GameObject: {fileID: 590208316}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -123.299995, y: -1.4399917, z: 0}
-  m_LocalScale: {x: 6, y: 239.68372, z: 6}
+  m_LocalPosition: {x: -123.4, y: 14.7, z: 0}
+  m_LocalScale: {x: 7.0073996, y: 279.9266, z: 7.0073996}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 388691572}
@@ -1066,7 +1066,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.95265865, y: 0}
+  m_Offset: {x: 0.83696747, y: 0.00289613}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1077,7 +1077,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.9053173, y: 1}
+  m_Size: {x: 3.1366997, y: 1.0057923}
   m_EdgeRadius: 0
 --- !u!1 &624217722
 GameObject:
@@ -6354,8 +6354,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 15
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
-  m_sharedMaterial: {fileID: 6586579265419024204, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 28bb345f311416140aaa990d9dfe7734, type: 2}
+  m_sharedMaterial: {fileID: 1247626520409245666, guid: 28bb345f311416140aaa990d9dfe7734, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6488,8 +6488,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Don't show this again
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
-  m_sharedMaterial: {fileID: 6586579265419024204, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 28bb345f311416140aaa990d9dfe7734, type: 2}
+  m_sharedMaterial: {fileID: 1247626520409245666, guid: 28bb345f311416140aaa990d9dfe7734, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6513,7 +6513,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9
+  m_fontSize: 8.95
   m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -12254,8 +12254,8 @@ Transform:
   m_GameObject: {fileID: 1668844866}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 123.7, y: -2.2, z: 0}
-  m_LocalScale: {x: 6, y: 242.78535, z: 6}
+  m_LocalPosition: {x: 123.7, y: 16.5, z: 0}
+  m_LocalScale: {x: 7.2198, y: 292.14362, z: 7.2198}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 388691572}
@@ -12292,7 +12292,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.98956394, y: 0}
+  m_Offset: {x: -0.8398473, y: 0.003700018}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -12303,7 +12303,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.979128, y: 1}
+  m_Size: {x: 3.278561, y: 1.0074}
   m_EdgeRadius: 0
 --- !u!1 &1741715347
 GameObject:
@@ -12765,7 +12765,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9b8af61e39ddf7442ba61912f6a0b6a3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3b9a97e96960e284588f99362631286f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

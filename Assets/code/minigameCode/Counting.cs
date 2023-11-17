@@ -44,7 +44,6 @@ namespace BunnyHole
         // Coroutine waits before exiting the minigame to go back to the main scene.
         private void TrackingCount()
         {
-            // Debug.Log("good job you collected all the strawberries");
             GameManager.Instance.minigameWasSuccess = true;
             GameManager.Instance.gameIsPaused = false;
             GameManager.Instance.miniGamePlayed = true;
@@ -71,10 +70,10 @@ namespace BunnyHole
             Debug.Log(GameManager.Instance.happiness);
         }
 
-        // Waits 1.2 second, before going to Exit method
+        // Waits 1 second, before going to Exit method
         private IEnumerator WaitBeforeExit()
         {
-            float _waiting = 1.2f;
+            float _waiting = 1.0f;
             yield return new WaitForSeconds(_waiting);
             Exit();
         }
