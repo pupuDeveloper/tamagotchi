@@ -44,14 +44,15 @@ namespace BunnyHole
             if (popoutwindow.activeSelf == false)
             {
                 //Reads the movement
-                 _moveInput = _inputs.Basket.Move.ReadValue<Vector2>();
+                /* _moveInput = _inputs.Basket.Move.ReadValue<Vector2>();
                  _moveInput.y = 0;
-                 _rb2D.velocity = _moveInput * _speed;
-               /* Vector3 mousePosition = Input.mousePosition;
+                 _rb2D.velocity = _moveInput * _speed;*/
+                Vector3 mousePosition = Input.mousePosition;
                 mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
                 mousePosition.z = 0;
                 mousePosition.y = -4.26f;
-                transform.position = mousePosition;*/
+                //TODO: Smooth the movement
+                transform.position = mousePosition;
             }
         }
 
