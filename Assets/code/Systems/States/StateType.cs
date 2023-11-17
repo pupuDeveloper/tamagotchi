@@ -7,6 +7,7 @@ namespace BunnyHole.States
     public enum StateType
     {
         None = 0,
+        Intro,
         MainMenu,
         MainScene,
         Options,

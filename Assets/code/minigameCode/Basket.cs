@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using GA.BunnyHole.Generated;
 
@@ -7,14 +5,14 @@ namespace BunnyHole
 {
     public class Basket : MonoBehaviour
     {
-        [SerializeField] private float _speed = 1.0f;
+        /*[SerializeField] private float _speed = 1.0f; */
         [SerializeField] private GameObject popoutwindow;
         [SerializeField] private ParticleSystem successParticles;
         [SerializeField] private ParticleSystem eyeballParticles;
         [SerializeField] private Sprite[] spriteArray;
         private Inputs _inputs;
-        private Rigidbody2D _rb2D;
-        private Vector2 _moveInput;
+       /* private Rigidbody2D _rb2D;
+        private Vector2 _moveInput;*/
         //Strawberry open audio effect
         private AudioSource _openAudio;
 
@@ -23,7 +21,7 @@ namespace BunnyHole
         private void Awake()
         {
             _inputs = new Inputs();
-            _rb2D = GetComponent<Rigidbody2D>();
+           // _rb2D = GetComponent<Rigidbody2D>();
             _openAudio = GetComponent<AudioSource>();
         }
 
