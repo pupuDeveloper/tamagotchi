@@ -5,7 +5,7 @@ namespace BunnyHole.States
 		public override string SceneName { get { return "Intro"; } }
 		public override StateType Type { get { return StateType.Intro; } }
 
-		public IntroState()
+		public IntroState() : base()
 		{
 			AddTargetState(StateType.MainMenu);
 		}

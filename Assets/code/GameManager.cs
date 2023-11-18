@@ -228,10 +228,10 @@ public class GameManager : MonoBehaviour
     {
         // Probably have to change how initialState is Introstate and
         // not main menu state.
-        GameStateBase initialState = new MainMenuState();
+        GameStateBase initialState = (new IntroState());
         //Create all states.
         _states.Add(initialState);
-        _states.Add(new IntroState());
+        _states.Add(new MainMenuState());
         _states.Add(new MainSceneState());
         _states.Add(new OptionsState());
         _states.Add(new CreditsState());
