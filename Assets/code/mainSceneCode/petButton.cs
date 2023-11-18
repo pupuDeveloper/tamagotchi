@@ -56,7 +56,7 @@ namespace BunnyHole
             {
                 if (_openAudio != null)
                 { 
-                    AudioManager.PlayClip(_openAudio, Config.SoundEffect.PetHappy);
+                    AudioManager.PlayClip(_openAudio, Config.SoundEffect.PetHappyYoung);
                 }
                 creatureAnimScript.triggerHappyAnim();
                 StartCoroutine("animCooldown");

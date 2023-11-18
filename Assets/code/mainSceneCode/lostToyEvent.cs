@@ -42,14 +42,14 @@ namespace BunnyHole
             }
         }
 
-        void OnTriggerEnter2D(Collider2D col)
+        void OnCollisionEnter2D(Collision2D col)
         {
             Debug.Log(col.transform.gameObject.name);
             if (col.gameObject.name == "toy(Clone)" && GameManager.Instance.dragging)
             {
                 if (_openAudio != null)
                 {
-                    AudioManager.PlayClip(_openAudio, Config.SoundEffect.PetHappy);
+                    AudioManager.PlayClip(_openAudio, Config.SoundEffect.PetHappyYoung);
                 }
                 creatureAnimScript.triggerHappyAnim();
                 StartCoroutine("animCooldown");

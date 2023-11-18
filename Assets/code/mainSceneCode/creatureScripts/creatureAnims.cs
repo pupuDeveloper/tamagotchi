@@ -16,10 +16,12 @@ namespace BunnyHole
 
         public void triggerHappyAnim()
         {
+            gameObject.GetComponent<Animator>().SetBool("sadanim", false);
             gameObject.GetComponent<Animator>().SetBool("happyanim", true);
         }
         public void triggerSadAnim()
         {
+            gameObject.GetComponent<Animator>().SetBool("happyanim", false);
             gameObject.GetComponent<Animator>().SetBool("sadanim", true);
         }
     }
