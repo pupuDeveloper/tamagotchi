@@ -11,6 +11,7 @@ namespace BunnyHole
         public pet playedPet;
         private bool showText;
         [SerializeField] private GameObject ageText;
+        [SerializeField] private GameObject thoughtBubbleText;
         private AudioSource _openAudio;
         private bool cd3bool;
         void Awake()
@@ -52,7 +53,9 @@ namespace BunnyHole
         void FixedUpdate()
         {
             Vector2 pos = new Vector2(gameObject.transform.position.x + 1.25f, gameObject.transform.position.y + 1.75f);
+            Vector2 pos2 = new Vector2(gameObject.transform.position.x + 0.3f, gameObject.transform.position.y + 2.65f);
             ageText.transform.position = pos;
+            thoughtBubbleText.transform.position = pos2;
             GameManager.Instance.currentPet.ageInSeconds = GameManager.Instance.evolutionProgression;
             float hours = TimeSpan.FromSeconds(GameManager.Instance.currentPet.ageInSeconds).Hours;
             float minutes = TimeSpan.FromSeconds(GameManager.Instance.currentPet.ageInSeconds).Minutes;
@@ -63,7 +66,7 @@ namespace BunnyHole
             if (showText)
             {
                 ageText.SetActive(true);
-                ageText.GetComponent<TMP_Text>().text = "age:\n" + hours + " day\n" + minutes + " h\n" + seconds + " min";
+                ageText.GetComponent<TMP_Text>().text = "age\n" + hours + " day\n" + minutes + " h\n" + seconds + " min";
             }
             else
             {

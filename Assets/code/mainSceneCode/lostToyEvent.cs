@@ -17,6 +17,10 @@ namespace BunnyHole
         private AudioSource _openAudio;
         private creatureStatus creatureStatusScript;
         private creatureAnims creatureAnimScript;
+        private GameObject thoughtBubbleAnim;
+        private Animator bubbleAnimator;
+        [SerializeField] private GameObject thoughtBubbleText;
+        [SerializeField] private GameObject thoughtBubbleImage;
         void Awake()
         {
             happinessbar = happinessBarScriptHolder.GetComponent<happinessBar>();
@@ -28,6 +32,10 @@ namespace BunnyHole
             _openAudio = GetComponent<AudioSource>();
             creatureStatusScript = gameObject.GetComponent<creatureStatus>();
             creatureAnimScript = gameObject.GetComponent<creatureAnims>();
+            thoughtBubbleAnim = gameObject.transform.GetChild(1).gameObject;
+            bubbleAnimator = thoughtBubbleAnim.GetComponent<Animator>();
+            thoughtBubbleText.SetActive(false);
+            thoughtBubbleImage.SetActive(false);
         }
 
         void FixedUpdate()
@@ -39,6 +47,12 @@ namespace BunnyHole
                 Vector3 pos = new Vector3(xpos, ypos, -9);
                 GameObject instancedTeddy = Instantiate(teddy, pos, Quaternion.identity);
                 toyspawned = true;
+                bubbleAnimator.SetTrigger("toytrig");
+            }
+            if (bubbleAnimator.GetCurrentAnimatorStateInfo(0).IsName("thoughtBubbleIdle"))
+            {
+                thoughtBubbleText.SetActive(true);
+                thoughtBubbleImage.SetActive(true);
             }
         }
 
@@ -55,6 +69,9 @@ namespace BunnyHole
                 StartCoroutine("animCooldown");
                 GameManager.Instance.happiness += 0.13f;
                 StartCoroutine(happinessbar.particle(13));
+                thoughtBubbleText.SetActive(false);
+                thoughtBubbleImage.SetActive(false);
+                bubbleAnimator.SetTrigger("toytrig");
                 GameManager.Instance.lostToy = true;
                 toyspawned = false;
                 GameManager.Instance.dragging = false;
