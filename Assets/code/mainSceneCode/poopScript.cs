@@ -13,6 +13,8 @@ public class poopScript : MonoBehaviour
     public int spawnInterval2;
     public float passiveTimer;
     public GameObject poopPrefab;
+    public GameObject pukePrefab;
+    public GameObject pissPrefab;
     private happinessBar happinessbar;
     public GameObject happinessBarScriptHolder;
     public Button cleanpoopButton;
@@ -21,6 +23,7 @@ public class poopScript : MonoBehaviour
     public Vector2 hotSpot = Vector2.zero;
     public GameObject creature;
     public bool poopHasSpawned;
+    private Vector3 addedVector;
 
     void Awake()
     {
@@ -28,7 +31,7 @@ public class poopScript : MonoBehaviour
         for (int i = 0; i < GameManager.Instance.poops.Count; i++)
         {
             Vector3 pos = GameManager.Instance.poops[i];
-            GameObject instancedPoop = Instantiate(poopPrefab, pos, Quaternion.identity);
+            RandomizeMess(pos);
         }
     }
 
@@ -71,10 +74,9 @@ public class poopScript : MonoBehaviour
         yield return new WaitForSeconds (spawnTime);
         float rWidth = Random.Range(-0.5f,0.5f);
         //float rHeight = Random.Range(-0.9f,-0.75f);
-        float rHeight = -0.6f;
+        float rHeight = -0.3f;
         Vector3 pos = new Vector3 (creature.transform.position.x + rWidth, creature.transform.position.y + rHeight, -9);
-        GameObject instancedPoop = Instantiate(poopPrefab, pos, Quaternion.identity);
-        Vector3 addedVector = instancedPoop.transform.position;
+        RandomizeMess(pos);
         poopHasSpawned = true;
         GameManager.Instance.poops.Add(addedVector);
         GameManager.Instance.happiness -= (0.02f * GameManager.Instance.happinessMultiplier);
@@ -135,6 +137,25 @@ public class poopScript : MonoBehaviour
             isCleaningOn = true;
             Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
             creature.GetComponentInChildren<BoxCollider2D>().enabled = false;
+        }
+    }
+    public void RandomizeMess(Vector3 pos)
+    {
+        int whichMess = Random.Range(1,4);
+        if (whichMess == 1)
+        {
+            GameObject instancedMess = Instantiate(poopPrefab, pos, Quaternion.identity);
+            addedVector = instancedMess.transform.position;
+        }
+        else if (whichMess == 2)
+        {
+            GameObject instancedMess = Instantiate(pissPrefab, pos, Quaternion.identity);
+            addedVector = instancedMess.transform.position;
+        }
+        else if (whichMess == 3)
+        {
+            GameObject instancedMess = Instantiate(pukePrefab, pos, Quaternion.identity);
+            addedVector = instancedMess.transform.position;
         }
     }
 }
