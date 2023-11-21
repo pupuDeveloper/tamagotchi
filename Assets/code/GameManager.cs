@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     public bool returningFromMinigame { get; set; }
     public bool minigameWasSuccess { get; set; }
     public int idleAnimInt { get; set; }
+    public SaveSystem saveSystem { get; private set; }
 
     // Contains all states
     private List<GameStateBase> _states = new List<GameStateBase>();
@@ -61,30 +62,30 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         //TODO: read values below from memory. if null, create said values below
-        evolutionLenght = 100f;
+        evolutionLenght = 100f; // static
         happiness = 0.5f;
         evolution = 1;
         evolutionProgression = 0f;
-        happinessMultiplier = 1f;
-        petDeathTimer = 20f;
-        activityInterval1 = 3;
-        activityInterval2 = 12;
-        individualActivityCooldown = 20;
-        miniGamePlayed = false;
-        brushPet = false;
-        lostToy = false;
-        gameIsPaused = true;
-        minigameCoroutineRunning = false;
-        isLostToyCooldownRunning = false;
-        isbrushBunnyCooldownRunning = false;
-        minigameInfotoggle = false;
-        dragging = false;
+        happinessMultiplier = 1f; // static
+        petDeathTimer = 20f; // static
+        activityInterval1 = 3; // static
+        activityInterval2 = 12; // static
+        individualActivityCooldown = 20; // static
+        miniGamePlayed = false; // static
+        brushPet = false; // static
+        lostToy = false; // static
+        gameIsPaused = true; // static
+        minigameCoroutineRunning = false; // static
+        isLostToyCooldownRunning = false; // static
+        isbrushBunnyCooldownRunning = false; // static
+        minigameInfotoggle = false; // static
+        dragging = false; // static
         currentPet = null;
-        creaturePosition = new Vector3(0, -2, -9);
-        poops = new List<Vector3>();
+        creaturePosition = new Vector3(0, -2, -9); // static
+        poops = new List<Vector3>(); // static
         petCollection = new List<pet>();
-        returningFromMinigame = false;
-        idleAnimInt = -1;
+        returningFromMinigame = false; // static
+        idleAnimInt = -1; // static
         if (_instance)
         {
             Destroy(gameObject);
@@ -94,8 +95,12 @@ public class GameManager : MonoBehaviour
             _instance = this;
         }
         DontDestroyOnLoad(this);
-
         InitializeState();
+        InitializeSaveSystem();
+    }
+    private void InitializeSaveSystem()
+    {
+        saveSystem = new SaveSystem();
     }
     void Update()
     {

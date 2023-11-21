@@ -6,6 +6,7 @@ using System.IO;
 
 public class SaveSystem
 {
+    private BinarySaver _saver;
     public SaveSystem()
     {
         try
@@ -33,4 +34,24 @@ public class SaveSystem
     public string QuickSave {get {return "QuickSave"; } }
 
     public string FileExtension { get {return ".save"; } }
+
+    public void Save(string slot)
+    {
+        BinarySaver saver = new BinarySaver();
+        string saveFilePath = Path.Combine(SaveFolder, slot + FileExtension);
+        saver.PrepareWrite(saveFilePath);
+
+        //TODO: the actual saving
+
+        saver.FinalizeWrite();
+    }
+
+    public void Load(string slot)
+    {
+        _saver = new BinarySaver();
+        string saveFilePath = Path.Combine(SaveFolder, slot + FileExtension);
+        _saver.PrepareRead(saveFilePath);
+
+        //TODO: load the data
+    }
 }

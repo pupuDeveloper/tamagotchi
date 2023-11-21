@@ -42,8 +42,30 @@ using System.IO;
         {
             try
             {
-                string directory
+                string directory = Path.GetDirectoryName(path);
+                if (!Directory.Exists(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                }
+
+                _fileStream = File.Open(path, FileMode.Create, FileAccess.Write);
+                _writer = new BinaryWriter(_fileStream);
             }
+            catch(Exception e)
+            {
+                Debug.LogException(e);
+                return false;
+            }
+            return true;
+        }
+
+        public void FinalizeWrite()
+        {
+            _writer.Close();
+            _fileStream.Close();
+
+            _writer = null;
+            _fileStream = null;
         }
         private FileStream _fileStream;
 
