@@ -1,31 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class LightSwitch : MonoBehaviour
 {
-    [SerializeField] private GameObject _globalLight;
-    [SerializeField] private GameObject _spookyLight;
+    // Lamp light
+    [SerializeField] private Light2D _lampLight;
+    // Window light
+    [SerializeField] private Light2D _spookyLight;
+    [SerializeField] private Light2D _globalLight;
+    // Global light
     private bool _lightOn = true;
 
-    private void Awake()
+    private void Start()
     {
-        _globalLight.SetActive(true);
-        _spookyLight.SetActive(false);
+        _lampLight.enabled = false;
+        _spookyLight.enabled = false;
     }
 
     private void OnMouseDown()
     {
         if (_lightOn)
         {
-            _globalLight.SetActive(false);
-            _spookyLight.SetActive(true);
+            _globalLight.intensity = 0.1f;
+            _lampLight.enabled = true;
+            _spookyLight.enabled = true;
             _lightOn = false;
         }
-        if(!_lightOn)
+        else if(!_lightOn)
         {
-            _spookyLight.SetActive(false);
-            _globalLight.SetActive(true);
+            _globalLight.intensity = 1.0f;
+            _spookyLight.enabled = false;
+            _lampLight.enabled = false;
             _lightOn = true;
         }
     }
