@@ -24,7 +24,7 @@ public class changeReso : MonoBehaviour
         }
     }
 
-    public void ResLeft()
+    public void ResRight()
     {
         selectedResolution--;
         if (selectedResolution < 0)
@@ -34,7 +34,7 @@ public class changeReso : MonoBehaviour
         UpdateResLabel();
     }
 
-    public void ResRight()
+    public void ResLeft()
     {
         selectedResolution++;
         if (selectedResolution > resolutions.Count - 1)

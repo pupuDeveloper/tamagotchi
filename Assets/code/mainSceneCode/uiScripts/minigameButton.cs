@@ -10,11 +10,14 @@ public class minigameButton : MonoBehaviour
     public Button minigamebutton;
     private Scene scene;
     [SerializeField] private GameObject creature;
+    public CursorMode cursorMode = CursorMode.Auto;
+    public Vector2 hotSpot = Vector2.zero;
     public void Switch()
     {
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name == "mainScene")
         {
+            Cursor.SetCursor(null, hotSpot, cursorMode);
             GameManager.Instance.creaturePosition = creature.transform.position;
             GameManager.Instance.gameIsPaused = true;
         }

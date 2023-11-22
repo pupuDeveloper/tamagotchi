@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace BunnyHole.UI
@@ -8,6 +6,7 @@ namespace BunnyHole.UI
     {
         [SerializeField] private GameObject _namePet;
         [SerializeField] private GameObject _mainMenu;
+
         public void OnNewGame()
         {
             if (GameManager.Instance.activePet)
@@ -25,6 +24,11 @@ namespace BunnyHole.UI
         public void OnOptions()
         {
             GameManager.Instance.Go(States.StateType.Options);
+        }
+
+        public void OnCredits()
+        {
+            GameManager.Instance.Go(States.StateType.Credits);
         }
 
         public void OnQuit()

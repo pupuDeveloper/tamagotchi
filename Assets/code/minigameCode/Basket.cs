@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using GA.BunnyHole.Generated;
 
@@ -7,22 +5,23 @@ namespace BunnyHole
 {
     public class Basket : MonoBehaviour
     {
-        [SerializeField] private float _speed = 1.0f;
+        /*[SerializeField] private float _speed = 1.0f; */
         [SerializeField] private GameObject popoutwindow;
         [SerializeField] private ParticleSystem successParticles;
         [SerializeField] private ParticleSystem eyeballParticles;
         [SerializeField] private Sprite[] spriteArray;
         private Inputs _inputs;
-        private Rigidbody2D _rb2D;
-        private Vector2 _moveInput;
-        public SpriteRenderer spriteRenderer;
+       /* private Rigidbody2D _rb2D;
+        private Vector2 _moveInput;*/
         //Strawberry open audio effect
         private AudioSource _openAudio;
+
+        public SpriteRenderer spriteRenderer;
 
         private void Awake()
         {
             _inputs = new Inputs();
-            _rb2D = GetComponent<Rigidbody2D>();
+           // _rb2D = GetComponent<Rigidbody2D>();
             _openAudio = GetComponent<AudioSource>();
         }
 
@@ -43,10 +42,15 @@ namespace BunnyHole
             if (popoutwindow.activeSelf == false)
             {
                 //Reads the movement
-                _moveInput = _inputs.Basket.Move.ReadValue<Vector2>();
-                // Debug.Log("Movement: " + _moveInput);
-                _moveInput.y = 0;
-                _rb2D.velocity = _moveInput * _speed;
+                /* _moveInput = _inputs.Basket.Move.ReadValue<Vector2>();
+                 _moveInput.y = 0;
+                 _rb2D.velocity = _moveInput * _speed;*/
+                Vector3 mousePosition = Input.mousePosition;
+                mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+                mousePosition.z = 0;
+                mousePosition.y = -4.26f;
+                //TODO: Smooth the movement
+                transform.position = mousePosition;
             }
         }
 
@@ -70,16 +74,16 @@ namespace BunnyHole
 
             if (collision.gameObject.layer == LayerMask.NameToLayer("Eyeball"))
             {
+                if (_openAudio != null)
+                {
+                    AudioManager.PlayClip(_openAudio, Config.SoundEffect.BasketDamaged);
+                }
                 Destroy(collision.gameObject);
                 Debug.Log("wrong");
                 Counting.eyeBallCount++;
                 Debug.Log(Counting.eyeBallCount);
                 eyeballParticles.Play();
                 spriteRenderer.sprite = spriteArray[Counting.eyeBallCount];
-                if (_openAudio != null)
-                {
-                    AudioManager.PlayClip(_openAudio, Config.SoundEffect.BasketDamaged);
-                }
             }
         }
     }
