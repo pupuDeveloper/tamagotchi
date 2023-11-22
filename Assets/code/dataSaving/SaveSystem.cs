@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
+using System.Linq;
 
 public class SaveSystem
 {
@@ -43,6 +44,19 @@ public class SaveSystem
 
         //TODO: the actual saving
         GameManager.Instance.Save(_saver);
+
+        ISaveable[] saveables = GameObject
+        .FindObjectsOfType<MonoBehaviour>(includeInactive: true)
+        .OfType<ISaveable>()
+        .ToArray();
+
+        //how many objects are saved
+        saver.WriteInt(saveables.Length);
+
+        foreach(ISaveable saveable in saveables)
+        {
+            saveable.Save(saver);
+        }
 
         saver.FinalizeWrite();
     }

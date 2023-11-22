@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, ISaveable
 {
     private static GameManager _instance;
     public static GameManager Instance
@@ -314,19 +314,28 @@ public class GameManager : MonoBehaviour
     {
         //evolution
         writer.WriteInt(evolution);
+        //pet type
+        writer.WriteInt(currentPet.type);
+        //pets age
+        writer.WriteFloat(currentPet.ageInSeconds);
         //happiness
         writer.WriteFloat(happiness);
         //evo progression
         writer.WriteFloat(evolutionProgression);
         //is there a current pet
         writer.WriteBool(activePet);
+        //pets name
+        writer.WriteString(currentPet.petName);
     }
 
     public void Load(BinarySaver reader)
     {
         evolution = reader.ReadInt();
+        currentPet.type = reader.ReadInt();
+        currentPet.ageInSeconds = reader.ReadFloat();
         happiness = reader.ReadFloat();
         evolutionProgression = reader.ReadFloat();
         activePet = reader.ReadBool();
+        currentPet.petName = reader.ReadString();
     }
 }
