@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     public float evolutionProgression { get; set; }
     public float evolutionLenght { get; set; }
     public float happinessMultiplier { get; set; }
-    public bool activePet { get; set; }
+    public bool activePet { get; set; } // remember to save this on file
     public string CurrentlyPlayedPetName { get; set; }
     public bool gameIsPaused { get; set; }
     public float petDeathTimer { get; set; }
@@ -62,30 +62,30 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         //TODO: read values below from memory. if null, create said values below
-        evolutionLenght = 100f; // static
+        evolutionLenght = 100f; // Don't save to file
         happiness = 0.5f;
         evolution = 1;
         evolutionProgression = 0f;
-        happinessMultiplier = 1f; // static
-        petDeathTimer = 20f; // static
-        activityInterval1 = 3; // static
-        activityInterval2 = 12; // static
-        individualActivityCooldown = 20; // static
-        miniGamePlayed = false; // static
-        brushPet = false; // static
-        lostToy = false; // static
-        gameIsPaused = true; // static
-        minigameCoroutineRunning = false; // static
-        isLostToyCooldownRunning = false; // static
-        isbrushBunnyCooldownRunning = false; // static
-        minigameInfotoggle = false; // static
-        dragging = false; // static
+        happinessMultiplier = 1f; // Don't save to file
+        petDeathTimer = 20f; // Don't save to file
+        activityInterval1 = 3; // Don't save to file
+        activityInterval2 = 12; // Don't save to file
+        individualActivityCooldown = 20; // Don't save to file
+        miniGamePlayed = false; // Don't save to file
+        brushPet = false; // Don't save to file
+        lostToy = false; // Don't save to file
+        gameIsPaused = true; // Don't save to file
+        minigameCoroutineRunning = false; // Don't save to file
+        isLostToyCooldownRunning = false; // Don't save to file
+        isbrushBunnyCooldownRunning = false; // Don't save to file
+        minigameInfotoggle = false; // Don't save to file
+        dragging = false; // Don't save to file
         currentPet = null;
-        creaturePosition = new Vector3(0, -2, -9); // static
-        poops = new List<Vector3>(); // static
+        creaturePosition = new Vector3(0, -2, -9); // Don't save to file
+        poops = new List<Vector3>(); // Don't save to file
         petCollection = new List<pet>();
-        returningFromMinigame = false; // static
-        idleAnimInt = -1; // static
+        returningFromMinigame = false; // Don't save to file
+        idleAnimInt = -1; // Don't save to file
         if (_instance)
         {
             Destroy(gameObject);
@@ -308,5 +308,25 @@ public class GameManager : MonoBehaviour
     public bool GoBack()
     {
         return Go(PreviousState.Type);
+    }
+
+    public void Save(BinarySaver writer)
+    {
+        //evolution
+        writer.WriteInt(evolution);
+        //happiness
+        writer.WriteFloat(happiness);
+        //evo progression
+        writer.WriteFloat(evolutionProgression);
+        //is there a current pet
+        writer.WriteBool(activePet);
+    }
+
+    public void Load(BinarySaver reader)
+    {
+        evolution = reader.ReadInt();
+        happiness = reader.ReadFloat();
+        evolutionProgression = reader.ReadFloat();
+        activePet = reader.ReadBool();
     }
 }

@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interace ISaveable
+public interface ISaveable
 {
-    void Save();
-    void Load();
+    void Save(BinarySaver writer);
+    void Load(BinarySaver reader);
 }

@@ -42,6 +42,7 @@ public class SaveSystem
         saver.PrepareWrite(saveFilePath);
 
         //TODO: the actual saving
+        GameManager.Instance.Save(_saver);
 
         saver.FinalizeWrite();
     }
@@ -52,6 +53,7 @@ public class SaveSystem
         string saveFilePath = Path.Combine(SaveFolder, slot + FileExtension);
         _saver.PrepareRead(saveFilePath);
 
+        GameManager.Instance.Load(_saver);
         //TODO: load the data
     }
 }

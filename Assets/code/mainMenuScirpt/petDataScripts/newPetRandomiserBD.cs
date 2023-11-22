@@ -14,9 +14,9 @@ public class newPetRandomiserBD : MonoBehaviour
 
     void Start()
     {
-        pet1 = new pet(GameManager.Instance.CurrentlyPlayedPetName, GameManager.Instance.evolutionProgression, pet1.childSprite, pet1.adultSprite);
-        pet2 = new pet(GameManager.Instance.CurrentlyPlayedPetName, GameManager.Instance.evolutionProgression, pet2.childSprite, pet2.adultSprite);
-        pet3 = new pet(GameManager.Instance.CurrentlyPlayedPetName, GameManager.Instance.evolutionProgression, pet3.childSprite, pet3.adultSprite);
+        pet1 = new pet(GameManager.Instance.CurrentlyPlayedPetName, GameManager.Instance.evolutionProgression, pet1.childSprite, pet1.adultSprite, 1);
+        pet2 = new pet(GameManager.Instance.CurrentlyPlayedPetName, GameManager.Instance.evolutionProgression, pet2.childSprite, pet2.adultSprite, 2);
+        pet3 = new pet(GameManager.Instance.CurrentlyPlayedPetName, GameManager.Instance.evolutionProgression, pet3.childSprite, pet3.adultSprite, 3);
         pets = new pet[3];
         pets[0] = pet1;
         pets[1] = pet2;
