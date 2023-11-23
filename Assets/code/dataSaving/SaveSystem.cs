@@ -5,69 +5,73 @@ using System;
 using System.IO;
 using System.Linq;
 
-public class SaveSystem
+namespace BunnyHole
 {
-    private BinarySaver _saver;
-    public SaveSystem()
+
+    public class SaveSystem
     {
-        try
+        private BinarySaver _saver;
+        public SaveSystem()
         {
-            if (!Directory.Exists(SaveFolder))
+            try
             {
-                Directory.CreateDirectory(SaveFolder);
+                if (!Directory.Exists(SaveFolder))
+                {
+                    Directory.CreateDirectory(SaveFolder);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e);
             }
         }
-        catch(Exception e)
+
+        public string SaveFolder
         {
-            Debug.LogException(e);
-        }
-    }
-
-    public string SaveFolder
-    {
-        get
-        {
-            string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            return Path.Combine(documents, "PetLab", "Save");
-        }
-    }
-
-    public string QuickSave {get {return "QuickSave"; } }
-
-    public string FileExtension { get {return ".save"; } }
-
-    public void Save(string slot)
-    {
-        BinarySaver saver = new BinarySaver();
-        string saveFilePath = Path.Combine(SaveFolder, slot + FileExtension);
-        saver.PrepareWrite(saveFilePath);
-
-        //TODO: the actual saving
-        GameManager.Instance.Save(_saver);
-
-        ISaveable[] saveables = GameObject
-        .FindObjectsOfType<MonoBehaviour>(includeInactive: true)
-        .OfType<ISaveable>()
-        .ToArray();
-
-        //how many objects are saved
-        saver.WriteInt(saveables.Length);
-
-        foreach(ISaveable saveable in saveables)
-        {
-            saveable.Save(saver);
+            get
+            {
+                string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                return Path.Combine(documents, "PetLab", "Save");
+            }
         }
 
-        saver.FinalizeWrite();
-    }
+        public string mainSaveSlot { get { return "mainSaveSlot"; } }
 
-    public void Load(string slot)
-    {
-        _saver = new BinarySaver();
-        string saveFilePath = Path.Combine(SaveFolder, slot + FileExtension);
-        _saver.PrepareRead(saveFilePath);
+        public string FileExtension { get { return ".save"; } }
 
-        GameManager.Instance.Load(_saver);
-        //TODO: load the data
+        public void Save(string slot)
+        {
+            BinarySaver saver = new BinarySaver();
+            string saveFilePath = Path.Combine(SaveFolder, slot + FileExtension);
+            saver.PrepareWrite(saveFilePath);
+
+            //TODO: the actual saving
+            GameManager.Instance.Save(_saver);
+
+            ISaveable[] saveables = GameObject
+            .FindObjectsOfType<MonoBehaviour>(includeInactive: true)
+            .OfType<ISaveable>()
+            .ToArray();
+
+            //how many objects are saved
+            saver.WriteInt(saveables.Length);
+
+            foreach (ISaveable saveable in saveables)
+            {
+                saveable.Save(saver);
+            }
+
+            saver.FinalizeWrite();
+        }
+
+        public void Load(string slot)
+        {
+            _saver = new BinarySaver();
+            string saveFilePath = Path.Combine(SaveFolder, slot + FileExtension);
+            _saver.PrepareRead(saveFilePath);
+
+            GameManager.Instance.Load(_saver);
+            //TODO: load the data
+        }
     }
 }

@@ -2,8 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ISaveable
+
+namespace BunnyHole
 {
-    void Save(BinarySaver writer);
-    void Load(BinarySaver reader);
+
+    public interface ISaveable
+    {
+        void Save(BinarySaver writer);
+        void Load(BinarySaver reader);
+    }
 }
