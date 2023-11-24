@@ -10,6 +10,9 @@ namespace BunnyHole
     {
         [SerializeField] private GameObject PauseMenuUI;
         [SerializeField] private GameObject creature;
+        [SerializeField] private SpriteRenderer button1image;
+        [SerializeField] private SpriteRenderer button2image;
+        [SerializeField] private SpriteRenderer button3image;
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -34,12 +37,18 @@ namespace BunnyHole
             {
                 GameManager.Instance.gameIsPaused = false;
             }
+            button1image.color = new Color(1f,1f,1f,1f);
+            button2image.color = new Color(1f,1f,1f,1f);
+            button3image.color = new Color(1f,1f,1f,1f);
         }
         public void Pause()
         {
             PauseMenuUI.SetActive(true);
             Time.timeScale = 0f;
             GameManager.Instance.gameIsPaused = true;
+            button1image.color = new Color(0.5f,0.5f,0.5f,1f);
+            button2image.color = new Color(0.5f,0.5f,0.5f,1f);
+            button3image.color = new Color(0.5f,0.5f,0.5f,1f);
         }
         public void loadMenu()
         {
@@ -54,6 +63,11 @@ namespace BunnyHole
             Debug.Log("Quitted! (This only happens in a build, not in the editor)");
             Time.timeScale = 1f;
             Application.Quit();
+        }
+        public void saveGame()
+        {
+            string mainSave = GameManager.Instance.SaveSystem.mainSaveSlot;
+            GameManager.Instance.SaveSystem.Save(mainSave);
         }
     }
 }
