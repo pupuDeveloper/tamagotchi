@@ -1,12 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 namespace BunnyHole
 {
-
     public class Counting : MonoBehaviour
     {
         [SerializeField] private int _totalCount;

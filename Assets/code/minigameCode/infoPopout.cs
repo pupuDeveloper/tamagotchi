@@ -3,44 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class infoPopout : MonoBehaviour
+
+namespace BunnyHole
 {
-    [SerializeField] private GameObject popout;
-    [SerializeField] private Toggle toggle;
-    [SerializeField] private GameObject crossImage;
+    public class infoPopout : MonoBehaviour
+    {
+        [SerializeField] private GameObject popout;
+        [SerializeField] private Toggle toggle;
+        [SerializeField] private GameObject crossImage;
 
-    void Start()
-    {
-        if (GameManager.Instance.minigameInfotoggle == false)
+        void Start()
         {
-            popout.SetActive(true);
+            if (GameManager.Instance.minigameInfotoggle == false)
+            {
+                popout.SetActive(true);
+            }
+            else
+            {
+                popout.SetActive(false);
+            }
         }
-        else
-        {
-            popout.SetActive(false);
-        }
-    }
 
-    public void OkButton()
-    {
-        if (toggle.isOn)
+        public void OkButton()
         {
-            GameManager.Instance.minigameInfotoggle = true;
+            if (toggle.isOn)
+            {
+                GameManager.Instance.minigameInfotoggle = true;
+            }
+            else
+            {
+                GameManager.Instance.minigameInfotoggle = false;
+            }
         }
-        else
+        public void OnToggleValueChanged()
         {
-            GameManager.Instance.minigameInfotoggle = false;
-        }
-    }
-    public void OnToggleValueChanged()
-    {
-        if (toggle.isOn)
-        {
-            crossImage.SetActive(true);
-        }
-        else
-        {
-            crossImage.SetActive(false);
+            if (toggle.isOn)
+            {
+                crossImage.SetActive(true);
+            }
+            else
+            {
+                crossImage.SetActive(false);
+            }
         }
     }
 }

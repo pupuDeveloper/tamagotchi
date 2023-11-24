@@ -9,8 +9,10 @@
         ButtonOff,
         Strawberry,
         EyeBall,
-        PetHappy,
-        PetAngry,
+        PetHappyYoung,
+        PetHappyAdult,
+        PetAngryAdult,
+        PetAngryYoung,
         BasketDamaged,
         menuButton
     }

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using GA.BunnyHole.Generated;
 
 namespace BunnyHole
 {
@@ -12,9 +9,10 @@ namespace BunnyHole
         [SerializeField] private ParticleSystem successParticles;
         [SerializeField] private ParticleSystem eyeballParticles;
         [SerializeField] private Sprite[] spriteArray;
-        private Inputs _inputs;
+        // private Inputs _inputs;
+        private Vector3 _mousePos;
         private Rigidbody2D _rb2D;
-        private Vector2 _moveInput;
+        private Vector2 _position;
         //Strawberry open audio effect
         private AudioSource _openAudio;
 
@@ -22,12 +20,12 @@ namespace BunnyHole
 
         private void Awake()
         {
-            _inputs = new Inputs();
+           // _inputs = new Inputs();
             _rb2D = GetComponent<Rigidbody2D>();
             _openAudio = GetComponent<AudioSource>();
         }
 
-        private void OnEnable()
+       /* private void OnEnable()
         {
             //Enable inputs
             _inputs.Basket.Enable();
@@ -37,21 +35,22 @@ namespace BunnyHole
         {
             //Disable inputs
             _inputs.Basket.Disable();
-        }
+        }*/
 
         private void FixedUpdate()
         {
             if (popoutwindow.activeSelf == false)
             {
                 //Reads the movement
-                 _moveInput = _inputs.Basket.Move.ReadValue<Vector2>();
+                /* _moveInput = _inputs.Basket.Move.ReadValue<Vector2>();
                  _moveInput.y = 0;
-                 _rb2D.velocity = _moveInput * _speed;
-               /* Vector3 mousePosition = Input.mousePosition;
-                mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-                mousePosition.z = 0;
-                mousePosition.y = -4.26f;
-                transform.position = mousePosition;*/
+                 _rb2D.velocity = _moveInput * _speed;*/
+                _mousePos = Input.mousePosition;
+                _mousePos = Camera.main.ScreenToWorldPoint(_mousePos);
+                _mousePos.z = 0;
+                _mousePos.y = -4.26f;
+                _position = Vector2.Lerp(_mousePos, _mousePos, _speed);
+                _rb2D.MovePosition(_position);
             }
         }
 

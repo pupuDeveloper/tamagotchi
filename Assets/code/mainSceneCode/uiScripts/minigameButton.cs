@@ -4,31 +4,39 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class minigameButton : MonoBehaviour
+
+namespace BunnyHole
 {
-    private bool isButtonAvailable;
-    public Button minigamebutton;
-    private Scene scene;
-    [SerializeField] private GameObject creature;
-    public void Switch()
+
+    public class minigameButton : MonoBehaviour
     {
-        Scene scene = SceneManager.GetActiveScene();
-        if (scene.name == "mainScene")
+        private bool isButtonAvailable;
+        public Button minigamebutton;
+        private Scene scene;
+        [SerializeField] private GameObject creature;
+        public CursorMode cursorMode = CursorMode.Auto;
+        public Vector2 hotSpot = Vector2.zero;
+        public void Switch()
         {
-            GameManager.Instance.creaturePosition = creature.transform.position;
-            GameManager.Instance.gameIsPaused = true;
+            Scene scene = SceneManager.GetActiveScene();
+            if (scene.name == "mainScene")
+            {
+                Cursor.SetCursor(null, hotSpot, cursorMode);
+                GameManager.Instance.creaturePosition = creature.transform.position;
+                GameManager.Instance.gameIsPaused = true;
+            }
         }
-    }
-    void FixedUpdate()
-    {
-        scene = SceneManager.GetActiveScene();
-        if (GameManager.Instance.miniGamePlayed == false && scene.name == "mainScene" && GameManager.Instance.activityToBeLaunched == 3)
+        void FixedUpdate()
         {
-            minigamebutton.interactable = true;
-        }
-        else if (GameManager.Instance.miniGamePlayed && scene.name == "mainScene")
-        {
-            minigamebutton.interactable = false;
+            scene = SceneManager.GetActiveScene();
+            if (GameManager.Instance.miniGamePlayed == false && scene.name == "mainScene" && GameManager.Instance.activityToBeLaunched == 3)
+            {
+                minigamebutton.interactable = true;
+            }
+            else if (GameManager.Instance.miniGamePlayed && scene.name == "mainScene")
+            {
+                minigamebutton.interactable = false;
+            }
         }
     }
 }

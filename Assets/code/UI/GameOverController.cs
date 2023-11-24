@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace BunnyHole
+namespace BunnyHole.UI
 {
     public class GameOverController : MonoBehaviour
     {

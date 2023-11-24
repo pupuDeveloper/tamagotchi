@@ -20,7 +20,7 @@ namespace BunnyHole
         public Vector2 hotSpot = Vector2.zero;
         private AudioSource _openAudio;
         private creatureStatus creatureStatusScript;
-        private creatureHappyanim creatureHappyanimScript;
+        private creatureAnims creatureAnimScript;
         void Awake()
         {
             happinessbar = happinessBarScriptHolder.GetComponent<happinessBar>();
@@ -28,7 +28,7 @@ namespace BunnyHole
             petProgress = 0;
             _openAudio = GetComponent<AudioSource>();
             creatureStatusScript = GameObject.Find("Creature").GetComponent<creatureStatus>();
-            creatureHappyanimScript = GameObject.Find("Creature").GetComponent<creatureHappyanim>();
+            creatureAnimScript = GameObject.Find("Creature").GetComponent<creatureAnims>();
         }
 
         public void petbuttonFunc()
@@ -54,11 +54,21 @@ namespace BunnyHole
             }
             if (petProgress >= petAmount && isBrushingOn && GameManager.Instance.brushPet == false)
             {
-                if (_openAudio != null)
-                { 
-                    AudioManager.PlayClip(_openAudio, Config.SoundEffect.PetHappy);
+                if (GameManager.Instance.evolution == 1)
+                {
+                    if (_openAudio != null)
+                    {
+                        AudioManager.PlayClip(_openAudio, Config.SoundEffect.PetHappyYoung);
+                    }
                 }
-                creatureHappyanimScript.triggerHappyAnim();
+                else if (GameManager.Instance.evolution == 2)
+                {
+                    if (_openAudio != null)
+                    {
+                        AudioManager.PlayClip(_openAudio, Config.SoundEffect.PetHappyAdult);
+                    }
+                }
+                creatureAnimScript.triggerHappyAnim();
                 StartCoroutine("animCooldown");
                 isBrushingOn = false;
                 StartCoroutine(happinessbar.particle(15));
