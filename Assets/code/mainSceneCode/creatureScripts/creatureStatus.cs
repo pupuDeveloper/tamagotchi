@@ -24,6 +24,7 @@ namespace BunnyHole
             if (GameManager.Instance.evolution == 2)
             {
                 gameObject.GetComponent<SpriteRenderer>().sprite = playedPet.adultSprite;
+                triggerIdleAnim();
             }
             _openAudio = GetComponent<AudioSource>();
             if (GameManager.Instance.idleAnimInt < 0)
