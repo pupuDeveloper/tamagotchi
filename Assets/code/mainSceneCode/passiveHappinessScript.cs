@@ -3,30 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class passiveHappinessScript : MonoBehaviour
+
+namespace BunnyHole
 {
-    [SerializeField] private happinessBar happinesbarScript;
-    [SerializeField] private float timer;
-    private bool isCoroutineRunning = false;
-    [SerializeField] private Button brush;
-    [SerializeField] private Button minigame;
-
-    void FixedUpdate()
+    public class passiveHappinessScript : MonoBehaviour
     {
-        if (isCoroutineRunning == false && GameManager.Instance.gameIsPaused == false && brush.interactable ||
-        isCoroutineRunning == false && GameManager.Instance.gameIsPaused == false && minigame.interactable ||
-        isCoroutineRunning == false && GameManager.Instance.gameIsPaused && GameObject.FindWithTag("toy") != null)
+        [SerializeField] private happinessBar happinesbarScript;
+        [SerializeField] private float timer;
+        private bool isCoroutineRunning = false;
+        [SerializeField] private Button brush;
+        [SerializeField] private Button minigame;
+
+        void FixedUpdate()
         {
-            StartCoroutine("passiveHappinessDecrease");
+            if (isCoroutineRunning == false && GameManager.Instance.gameIsPaused == false && brush.interactable ||
+            isCoroutineRunning == false && GameManager.Instance.gameIsPaused == false && minigame.interactable ||
+            isCoroutineRunning == false && GameManager.Instance.gameIsPaused && GameObject.FindWithTag("toy") != null)
+            {
+                StartCoroutine("passiveHappinessDecrease");
+            }
         }
-    }
 
-    IEnumerator passiveHappinessDecrease()
-    {
-        isCoroutineRunning = true;
-        yield return new WaitForSeconds(timer);
-        GameManager.Instance.happiness -= 0.01f * GameManager.Instance.happinessMultiplier;
-        happinesbarScript.UpdateHappinessBar();
-        isCoroutineRunning = false;
+        IEnumerator passiveHappinessDecrease()
+        {
+            isCoroutineRunning = true;
+            yield return new WaitForSeconds(timer);
+            GameManager.Instance.happiness -= 0.01f * GameManager.Instance.happinessMultiplier;
+            happinesbarScript.UpdateHappinessBar();
+            isCoroutineRunning = false;
+        }
     }
 }
