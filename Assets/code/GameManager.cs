@@ -66,7 +66,7 @@ namespace BunnyHole
         private void Awake()
         {
             //TODO: read values below from memory. if null, create said values below
-            evolutionLenght = 100f; // Don't save to file
+            evolutionLenght = 1f; // Don't save to file
             happiness = 0.5f;
             evolution = 1;
             evolutionProgression = 0f;
