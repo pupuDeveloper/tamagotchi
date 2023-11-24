@@ -41,7 +41,7 @@ public class LightSwitch : MonoBehaviour
             _lampLightUp.enabled = false;
             // Window light and electric box's lights go on.
             _spookyLight.enabled = true;
-            _electricLight.enabled = true;
+            _electricLight.enabled = false;
             // light is not on.
             _lightOn = false;
             // Activates particle effect.
