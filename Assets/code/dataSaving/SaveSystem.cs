@@ -41,9 +41,9 @@ namespace BunnyHole
 
         public void Save(string slot)
         {
-            BinarySaver saver = new BinarySaver();
+            _saver = new BinarySaver();
             string saveFilePath = Path.Combine(SaveFolder, slot + FileExtension);
-            saver.PrepareWrite(saveFilePath);
+            _saver.PrepareWrite(saveFilePath);
 
             //TODO: the actual saving
             GameManager.Instance.Save(_saver);
@@ -54,14 +54,14 @@ namespace BunnyHole
             .ToArray();
 
             //how many objects are saved
-            saver.WriteInt(saveables.Length);
+            _saver.WriteInt(saveables.Length);
 
             foreach (ISaveable saveable in saveables)
             {
-                saveable.Save(saver);
+                saveable.Save(_saver);
             }
 
-            saver.FinalizeWrite();
+            _saver.FinalizeWrite();
         }
 
         public void Load(string slot)
