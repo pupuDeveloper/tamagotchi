@@ -5328,8 +5328,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.87614995, y: -0.8236, z: 0}
-    m_Extent: {x: 2.41575, y: 2.2087, z: 0}
+    m_Center: {x: 0.8668, y: -0.82159996, z: 0}
+    m_Extent: {x: 2.4241, y: 2.2057, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -7915,10 +7915,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.64
+    x: 0
     y: 0
-    width: 0.50374997
-    height: 0.50374997
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -19528,8 +19528,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0464499, y: -1.6905, z: 0}
-    m_Extent: {x: 2.70715, y: 1.9417, z: 0}
+    m_Center: {x: 0.037750006, y: -1.69205, z: 0}
+    m_Extent: {x: 2.70855, y: 1.9340501, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -20009,8 +20009,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0043500066, y: 0.6693, z: 0}
-    m_Extent: {x: 1.0683501, y: 1.0241001, z: 0}
+    m_Center: {x: 0.012400031, y: 0.66945004, z: 0}
+    m_Extent: {x: 1.0711, y: 1.02045, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
