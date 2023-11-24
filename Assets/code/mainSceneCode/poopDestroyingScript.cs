@@ -25,7 +25,7 @@ namespace BunnyHole
         {
             if (poopscript.isCleaningOn)
             {
-                Vector2 pos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.15f);
+                Vector2 pos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.22f);
                 cleaninOb.transform.position = pos;
                 GameManager.Instance.poops.Remove(gameObject.transform.position);
                 gameObject.GetComponent<SpriteRenderer>().enabled = false;

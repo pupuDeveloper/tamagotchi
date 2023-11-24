@@ -54,9 +54,19 @@ namespace BunnyHole
             }
             if (petProgress >= petAmount && isBrushingOn && GameManager.Instance.brushPet == false)
             {
-                if (_openAudio != null)
-                { 
-                    AudioManager.PlayClip(_openAudio, Config.SoundEffect.PetHappyYoung);
+                if (GameManager.Instance.evolution == 1)
+                {
+                    if (_openAudio != null)
+                    {
+                        AudioManager.PlayClip(_openAudio, Config.SoundEffect.PetHappyYoung);
+                    }
+                }
+                else if (GameManager.Instance.evolution == 2)
+                {
+                    if (_openAudio != null)
+                    {
+                        AudioManager.PlayClip(_openAudio, Config.SoundEffect.PetHappyAdult);
+                    }
                 }
                 creatureAnimScript.triggerHappyAnim();
                 StartCoroutine("animCooldown");
