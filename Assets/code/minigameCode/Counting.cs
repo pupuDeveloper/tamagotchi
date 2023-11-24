@@ -4,7 +4,6 @@ using TMPro;
 
 namespace BunnyHole
 {
-
     public class Counting : MonoBehaviour
     {
         [SerializeField] private int _totalCount;
