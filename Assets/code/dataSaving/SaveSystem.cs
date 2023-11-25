@@ -71,7 +71,38 @@ namespace BunnyHole
             _saver.PrepareRead(saveFilePath);
 
             GameManager.Instance.Load(_saver);
-            //TODO: load the data
+
+            List<ISaveable> saveables = GameObject
+            .FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+            .OfType<ISaveable>()
+            .ToList();
+
+            // saved object count
+            int itemCount = _saver.ReadInt();
+            for (int i = 0; i < itemCount; i++)
+            {
+                string id = _saver.ReadString();
+                
+                //FirstOrDefault returns the first object in the collection which matches the condition
+                //The condition is written as a lambda expression, its a short way to write a function
+                ISaveable saveable = saveables.FirstOrDefault(item => item.ID == id);
+                if (saveable != null)
+                {
+                    saveable.Load(_saver);
+                    saveables.Remove(saveable);
+                }
+                else
+                {
+                    Debug.LogWarning($"Saveable with ID {id} not found.");
+                }
+            }
+            for (int i = saveables.Count - 1; i >= 0; i--)
+            {
+                Debug.Log(saveables[i].ID + " is not loaded!");
+            }
+            saveables.Clear();
+            _saver.FinalizeRead();
+            _saver = null;
         }
     }
 }
