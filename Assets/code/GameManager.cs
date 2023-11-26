@@ -55,12 +55,6 @@ namespace BunnyHole
         public bool minigameWasSuccess { get; set; }
         public int idleAnimInt { get; set; }
         public SaveSystem SaveSystem { get; private set; }
-        [SerializeField] private string _id;
-        public String ID
-            {
-            get {return _id;}
-            set{_id = value;}
-            }
 
         // Contains all states
         private List<GameStateBase> _states = new List<GameStateBase>();
@@ -72,7 +66,7 @@ namespace BunnyHole
         private void Awake()
         {
             //TODO: read values below from memory. if null, create said values below
-            evolutionLenght = 1f; // Don't save to file
+            evolutionLenght = 100f; // Don't save to file
             happiness = 0.5f;
             evolution = 1;
             evolutionProgression = 0f;
@@ -107,6 +101,8 @@ namespace BunnyHole
             }
             InitializeState();
             DontDestroyOnLoad(this);
+            string mainSave = Instance.SaveSystem.mainSaveSlot;
+            Instance.SaveSystem.Load(mainSave);
         }
         private void InitializeSaveSystem()
         {
@@ -150,13 +146,6 @@ namespace BunnyHole
             if (lostToy && isLostToyCooldownRunning == false)
             {
                 StartCoroutine("lostToyBunnyCooldown");
-            }
-        }
-        private void OnEnable()
-        {
-            if (string.IsNullOrEmpty(ID))
-            {
-                ID = Guid.NewGuid().ToString();
             }
         }
         public void evolutionChange()

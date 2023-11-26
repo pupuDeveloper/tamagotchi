@@ -60,7 +60,6 @@ namespace BunnyHole
             {
                 saveable.Save(_saver);
             }
-
             _saver.FinalizeWrite();
         }
 
@@ -72,35 +71,17 @@ namespace BunnyHole
 
             GameManager.Instance.Load(_saver);
 
-            List<ISaveable> saveables = GameObject
-            .FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+            ISaveable[] saveables = GameObject
+            .FindObjectsOfType<MonoBehaviour>(includeInactive: true)
             .OfType<ISaveable>()
-            .ToList();
+            .ToArray();
 
-            // saved object count
-            int itemCount = _saver.ReadInt();
-            for (int i = 0; i < itemCount; i++)
+            _saver.WriteInt(saveables.Length);
+
+            foreach (ISaveable saveable in saveables)
             {
-                string id = _saver.ReadString();
-                
-                //FirstOrDefault returns the first object in the collection which matches the condition
-                //The condition is written as a lambda expression, its a short way to write a function
-                ISaveable saveable = saveables.FirstOrDefault(item => item.ID == id);
-                if (saveable != null)
-                {
-                    saveable.Load(_saver);
-                    saveables.Remove(saveable);
-                }
-                else
-                {
-                    Debug.LogWarning($"Saveable with ID {id} not found.");
-                }
+                saveable.Load(_saver);
             }
-            for (int i = saveables.Count - 1; i >= 0; i--)
-            {
-                Debug.Log(saveables[i].ID + " is not loaded!");
-            }
-            saveables.Clear();
             _saver.FinalizeRead();
             _saver = null;
         }

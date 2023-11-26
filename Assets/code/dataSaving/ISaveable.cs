@@ -8,7 +8,6 @@ namespace BunnyHole
 
     public interface ISaveable
     {
-        string ID { get; set; }
         void Save(BinarySaver writer);
         void Load(BinarySaver reader);
     }
