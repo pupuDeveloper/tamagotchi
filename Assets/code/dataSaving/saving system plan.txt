@@ -1,0 +1,16 @@
+saving system plan
+
+To be Saved:
+  - past pets
+    past pets include:
+    - age
+    - type
+    - name
+  - current pet if any:
+    - age
+    - type
+    - name
+    - current happiness level
+  settings:
+    - volume, sfx and music
+    - resolution
