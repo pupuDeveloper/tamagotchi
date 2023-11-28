@@ -55,4 +55,10 @@ public class eyeMovement : MonoBehaviour
         m_Animator.SetBool("OnButton", onButton);
     }
 
+    public void ResetPupil() 
+    {
+        pupil.sprite = pupilDilated;
+        m_Animator.SetBool("OnButton", false);
+    }
+
 }
