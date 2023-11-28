@@ -57,5 +57,5 @@
         "Temp/": true
     },
     "omnisharp.enableRoslynAnalyzers": true,
-    "dotnet.defaultSolution": "tamagotchi.sln"
+    "dotnet.defaultSolution": "PetLabRepo.sln"
 }

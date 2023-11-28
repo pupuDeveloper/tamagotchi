@@ -6,9 +6,33 @@ namespace BunnyHole.UI
     {
         [SerializeField] private GameObject _namePet;
         [SerializeField] private GameObject _mainMenu;
+        [SerializeField] private Sprite childsprite1;
+        [SerializeField] private Sprite childsprite2;
+        [SerializeField] private Sprite childsprite3;
+        [SerializeField] private Sprite adultsprite1;
+        [SerializeField] private Sprite adultsprite2;
+        [SerializeField] private Sprite adultsprite3;
 
         public void OnNewGame()
         {
+            switch (GameManager.Instance.currentPet.type)
+            {
+                case 1:
+                GameManager.Instance.currentPet.childSprite = childsprite1;
+                GameManager.Instance.currentPet.adultSprite = adultsprite1;
+                break;
+                case 2:
+                GameManager.Instance.currentPet.childSprite = childsprite2;
+                GameManager.Instance.currentPet.adultSprite = adultsprite2;
+                break;
+                case 3:
+                GameManager.Instance.currentPet.childSprite = childsprite3;
+                GameManager.Instance.currentPet.adultSprite = adultsprite3;
+                break;
+                case 0:
+                break;
+            }
+
             if (GameManager.Instance.activePet)
             {
                 GameManager.Instance.gameIsPaused = false;

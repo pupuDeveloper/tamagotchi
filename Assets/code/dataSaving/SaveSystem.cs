@@ -82,6 +82,7 @@ namespace BunnyHole
             {
                 saveable.Load(_saver);
             }
+            Array.Clear(saveables, 0, saveables.Length);
             _saver.FinalizeRead();
             _saver = null;
         }

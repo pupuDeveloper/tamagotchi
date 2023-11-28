@@ -54,13 +54,13 @@ namespace BunnyHole
         public bool returningFromMinigame { get; set; }
         public bool minigameWasSuccess { get; set; }
         public int idleAnimInt { get; set; }
+        public newPetRandomiserBD petRandomiser { get; set; }
         public SaveSystem SaveSystem { get; private set; }
 
         // Contains all states
         private List<GameStateBase> _states = new List<GameStateBase>();
         // The currently active state.
         public GameStateBase CurrentState { get; private set; }
-
         private GameStateBase PreviousState { get; set; }
 
         private void Awake()
@@ -71,7 +71,7 @@ namespace BunnyHole
             evolution = 1;
             evolutionProgression = 0f;
             happinessMultiplier = 1f; // Don't save to file
-            petDeathTimer = 20f; // Don't save to file
+            petDeathTimer = 5f; // Don't save to file
             activityInterval1 = 3; // Don't save to file
             activityInterval2 = 12; // Don't save to file
             individualActivityCooldown = 20; // Don't save to file
@@ -84,12 +84,12 @@ namespace BunnyHole
             isbrushBunnyCooldownRunning = false; // Don't save to file
             minigameInfotoggle = false; // Don't save to file
             dragging = false; // Don't save to file
-            currentPet = null;
             creaturePosition = new Vector3(0, -2, -9); // Don't save to file
             poops = new List<Vector3>(); // Don't save to file
             petCollection = new List<pet>();
             returningFromMinigame = false; // Don't save to file
             idleAnimInt = -1; // Don't save to file
+            currentPet = new pet("empty", 0 , null, null, 0); //placeholder
             InitializeSaveSystem();
             if (_instance)
             {
@@ -101,9 +101,34 @@ namespace BunnyHole
             }
             InitializeState();
             DontDestroyOnLoad(this);
-            string mainSave = Instance.SaveSystem.mainSaveSlot;
-            Instance.SaveSystem.Load(mainSave);
         }
+
+        private void Start()
+        {
+            string mainSaveSlot = SaveSystem.mainSaveSlot;
+            SaveSystem.Load(mainSaveSlot);
+            if (currentPet.childSprite == null || currentPet.adultSprite == null)
+            {
+                switch (currentPet.type)
+            {
+                case 1:
+                currentPet.childSprite = petRandomiser.pet1.childSprite;
+                currentPet.adultSprite = petRandomiser.pet1.adultSprite;
+                break;
+                case 2:
+                currentPet.childSprite = petRandomiser.pet2.childSprite;
+                currentPet.adultSprite = petRandomiser.pet2.adultSprite;
+                break;
+                case 3:
+                currentPet.childSprite = petRandomiser.pet3.childSprite;
+                currentPet.adultSprite = petRandomiser.pet3.adultSprite;
+                break;
+                case 0:
+                break;
+            }
+            }
+        }
+
         private void InitializeSaveSystem()
         {
             SaveSystem = new SaveSystem();
@@ -124,7 +149,7 @@ namespace BunnyHole
                 evolutionProgression += Time.deltaTime;
                 if (happiness > 0)
                 {
-                    petDeathTimer = 20f;
+                    petDeathTimer = 5f;
                 }
                 if (miniGamePlayed && minigameCoroutineRunning == false)
                 {
@@ -346,3 +371,4 @@ namespace BunnyHole
         }
     }
 }
+

@@ -26,16 +26,10 @@ namespace BunnyHole
         }
         public pet petRandomiseAndCreate()
         {
-            if (GameManager.Instance.currentPet == null)
-            {
-                int index = Random.Range(0, pets.Length);
-                pet Pet = pets[index];
-                return Pet;
-            }
-            else
-            {
-                return null;
-            }
+            int index = Random.Range(0, pets.Length);
+            pet Pet = pets[index];
+            return Pet;
         }
     }
 }
+
