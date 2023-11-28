@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class eyeMovement : MonoBehaviour
 {
@@ -10,19 +11,21 @@ public class eyeMovement : MonoBehaviour
     [SerializeField] private Image pupil;
     [SerializeField] private Sprite pupilDilated;
     [SerializeField] private Sprite pupilShrunken;
+
     void Start()
     {
         //Sets the original position of the eye
         originalPosition = transform.localPosition;
+        //Set pupil sprite
         pupil.sprite = pupilDilated;
     }
+
     void Update()
     {
-        EyeMovement();
-        OnMouseOverButton();
+        FollowMousePosition();
     }
 
-    private void EyeMovement() {
+    private void FollowMousePosition() {
         //Get mouse position
         point = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1));
         //If the mouse is within bounds, move the eye toward the mousePosition
@@ -30,15 +33,12 @@ public class eyeMovement : MonoBehaviour
         {
             transform.localPosition = originalPosition + new Vector3(point.x * 15, point.y * 10, 0);
         }
-        // Debug.Log(transform.localPosition);
-        // Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
     }
     
-    private void OnMouseOverButton() {
-        //If the mouse is over a button, change pupil image
-        if (Input.GetKey("space"))
+    public void PupilChange() {
+        //Change pupil sprite on button enter or exit
+        if (pupil.sprite == pupilDilated)
         {
-            Debug.Log("Space");
             pupil.sprite = pupilShrunken;
         }
         else
