@@ -11,6 +11,7 @@ public class eyeMovement : MonoBehaviour
     [SerializeField] private Image pupil;
     [SerializeField] private Sprite pupilDilated;
     [SerializeField] private Sprite pupilShrunken;
+    [SerializeField] private Animator m_Animator;
 
     void Start()
     {
@@ -25,7 +26,8 @@ public class eyeMovement : MonoBehaviour
         FollowMousePosition();
     }
 
-    private void FollowMousePosition() {
+    private void FollowMousePosition() 
+    {
         //Get mouse position
         point = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1));
         //If the mouse is within bounds, move the eye toward the mousePosition
@@ -35,7 +37,8 @@ public class eyeMovement : MonoBehaviour
         }
     }
     
-    public void PupilChange() {
+    public void PupilChange() 
+    {
         //Change pupil sprite on button enter or exit
         if (pupil.sprite == pupilDilated)
         {
@@ -46,4 +49,10 @@ public class eyeMovement : MonoBehaviour
             pupil.sprite = pupilDilated;
         }
     }
+
+    public void AnimationState(bool onButton) 
+    {
+        m_Animator.SetBool("OnButton", onButton);
+    }
+
 }

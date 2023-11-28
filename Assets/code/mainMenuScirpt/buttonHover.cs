@@ -10,6 +10,7 @@ public class buttonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (eye != null) {
+            eye.AnimationState(true);
             eye.PupilChange();
             Debug.Log("Pointer entered the object!");
         }
@@ -18,6 +19,7 @@ public class buttonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerExit(PointerEventData eventData)
     {
         if (eye != null) {
+            eye.AnimationState(false);
             eye.PupilChange();
             Debug.Log("Pointer exited the object!");
         }
