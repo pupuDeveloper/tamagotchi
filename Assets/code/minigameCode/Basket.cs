@@ -4,47 +4,28 @@ namespace BunnyHole
 {
     public class Basket : MonoBehaviour
     {
-        [SerializeField] private float _speed = 1.0f;
-        [SerializeField] private GameObject popoutwindow;
-        [SerializeField] private ParticleSystem successParticles;
-        [SerializeField] private ParticleSystem eyeballParticles;
-        [SerializeField] private Sprite[] spriteArray;
-        // private Inputs _inputs;
-        private Vector3 _mousePos;
-        private Rigidbody2D _rb2D;
-        private Vector2 _position;
-        //Strawberry open audio effect
-        private AudioSource _openAudio;
+        [SerializeField] private float _speed = 1.0f; // Basket's speed
+        [SerializeField] private GameObject popoutwindow; // Popout window that shows up first
+        [SerializeField] private ParticleSystem successParticles; // Particle effect for strawberry collection
+        [SerializeField] private ParticleSystem eyeballParticles; // Particle effect for when the eye is collected
+        [SerializeField] private Sprite[] spriteArray; // Basket damaged sprite array
+        private Vector3 _mousePos; // Mouse position in Vector3
+        private Rigidbody2D _rb2D; // Ridigbody 2D
+        private Vector2 _position; 
+        private AudioSource _openAudio; //Strawberry open audio effect
 
-        public SpriteRenderer spriteRenderer;
+        public SpriteRenderer spriteRenderer; 
 
         private void Awake()
         {
-           // _inputs = new Inputs();
             _rb2D = GetComponent<Rigidbody2D>();
             _openAudio = GetComponent<AudioSource>();
         }
-
-       /* private void OnEnable()
-        {
-            //Enable inputs
-            _inputs.Basket.Enable();
-        }
-
-        private void OnDisable()
-        {
-            //Disable inputs
-            _inputs.Basket.Disable();
-        }*/
 
         private void FixedUpdate()
         {
             if (popoutwindow.activeSelf == false)
             {
-                //Reads the movement
-                /* _moveInput = _inputs.Basket.Move.ReadValue<Vector2>();
-                 _moveInput.y = 0;
-                 _rb2D.velocity = _moveInput * _speed;*/
                 _mousePos = Input.mousePosition;
                 _mousePos = Camera.main.ScreenToWorldPoint(_mousePos);
                 _mousePos.z = 0;

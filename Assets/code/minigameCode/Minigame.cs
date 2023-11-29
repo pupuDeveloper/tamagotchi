@@ -6,24 +6,26 @@ namespace BunnyHole
 {
     public class Minigame : MonoBehaviour
     {
-        [SerializeField] private GameObject _berryPrefab;
-        [SerializeField] private GameObject _eyePrefab;
-        [SerializeField] private int _maxAmount;
-        [SerializeField] private float _minSpawnDelay;
-        [SerializeField] private float _maxSpawnDelay;
-        private List<GameObject> _instantiatedEyes = new List<GameObject>();
+        [SerializeField] private GameObject _berryPrefab; // Strawberry prefab.
+        [SerializeField] private GameObject _eyePrefab; // Eyeball prefab.
+        [SerializeField] private int _maxAmount; // The maximum amount of berries the player can collect.
+        [SerializeField] private float _minSpawnDelay; // Minimum spawntime delay.
+        [SerializeField] private float _maxSpawnDelay; // Maximum time the prefabs take to spawn.
+        private List<GameObject> _instantiatedEyes = new List<GameObject>(); 
         private List<GameObject> _instantiatedBerries = new List<GameObject>();
-        private GameObject popoutwindow;
-        private int _countSpawn = 0;
-        private int _eyeCountSpawn = 0;
+        private GameObject popoutwindow; // Popout window that shows up first -> introductions to the minigame
+        private int _countSpawn = 0; // Strawberry count
+        private int _eyeCountSpawn = 0; // Eyeball count
 
         private void Awake()
         {
+            // Finding the Popout window first
             popoutwindow = GameObject.Find("infoPopout");
             Debug.Log(GameManager.Instance.gameIsPaused);
         }
         private void Start()
         {
+            // Checking that the counts are at 0 in the beginning.
             _countSpawn = 0;
             _eyeCountSpawn = 0;
         }
