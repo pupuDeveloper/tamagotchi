@@ -5,15 +5,16 @@
         None = 0,
         HealthBarGrowth,
         HealthBarDecrease,
-        ButtonOn,
-        ButtonOff,
+        ButtonAnimationOn,
+        ButtonAnimationOff,
         Strawberry,
-        EyeBall,
         PetHappyYoung,
         PetHappyAdult,
         PetAngryAdult,
         PetAngryYoung,
         BasketDamaged,
-        menuButton
+        menuButton,
+        SelectButton,
+        UnselectButton
     }
 }
