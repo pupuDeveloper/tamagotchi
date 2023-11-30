@@ -5330,6 +5330,8 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0.87459993, y: -0.64285, z: 0}
     m_Extent: {x: 2.4229, y: 2.02635, z: 0}
+    m_Center: {x: 0.87095004, y: -0.81299996, z: 0}
+    m_Extent: {x: 2.41385, y: 2.2084, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -5371,6 +5373,19 @@ MonoBehaviour:
   - {x: 0.40575242, y: 0.81150866, z: 0.00000011920929}
   - {x: -0.13586235, y: 0.8798008, z: 0.00000011920929}
   - {x: -0.5114236, y: 0.8377135, z: 0.00000011920929}
+  - {x: 2.643967, y: -0.72906756, z: 0.00000011920929}
+  - {x: 2.4608371, y: -0.47780585, z: 0.00000011920929}
+  - {x: 1.2516005, y: 0.27761292, z: 0.00000011920929}
+  - {x: 1.1611598, y: 0.28263736, z: 0.00000011920929}
+  - {x: 1.1008656, y: 0.36805367, z: 0.00000011920929}
+  - {x: 1.0104249, y: 0.36805367, z: 0.00000011920929}
+  - {x: 0.9350579, y: 0.45849442, z: 0.00000011920929}
+  - {x: 0.8194947, y: 0.4785924, z: 0.00000011920929}
+  - {x: 0.7333152, y: 0.58324385, z: 0.00000011920929}
+  - {x: 0.70860624, y: 0.7612338, z: 0}
+  - {x: 0.43511534, y: 0.86044693, z: 0.00000011920929}
+  - {x: -0.111392975, y: 0.88958836, z: 0.00000011920929}
+  - {x: -0.54568005, y: 0.9013331, z: 0.00000011920929}
   - {x: -0.9497261, y: 0.85388374, z: 0}
   - {x: -1.0486267, y: 0.5101507, z: 0.00000011920929}
   - {x: -0.9766338, y: 0.15287352, z: 0.000002026558}
@@ -6833,7 +6848,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.4
+  m_Intensity: 0.3
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000bd93503a
@@ -14810,7 +14825,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.25
-      minScalar: 0.5
+      minScalar: 0.4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -14863,7 +14878,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 1.75
-      minScalar: 1
+      minScalar: 1.25
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -14919,16 +14934,16 @@ ParticleSystem:
       maxColor: {r: 1, g: 0.9887867, b: 0.7971698, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.93152773, b: 0.6462264, a: 1}
-        key1: {r: 0.99047226, g: 1, b: 0.8537736, a: 1}
-        key2: {r: 1, g: 0.6600645, b: 0.4669811, a: 0}
+        key0: {r: 0.99047226, g: 1, b: 0.8537736, a: 1}
+        key1: {r: 1, g: 0.93152773, b: 0.6462264, a: 1}
+        key2: {r: 1, g: 0.5624653, b: 0.3160377, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 53777
+        ctime1: 27371
         ctime2: 65535
         ctime3: 0
         ctime4: 0
@@ -14980,7 +14995,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.06
+      scalar: 0.05
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -15304,7 +15319,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.3
+      scalar: 0.2
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -15364,7 +15379,7 @@ ParticleSystem:
     radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 0, z: 80}
+    m_Rotation: {x: 0, y: 0, z: 90}
     m_Scale: {x: 0.25, y: 0.25, z: 0}
     placementMode: 0
     m_MeshMaterialIndex: 0
@@ -15673,8 +15688,8 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 3
-        scalar: 3
-        minScalar: 5
+        scalar: 4
+        minScalar: 6
         maxCurve:
           serializedVersion: 2
           m_Curve:
@@ -18687,7 +18702,7 @@ ParticleSystem:
   TrailModule:
     enabled: 1
     mode: 0
-    ratio: 0.9
+    ratio: 0.8
     lifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -19739,7 +19754,7 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 1
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 1
+  m_FalloffIntensity: 0.908
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.8
   m_LightVolumeIntensity: 1
@@ -19760,6 +19775,8 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0.043750048, y: -1.6957, z: 0}
     m_Extent: {x: 2.71755, y: 1.9357, z: 0}
+    m_Center: {x: 0.03369999, y: -1.96635, z: 0}
+    m_Extent: {x: 3.0385, y: 2.7126498, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -19767,11 +19784,16 @@ MonoBehaviour:
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffSize: 1
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
-  - {x: -2.1707528, y: -3.1337433, z: 0}
-  - {x: 2.2515745, y: -3.1125772, z: 0}
+  - {x: -2.0100694, y: -2.7531776, z: 0}
+  - {x: -1.7597988, y: -3.454709, z: 0.00000011920929}
+  - {x: -1.1170657, y: -3.6153922, z: 0.00000011920929}
+  - {x: -0.0430243, y: -3.6830482, z: 0.00000011920929}
+  - {x: 1.047931, y: -3.6238492, z: 0.00000011920929}
+  - {x: 1.7329495, y: -3.4462519, z: 0.00000011920929}
+  - {x: 2.0655203, y: -2.7404685, z: 0}
   - {x: 0.2563386, y: -0.25119102, z: 0}
   - {x: -0.3281169, y: -0.27620912, z: 0}
 --- !u!1 &1912770505
@@ -20338,6 +20360,8 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: -0.02429998, y: 0.7033, z: 0}
     m_Extent: {x: 1.0267, y: 0.98010004, z: 0}
+    m_Center: {x: 0.008450031, y: 0.66815, z: 0}
+    m_Extent: {x: 1.06435, y: 1.02005, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
