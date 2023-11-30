@@ -14,21 +14,24 @@ namespace BunnyHole
         private Vector2 _position; 
         private AudioSource _openAudio; //Strawberry open audio effect
 
-        public SpriteRenderer spriteRenderer; 
+        public SpriteRenderer spriteRenderer; // Renders the basket damaged sprites.
 
         private void Awake()
         {
+            // Getting Rigidbody2D and Audio Source components from the basket.
             _rb2D = GetComponent<Rigidbody2D>();
             _openAudio = GetComponent<AudioSource>();
         }
 
         private void FixedUpdate()
         {
+            // If info window is not open, we can move the basket.
             if (popoutwindow.activeSelf == false)
             {
                 _mousePos = Input.mousePosition;
                 _mousePos = Camera.main.ScreenToWorldPoint(_mousePos);
                 _mousePos.z = 0;
+                // y-axis placement in the game.
                 _mousePos.y = -4.26f;
                 _position = Vector2.Lerp(_mousePos, _mousePos, _speed);
                 _rb2D.MovePosition(_position);
@@ -41,7 +44,7 @@ namespace BunnyHole
             // the strawberry
             if (collision.gameObject.layer == LayerMask.NameToLayer("Strawberry"))
             {
-                // Play audio
+                // Play strawberry pickup audio.
                 if (_openAudio != null)
                 {
                     AudioManager.PlayClip(_openAudio, Config.SoundEffect.Strawberry);
@@ -55,6 +58,7 @@ namespace BunnyHole
 
             if (collision.gameObject.layer == LayerMask.NameToLayer("Eyeball"))
             {
+                // Play basket damaged audio.
                 if (_openAudio != null)
                 {
                     AudioManager.PlayClip(_openAudio, Config.SoundEffect.BasketDamaged);

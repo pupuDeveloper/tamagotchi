@@ -1,4 +1,4 @@
-using BunnyHole;
+using BunnyHole; // BunnyHole namespace
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +15,7 @@ public class buttonAnims : MonoBehaviour
     private AudioSource _openAudio; // Button open audio effect.
     void Awake()
     {
-        // Get Audio Souce component from the button.
+        // Get Audio Source component from the button.
         _openAudio = GetComponent<AudioSource>();
         b = gameObject.GetComponent<Button>();
         animRenderer = animations.GetComponent<SpriteRenderer>();
@@ -49,7 +49,7 @@ public class buttonAnims : MonoBehaviour
             // If the button is selected play the button on audio clip.
             if(_openAudio != null)
             {
-                AudioManager.PlayClip(_openAudio, BunnyHole.Config.SoundEffect.ButtonOn);
+                AudioManager.PlayClip(_openAudio, BunnyHole.Config.SoundEffect.SelectButton);
             }
             animRenderer.enabled = true;
             banimator.SetTrigger("startAnim");
@@ -60,7 +60,7 @@ public class buttonAnims : MonoBehaviour
             // If button is not selected play the button off audio clip.
             if(_openAudio != null)
             {
-                AudioManager.PlayClip(_openAudio, BunnyHole.Config.SoundEffect.ButtonOff);
+                AudioManager.PlayClip(_openAudio, BunnyHole.Config.SoundEffect.UnselectButton);
             }
             animRenderer.enabled = false;
         }

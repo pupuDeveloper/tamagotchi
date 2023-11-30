@@ -25,7 +25,7 @@ namespace BunnyHole
         }
         private void Start()
         {
-            // Checking that the counts are at 0 in the beginning.
+            // Checking that the counts are at 0 at the beginning.
             _countSpawn = 0;
             _eyeCountSpawn = 0;
         }
