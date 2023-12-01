@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace BunnyHole.UI
 {
-    public class VolumeControl : MonoBehaviour
+    public class VolumeControl : MonoBehaviour, ISaveable
     {
         // Slider value 0 reprecents the -80dB volume. Slider value 1 reprecents
         // volume 0dB.
@@ -13,6 +13,7 @@ namespace BunnyHole.UI
         private AudioMixer _mixer;
         private Slider _slider;
         private string _parameterName;
+        [SerializeField] private OptionsController optionsController;
 
         private void Awake()
         {
@@ -23,7 +24,7 @@ namespace BunnyHole.UI
 
         private void OnDestroy()
         {
-            if(_slider != null)
+            if (_slider != null)
             {
                 // Stop listening to the event, so the game doesn't leak memory!!
                 _slider.onValueChanged.RemoveListener(OnSliderChanged);
@@ -44,7 +45,7 @@ namespace BunnyHole.UI
                 float linear = AudioManager.ToLinear(decibel);
                 SetVolume(linear);
             }
-          
+
             _slider.onValueChanged.AddListener(OnSliderChanged);
         }
 
@@ -52,6 +53,18 @@ namespace BunnyHole.UI
         public void Save()
         {
             _mixer.SetFloat(this._parameterName, AudioManager.ToDecibel(_slider.value));
+            switch (this._parameterName)
+            {
+                case "MasterVolume":
+                    GameManager.Instance.volumeTextCopy1 = _slider.value;
+                    break;
+                case "MusicVolume":
+                    GameManager.Instance.volumeTextCopy2 = _slider.value;
+                    break;
+                case "SFXVolume":
+                    GameManager.Instance.volumeTextCopy3 = _slider.value;
+                    break;
+            }
         }
         private void OnSliderChanged(float sliderValue)
         {
@@ -59,11 +72,23 @@ namespace BunnyHole.UI
 
         }
 
-
         private void SetVolume(float linear)
         {
             _slider.value = linear;
             _volumeText.text = Mathf.RoundToInt(linear * 100).ToString();
+        }
+
+        public void Save(BinarySaver writer)
+        {
+            writer.WriteFloat(GameManager.Instance.volumeTextCopy1);
+            writer.WriteFloat(GameManager.Instance.volumeTextCopy2);
+            writer.WriteFloat(GameManager.Instance.volumeTextCopy3);
+        }
+        public void Load(BinarySaver reader)
+        {
+            GameManager.Instance.volumeTextCopy1 = reader.ReadFloat();
+            GameManager.Instance.volumeTextCopy2 = reader.ReadFloat();
+            GameManager.Instance.volumeTextCopy3 = reader.ReadFloat();
         }
     }
 }

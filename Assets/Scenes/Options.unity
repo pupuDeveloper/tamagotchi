@@ -269,6 +269,10 @@ PrefabInstance:
       propertyPath: _volumeText
       value: 
       objectReference: {fileID: 319058936}
+    - target: {fileID: -3967132157925122994, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
+      propertyPath: optionsController
+      value: 
+      objectReference: {fileID: 1923678516}
     - target: {fileID: 451088296854605749, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
       propertyPath: m_Name
       value: VolumeText
@@ -1922,6 +1926,10 @@ PrefabInstance:
       propertyPath: _volumeText
       value: 
       objectReference: {fileID: 1991223790}
+    - target: {fileID: -3967132157925122994, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
+      propertyPath: optionsController
+      value: 
+      objectReference: {fileID: 1923678516}
     - target: {fileID: 451088296854605749, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
       propertyPath: m_Name
       value: VolumeText
@@ -2240,6 +2248,10 @@ PrefabInstance:
       propertyPath: _volumeText
       value: 
       objectReference: {fileID: 959956293}
+    - target: {fileID: -3967132157925122994, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
+      propertyPath: optionsController
+      value: 
+      objectReference: {fileID: 1923678516}
     - target: {fileID: 22188810635949289, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
       propertyPath: m_IsActive
       value: 1

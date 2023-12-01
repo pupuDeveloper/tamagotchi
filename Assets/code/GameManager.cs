@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.IO;
 using System;
+using UnityEngine.Audio;
 
 namespace BunnyHole
 {
@@ -54,6 +55,9 @@ namespace BunnyHole
         public bool returningFromMinigame { get; set; }
         public bool minigameWasSuccess { get; set; }
         public int idleAnimInt { get; set; }
+        public float volumeTextCopy1 { get; set; }
+        public float volumeTextCopy2 { get; set; }
+        public float volumeTextCopy3 { get; set; }
         public newPetRandomiserBD petRandomiser { get; set; }
         public SaveSystem SaveSystem { get; private set; }
 
@@ -90,6 +94,9 @@ namespace BunnyHole
             returningFromMinigame = false; // Don't save to file
             idleAnimInt = -1; // Don't save to file
             currentPet = new pet("empty", 0 , null, null, 0); //placeholder
+            volumeTextCopy1 = 0; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
+            volumeTextCopy2 = 0; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
+            volumeTextCopy3 = 0; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
             InitializeSaveSystem();
             if (_instance)
             {
@@ -107,26 +114,6 @@ namespace BunnyHole
         {
             string mainSaveSlot = SaveSystem.mainSaveSlot;
             SaveSystem.Load(mainSaveSlot);
-            if (currentPet.childSprite == null || currentPet.adultSprite == null)
-            {
-                switch (currentPet.type)
-            {
-                case 1:
-                currentPet.childSprite = petRandomiser.pet1.childSprite;
-                currentPet.adultSprite = petRandomiser.pet1.adultSprite;
-                break;
-                case 2:
-                currentPet.childSprite = petRandomiser.pet2.childSprite;
-                currentPet.adultSprite = petRandomiser.pet2.adultSprite;
-                break;
-                case 3:
-                currentPet.childSprite = petRandomiser.pet3.childSprite;
-                currentPet.adultSprite = petRandomiser.pet3.adultSprite;
-                break;
-                case 0:
-                break;
-            }
-            }
         }
 
         private void InitializeSaveSystem()
