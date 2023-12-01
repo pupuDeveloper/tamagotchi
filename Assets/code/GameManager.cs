@@ -94,9 +94,9 @@ namespace BunnyHole
             returningFromMinigame = false; // Don't save to file
             idleAnimInt = -1; // Don't save to file
             currentPet = new pet("empty", 0 , null, null, 0); //placeholder
-            volumeTextCopy1 = 0; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
-            volumeTextCopy2 = 0; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
-            volumeTextCopy3 = 0; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
+            volumeTextCopy1 = 1; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
+            volumeTextCopy2 = 1; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
+            volumeTextCopy3 = 1; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
             InitializeSaveSystem();
             if (_instance)
             {
