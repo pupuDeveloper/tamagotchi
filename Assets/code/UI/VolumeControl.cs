@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace BunnyHole.UI
 {
-    public class VolumeControl : MonoBehaviour, ISaveable
+    public class VolumeControl : MonoBehaviour
     {
         // Slider value 0 reprecents the -80dB volume. Slider value 1 reprecents
         // volume 0dB.
@@ -76,19 +76,6 @@ namespace BunnyHole.UI
         {
             _slider.value = linear;
             _volumeText.text = Mathf.RoundToInt(linear * 100).ToString();
-        }
-
-        public void Save(BinarySaver writer)
-        {
-            writer.WriteFloat(GameManager.Instance.volumeTextCopy1);
-            writer.WriteFloat(GameManager.Instance.volumeTextCopy2);
-            writer.WriteFloat(GameManager.Instance.volumeTextCopy3);
-        }
-        public void Load(BinarySaver reader)
-        {
-            GameManager.Instance.volumeTextCopy1 = reader.ReadFloat();
-            GameManager.Instance.volumeTextCopy2 = reader.ReadFloat();
-            GameManager.Instance.volumeTextCopy3 = reader.ReadFloat();
         }
     }
 }

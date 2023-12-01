@@ -336,6 +336,10 @@ namespace BunnyHole
             writer.WriteInt(currentPet.type);
             //pets age
             writer.WriteFloat(currentPet.ageInSeconds);
+            //volume values
+            writer.WriteFloat(volumeTextCopy1);
+            writer.WriteFloat(volumeTextCopy2);
+            writer.WriteFloat(volumeTextCopy3);
             //happiness
             writer.WriteFloat(happiness);
             //evo progression
@@ -351,6 +355,9 @@ namespace BunnyHole
             evolution = reader.ReadInt();
             currentPet.type = reader.ReadInt();
             currentPet.ageInSeconds = reader.ReadFloat();
+            volumeTextCopy1 = reader.ReadFloat();
+            volumeTextCopy2 = reader.ReadFloat();
+            volumeTextCopy3 = reader.ReadFloat();
             happiness = reader.ReadFloat();
             evolutionProgression = reader.ReadFloat();
             activePet = reader.ReadBool();

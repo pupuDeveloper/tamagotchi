@@ -13,10 +13,6 @@ namespace BunnyHole.UI
         [SerializeField] private Sprite adultsprite1;
         [SerializeField] private Sprite adultsprite2;
         [SerializeField] private Sprite adultsprite3;
-        [SerializeField] private VolumeControl _masterVolume;
-        [SerializeField] private VolumeControl _musicVolume;
-        [SerializeField] private VolumeControl _sfxVolume;
-        [SerializeField] private AudioMixer _mixer;
 
         public void OnNewGame()
         {
