@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 90c2ccd39b2343040810ede9715e54d1
+guid: 591da3f6d4749fd47ae2a0b92ed85948
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Pet Lab
+  - PetLab
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
