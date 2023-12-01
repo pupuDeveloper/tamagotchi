@@ -24,8 +24,8 @@ public class LightSwitch : MonoBehaviour
         _particles.SetActive(false);
     }
 
-    // If the mouse is over the collider.
-    private void OnMouseOver()
+    // When mouse enters the collider do this.
+    private void OnMouseEnter()
     {
         // Get the Sprite Renderer component and add box hover to the sprite.
         GetComponent<SpriteRenderer>().sprite = _boxHover;
@@ -67,7 +67,7 @@ public class LightSwitch : MonoBehaviour
         }
     }
 
-    // If the mouse exits the collider
+    // When the mouse exits the collider.
     private void OnMouseExit()
     {
         // No sprites to the sprite renderer.
