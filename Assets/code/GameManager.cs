@@ -93,7 +93,7 @@ namespace BunnyHole
             petCollection = new List<pet>();
             returningFromMinigame = false; // Don't save to file
             idleAnimInt = -1; // Don't save to file
-            currentPet = new pet("empty", 0 , null, null, 0); //placeholder
+            currentPet = new pet("empty", 0, 0, 0); //placeholder
             volumeTextCopy1 = 1; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
             volumeTextCopy2 = 1; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
             volumeTextCopy3 = 1; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
@@ -114,6 +114,10 @@ namespace BunnyHole
         {
             string mainSaveSlot = SaveSystem.mainSaveSlot;
             SaveSystem.Load(mainSaveSlot);
+            foreach (var x in petCollection)
+            {
+                Debug.Log(x);
+            }
         }
 
         private void InitializeSaveSystem()
@@ -186,6 +190,7 @@ namespace BunnyHole
             miniGamePlayed = false;
             currentPet = null;
             Go(StateType.GameOver);
+            currentPet = new pet("empty", 0, 0, 0); //placeholder
         }
         IEnumerator miniGamecooldown()
         {
@@ -334,6 +339,15 @@ namespace BunnyHole
             writer.WriteInt(evolution);
             //pet type
             writer.WriteInt(currentPet.type);
+            //pet state. 0 = active, 1 = dead, 2 = abandoned
+            writer.WriteInt(currentPet.state);
+            //pet list size
+            writer.WriteInt(petCollection.Count);
+            // saving each pets info)
+            foreach (pet creature in petCollection)
+            {
+                creature.Save(writer);
+            }
             //pets age
             writer.WriteFloat(currentPet.ageInSeconds);
             //volume values
@@ -354,6 +368,15 @@ namespace BunnyHole
         {
             evolution = reader.ReadInt();
             currentPet.type = reader.ReadInt();
+            currentPet.state = reader.ReadInt();
+            int petCount = reader.ReadInt();
+            for (int i = 0; i < petCount; ++i)
+            {
+                pet creature = new pet("empty", 0, 0, 0);
+                creature.Load(reader);
+
+                petCollection.Add(creature);
+            }
             currentPet.ageInSeconds = reader.ReadFloat();
             volumeTextCopy1 = reader.ReadFloat();
             volumeTextCopy2 = reader.ReadFloat();
