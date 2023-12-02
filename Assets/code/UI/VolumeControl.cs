@@ -69,7 +69,6 @@ namespace BunnyHole.UI
         private void OnSliderChanged(float sliderValue)
         {
             _volumeText.text = Mathf.RoundToInt(sliderValue * 100).ToString();
-
         }
 
         private void SetVolume(float linear)
