@@ -8,14 +8,14 @@ namespace BunnyHole
 {
     public class petButton : MonoBehaviour
     {
-        private bool isButtonAvailable;
+        // private bool isButtonAvailable; This variable is never used, so commented it out.
         public bool isBrushingOn;
         private happinessBar happinessbar;
         public GameObject happinessBarScriptHolder;
         public Button petbutton;
         public int petAmount;
         public int petProgress;
-        public Texture2D cursorTexture;
+        [SerializeField] private Texture2D cursorTexture;
         public CursorMode cursorMode = CursorMode.Auto;
         public Vector2 hotSpot = Vector2.zero;
         private AudioSource _openAudio;
@@ -54,9 +54,19 @@ namespace BunnyHole
             }
             if (petProgress >= petAmount && isBrushingOn && GameManager.Instance.brushPet == false)
             {
-                if (_openAudio != null)
-                { 
-                    AudioManager.PlayClip(_openAudio, Config.SoundEffect.PetHappyYoung);
+                if (GameManager.Instance.evolution == 1)
+                {
+                    if (_openAudio != null)
+                    {
+                        AudioManager.PlayClip(_openAudio, Config.SoundEffect.PetHappyYoung);
+                    }
+                }
+                else if (GameManager.Instance.evolution == 2)
+                {
+                    if (_openAudio != null)
+                    {
+                        AudioManager.PlayClip(_openAudio, Config.SoundEffect.PetHappyAdult);
+                    }
                 }
                 creatureAnimScript.triggerHappyAnim();
                 StartCoroutine("animCooldown");

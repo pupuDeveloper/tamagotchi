@@ -61,9 +61,19 @@ namespace BunnyHole
             Debug.Log(col.transform.gameObject.name);
             if (col.gameObject.name == "toy(Clone)" && GameManager.Instance.dragging)
             {
-                if (_openAudio != null)
+                if (GameManager.Instance.evolution == 1)
                 {
-                    AudioManager.PlayClip(_openAudio, Config.SoundEffect.PetHappyYoung);
+                    if (_openAudio != null)
+                    {
+                        AudioManager.PlayClip(_openAudio, Config.SoundEffect.PetHappyYoung);
+                    }
+                }
+                else if (GameManager.Instance.evolution == 2)
+                {
+                    if (_openAudio != null)
+                    {
+                        AudioManager.PlayClip(_openAudio, Config.SoundEffect.PetHappyAdult);
+                    }
                 }
                 creatureAnimScript.triggerHappyAnim();
                 StartCoroutine("animCooldown");

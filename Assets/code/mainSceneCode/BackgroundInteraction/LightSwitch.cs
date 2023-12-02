@@ -3,18 +3,14 @@ using UnityEngine.Rendering.Universal;
 
 public class LightSwitch : MonoBehaviour
 {
-    // Lamp lights
-    [SerializeField] private Light2D _lampLight;
-    [SerializeField] private Light2D _lampLightUp;
-    // Window light
-    [SerializeField] private Light2D _spookyLight;
-    [SerializeField] private Light2D _globalLight;
-    // Electric box light
-    [SerializeField] private Light2D _electricLight;
-    // Global light is bright check
-    private bool _lightOn = true;
-    // Particles
-    [SerializeField] private GameObject _particles;
+    [SerializeField] private Light2D _lampLight; // Lamp light.
+    [SerializeField] private Light2D _lampLightUp; // Lamp light up.
+    [SerializeField] private Light2D _spookyLight; // Window light.
+    [SerializeField] private Light2D _globalLight; // Global light in the scene, which is a must.
+    [SerializeField] private Light2D _electricLight; // Electric box light.
+    [SerializeField] private GameObject _particles; // Particles.
+    [SerializeField] private Sprite _boxHover; // Box hover sprite.
+    private bool _lightOn = true; // Global light is bright check, true at first.
 
     private void Awake()
     {
@@ -26,6 +22,13 @@ public class LightSwitch : MonoBehaviour
         _electricLight.enabled = true;
         // Particles are not active.
         _particles.SetActive(false);
+    }
+
+    // When mouse enters the collider do this.
+    private void OnMouseEnter()
+    {
+        // Get the Sprite Renderer component and add box hover to the sprite.
+        GetComponent<SpriteRenderer>().sprite = _boxHover;
     }
 
     // Electric box's collider clicked
@@ -62,6 +65,13 @@ public class LightSwitch : MonoBehaviour
             // Particle effect is not activated.
             _particles.SetActive(false);
         }
+    }
+
+    // When the mouse exits the collider.
+    private void OnMouseExit()
+    {
+        // No sprites to the sprite renderer.
+        GetComponent<SpriteRenderer>().sprite = null;
     }
 
 }
