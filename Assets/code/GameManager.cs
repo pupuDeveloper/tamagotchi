@@ -266,6 +266,7 @@ namespace BunnyHole
             _states.Add(new CreditsState());
             _states.Add(new MinigameState());
             _states.Add(new GameOverState());
+            _states.Add(new GraveyardState());
 
             string activeSceneName = SceneManager.GetActiveScene().name.ToLower();
             foreach (GameStateBase state in _states)

@@ -35,9 +35,7 @@ namespace BunnyHole.UI
         }
         public void onGraveyard()
         {
-            //placeholder loadscene
-            //TODO: state stuff
-            SceneManager.LoadScene("graveyard");
+            GameManager.Instance.Go(States.StateType.Graveyard);
         }
 
         public void OnQuit()
