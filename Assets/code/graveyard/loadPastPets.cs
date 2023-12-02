@@ -68,7 +68,6 @@ public class loadPastPets : MonoBehaviour
             agetext.text = "age\n" + hours + " day\n" + minutes + " h\n" + seconds + " min";
 
 
-
             if (GameManager.Instance.petCollection[i].state == 1)
             {
                 status.text = "Dead";

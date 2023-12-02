@@ -94,9 +94,9 @@ namespace BunnyHole
             returningFromMinigame = false; // Don't save to file
             idleAnimInt = -1; // Don't save to file
             currentPet = new pet("empty", 0, 0, 0); //placeholder
-            volumeTextCopy1 = 1; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
-            volumeTextCopy2 = 1; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
-            volumeTextCopy3 = 1; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
+            volumeTextCopy1 = 0; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
+            volumeTextCopy2 = 0; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
+            volumeTextCopy3 = 0; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
             InitializeSaveSystem();
             if (_instance)
             {
@@ -114,10 +114,6 @@ namespace BunnyHole
         {
             string mainSaveSlot = SaveSystem.mainSaveSlot;
             SaveSystem.Load(mainSaveSlot);
-            foreach (var x in petCollection)
-            {
-                Debug.Log(x);
-            }
         }
 
         private void InitializeSaveSystem()
@@ -182,16 +178,15 @@ namespace BunnyHole
             petCollection.Add(currentPet);
             Debug.Log("you didn't attend to your pets needs, and its pathetic existence withered away.");
             activePet = false;
-            CurrentlyPlayedPetName = "";
+            CurrentlyPlayedPetName = "empty";
             evolution = 1;
             evolutionProgression = 0f;
             happinessMultiplier = 1f;
-            petDeathTimer = 20f;
+            petDeathTimer = 5f;
             happiness = 0.5f;
             miniGamePlayed = false;
-            currentPet = null;
-            Go(StateType.GameOver);
             currentPet = new pet("empty", 0, 0, 0); //placeholder
+            Go(StateType.GameOver);
         }
         IEnumerator miniGamecooldown()
         {
@@ -376,7 +371,6 @@ namespace BunnyHole
             {
                 pet creature = new pet("empty", 0, 0, 0);
                 creature.Load(reader);
-
                 petCollection.Add(creature);
             }
             currentPet.ageInSeconds = reader.ReadFloat();
