@@ -178,6 +178,7 @@ namespace BunnyHole
         void gameOver()
         {
             gameIsPaused = true;
+            currentPet.state = 1;
             petCollection.Add(currentPet);
             Debug.Log("you didn't attend to your pets needs, and its pathetic existence withered away.");
             activePet = false;

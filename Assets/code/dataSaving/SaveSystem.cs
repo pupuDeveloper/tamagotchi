@@ -48,12 +48,6 @@ namespace BunnyHole
             //TODO: the actual saving
             GameManager.Instance.Save(_saver);
 
-            /*_saver.WriteInt(GameManager.Instance.petCollection.Count);
-            
-            foreach(pet creature in GameManager.Instance.petCollection)
-            {
-                creature.Save(_saver);
-            }*/
 
             ISaveable[] saveables = GameObject
             .FindObjectsOfType<MonoBehaviour>(includeInactive: true)
@@ -78,14 +72,6 @@ namespace BunnyHole
 
             GameManager.Instance.Load(_saver);
 
-            /*int petCount = _saver.ReadInt();
-            for (int i = 0; i < petCount; ++i)
-            {
-                pet creature = new pet("empty", 0 , null, null, 0, 0); //placeholder values (testing)
-                creature.Load(_saver);
-
-                GameManager.Instance.petCollection.Add(creature);
-            }*/
 
             ISaveable[] saveables = GameObject
             .FindObjectsOfType<MonoBehaviour>(includeInactive: true)

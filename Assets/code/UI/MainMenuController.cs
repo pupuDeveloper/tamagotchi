@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 namespace BunnyHole.UI
 {
@@ -31,6 +32,12 @@ namespace BunnyHole.UI
         public void OnCredits()
         {
             GameManager.Instance.Go(States.StateType.Credits);
+        }
+        public void onGraveyard()
+        {
+            //placeholder loadscene
+            //TODO: state stuff
+            SceneManager.LoadScene("graveyard");
         }
 
         public void OnQuit()
