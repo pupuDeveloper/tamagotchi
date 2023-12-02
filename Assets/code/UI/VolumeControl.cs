@@ -13,6 +13,7 @@ namespace BunnyHole.UI
         private AudioMixer _mixer;
         private Slider _slider;
         private string _parameterName;
+        [SerializeField] private OptionsController optionsController;
 
         private void Awake()
         {
@@ -23,7 +24,7 @@ namespace BunnyHole.UI
 
         private void OnDestroy()
         {
-            if(_slider != null)
+            if (_slider != null)
             {
                 // Stop listening to the event, so the game doesn't leak memory!!
                 _slider.onValueChanged.RemoveListener(OnSliderChanged);
@@ -44,7 +45,7 @@ namespace BunnyHole.UI
                 float linear = AudioManager.ToLinear(decibel);
                 SetVolume(linear);
             }
-          
+
             _slider.onValueChanged.AddListener(OnSliderChanged);
         }
 
@@ -52,13 +53,24 @@ namespace BunnyHole.UI
         public void Save()
         {
             _mixer.SetFloat(this._parameterName, AudioManager.ToDecibel(_slider.value));
+            switch (this._parameterName)
+            {
+                case "MasterVolume":
+                    GameManager.Instance.volumeTextCopy1 = _slider.value;
+                    break;
+                case "MusicVolume":
+                    GameManager.Instance.volumeTextCopy2 = _slider.value;
+                    break;
+                case "SFXVolume":
+                    GameManager.Instance.volumeTextCopy3 = _slider.value;
+                    break;
+            }
         }
         private void OnSliderChanged(float sliderValue)
         {
             _volumeText.text = Mathf.RoundToInt(sliderValue * 100).ToString();
 
         }
-
 
         private void SetVolume(float linear)
         {

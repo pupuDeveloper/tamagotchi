@@ -291,8 +291,8 @@ GameObject:
   - component: {fileID: 88403711}
   - component: {fileID: 88403710}
   - component: {fileID: 88403709}
-  - component: {fileID: 88403712}
   - component: {fileID: 88403713}
+  - component: {fileID: 88403714}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -343,7 +343,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -374,26 +374,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &88403712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88403708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AssetsPPU: 24
-  m_RefResolutionX: 240
-  m_RefResolutionY: 240
-  m_UpscaleRT: 0
-  m_PixelSnapping: 0
-  m_CropFrameX: 1
-  m_CropFrameY: 1
-  m_StretchFill: 1
 --- !u!114 &88403713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,6 +418,30 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &88403714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88403708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_AssetsPPU: 24
+  m_RefResolutionX: 240
+  m_RefResolutionY: 240
+  m_CropFrame: 4
+  m_GridSnapping: 0
+  m_FilterMode: 0
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1 &100399763
 GameObject:
   m_ObjectHideFlags: 0
@@ -3552,6 +3556,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _namePet: {fileID: 392857212}
   _mainMenu: {fileID: 2114321888}
+  childsprite1: {fileID: -1372548038, guid: c059eb1024d85a941879c59f023fbe7e, type: 3}
+  childsprite2: {fileID: 170022629, guid: 008334bf62182b7469523bf2a09fcf2e, type: 3}
+  childsprite3: {fileID: 1760906238, guid: 20e65e9fcb8b0c04fb111abd4e7300a2, type: 3}
+  adultsprite1: {fileID: 1541089401, guid: 242a0db5f698c474199bdbbe5df16392, type: 3}
+  adultsprite2: {fileID: -1713487399, guid: 3518e69c73d78f646898b7e95b58316c, type: 3}
+  adultsprite3: {fileID: 741968437, guid: f5b8a1f982f9e764dadeaaac730fc411, type: 3}
+  _masterVolume: {fileID: 0}
+  _musicVolume: {fileID: 0}
+  _sfxVolume: {fileID: 0}
+  _mixer: {fileID: 0}
 --- !u!82 &1773545223
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4639,3 +4653,4 @@ SceneRoots:
   - {fileID: 1455597767}
   - {fileID: 1335789801}
   - {fileID: 796484758}
+  - {fileID: 525002088}

@@ -48,6 +48,13 @@ namespace BunnyHole
             //TODO: the actual saving
             GameManager.Instance.Save(_saver);
 
+            /*_saver.WriteInt(GameManager.Instance.petCollection.Count);
+            
+            foreach(pet creature in GameManager.Instance.petCollection)
+            {
+                creature.Save(_saver);
+            }*/
+
             ISaveable[] saveables = GameObject
             .FindObjectsOfType<MonoBehaviour>(includeInactive: true)
             .OfType<ISaveable>()
@@ -60,7 +67,6 @@ namespace BunnyHole
             {
                 saveable.Save(_saver);
             }
-
             _saver.FinalizeWrite();
         }
 
@@ -71,7 +77,30 @@ namespace BunnyHole
             _saver.PrepareRead(saveFilePath);
 
             GameManager.Instance.Load(_saver);
-            //TODO: load the data
+
+            /*int petCount = _saver.ReadInt();
+            for (int i = 0; i < petCount; ++i)
+            {
+                pet creature = new pet("empty", 0 , null, null, 0, 0); //placeholder values (testing)
+                creature.Load(_saver);
+
+                GameManager.Instance.petCollection.Add(creature);
+            }*/
+
+            ISaveable[] saveables = GameObject
+            .FindObjectsOfType<MonoBehaviour>(includeInactive: true)
+            .OfType<ISaveable>()
+            .ToArray();
+
+            _saver.WriteInt(saveables.Length);
+
+            foreach (ISaveable saveable in saveables)
+            {
+                saveable.Load(_saver);
+            }
+            Array.Clear(saveables, 0, saveables.Length);
+            _saver.FinalizeRead();
+            _saver = null;
         }
     }
 }

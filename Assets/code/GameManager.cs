@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.IO;
 using System;
+using UnityEngine.Audio;
 
 namespace BunnyHole
 {
@@ -54,13 +55,16 @@ namespace BunnyHole
         public bool returningFromMinigame { get; set; }
         public bool minigameWasSuccess { get; set; }
         public int idleAnimInt { get; set; }
+        public float volumeTextCopy1 { get; set; }
+        public float volumeTextCopy2 { get; set; }
+        public float volumeTextCopy3 { get; set; }
+        public newPetRandomiserBD petRandomiser { get; set; }
         public SaveSystem SaveSystem { get; private set; }
 
         // Contains all states
         private List<GameStateBase> _states = new List<GameStateBase>();
         // The currently active state.
         public GameStateBase CurrentState { get; private set; }
-
         private GameStateBase PreviousState { get; set; }
 
         private void Awake()
@@ -71,7 +75,7 @@ namespace BunnyHole
             evolution = 1;
             evolutionProgression = 0f;
             happinessMultiplier = 1f; // Don't save to file
-            petDeathTimer = 20f; // Don't save to file
+            petDeathTimer = 5f; // Don't save to file
             activityInterval1 = 3; // Don't save to file
             activityInterval2 = 12; // Don't save to file
             individualActivityCooldown = 20; // Don't save to file
@@ -84,12 +88,15 @@ namespace BunnyHole
             isbrushBunnyCooldownRunning = false; // Don't save to file
             minigameInfotoggle = false; // Don't save to file
             dragging = false; // Don't save to file
-            currentPet = null;
             creaturePosition = new Vector3(0, -2, -9); // Don't save to file
             poops = new List<Vector3>(); // Don't save to file
             petCollection = new List<pet>();
             returningFromMinigame = false; // Don't save to file
             idleAnimInt = -1; // Don't save to file
+            currentPet = new pet("empty", 0, 0, 0); //placeholder
+            volumeTextCopy1 = 1; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
+            volumeTextCopy2 = 1; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
+            volumeTextCopy3 = 1; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
             InitializeSaveSystem();
             if (_instance)
             {
@@ -102,6 +109,17 @@ namespace BunnyHole
             InitializeState();
             DontDestroyOnLoad(this);
         }
+
+        private void Start()
+        {
+            string mainSaveSlot = SaveSystem.mainSaveSlot;
+            SaveSystem.Load(mainSaveSlot);
+            foreach (var x in petCollection)
+            {
+                Debug.Log(x);
+            }
+        }
+
         private void InitializeSaveSystem()
         {
             SaveSystem = new SaveSystem();
@@ -122,7 +140,7 @@ namespace BunnyHole
                 evolutionProgression += Time.deltaTime;
                 if (happiness > 0)
                 {
-                    petDeathTimer = 20f;
+                    petDeathTimer = 5f;
                 }
                 if (miniGamePlayed && minigameCoroutineRunning == false)
                 {
@@ -172,6 +190,7 @@ namespace BunnyHole
             miniGamePlayed = false;
             currentPet = null;
             Go(StateType.GameOver);
+            currentPet = new pet("empty", 0, 0, 0); //placeholder
         }
         IEnumerator miniGamecooldown()
         {
@@ -320,8 +339,21 @@ namespace BunnyHole
             writer.WriteInt(evolution);
             //pet type
             writer.WriteInt(currentPet.type);
+            //pet state. 0 = active, 1 = dead, 2 = abandoned
+            writer.WriteInt(currentPet.state);
+            //pet list size
+            writer.WriteInt(petCollection.Count);
+            // saving each pets info)
+            foreach (pet creature in petCollection)
+            {
+                creature.Save(writer);
+            }
             //pets age
             writer.WriteFloat(currentPet.ageInSeconds);
+            //volume values
+            writer.WriteFloat(volumeTextCopy1);
+            writer.WriteFloat(volumeTextCopy2);
+            writer.WriteFloat(volumeTextCopy3);
             //happiness
             writer.WriteFloat(happiness);
             //evo progression
@@ -336,7 +368,19 @@ namespace BunnyHole
         {
             evolution = reader.ReadInt();
             currentPet.type = reader.ReadInt();
+            currentPet.state = reader.ReadInt();
+            int petCount = reader.ReadInt();
+            for (int i = 0; i < petCount; ++i)
+            {
+                pet creature = new pet("empty", 0, 0, 0);
+                creature.Load(reader);
+
+                petCollection.Add(creature);
+            }
             currentPet.ageInSeconds = reader.ReadFloat();
+            volumeTextCopy1 = reader.ReadFloat();
+            volumeTextCopy2 = reader.ReadFloat();
+            volumeTextCopy3 = reader.ReadFloat();
             happiness = reader.ReadFloat();
             evolutionProgression = reader.ReadFloat();
             activePet = reader.ReadBool();
@@ -344,3 +388,4 @@ namespace BunnyHole
         }
     }
 }
+

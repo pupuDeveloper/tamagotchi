@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace BunnyHole.UI
 {
@@ -9,6 +10,7 @@ namespace BunnyHole.UI
 
         public void OnNewGame()
         {
+
             if (GameManager.Instance.activePet)
             {
                 GameManager.Instance.gameIsPaused = false;

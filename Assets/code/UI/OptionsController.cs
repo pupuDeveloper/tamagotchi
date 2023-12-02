@@ -27,6 +27,8 @@ namespace BunnyHole.UI
             _masterVolume.Save();
             _musicVolume.Save();
             _sfxVolume.Save();
+            string mainSave = GameManager.Instance.SaveSystem.mainSaveSlot;
+            GameManager.Instance.SaveSystem.Save(mainSave);
         }
 
         public void OnClose()
