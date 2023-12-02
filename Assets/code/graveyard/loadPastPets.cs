@@ -58,7 +58,17 @@ public class loadPastPets : MonoBehaviour
             }
             nametext.text = GameManager.Instance.petCollection[i].petName;
             int age = (int)Math.Round(GameManager.Instance.petCollection[i].ageInSeconds, 0);
-            agetext.text = age.ToString();
+
+            float hours = TimeSpan.FromSeconds(GameManager.Instance.petCollection[i].ageInSeconds).Hours;
+            float minutes = TimeSpan.FromSeconds(GameManager.Instance.petCollection[i].ageInSeconds).Minutes;
+            float seconds = TimeSpan.FromSeconds(GameManager.Instance.petCollection[i].ageInSeconds).Seconds;
+            string textFieldHours = hours.ToString();
+            string textFieldMinutes = minutes.ToString();
+            string textFieldSeconds = minutes.ToString();
+            agetext.text = "age\n" + hours + " day\n" + minutes + " h\n" + seconds + " min";
+
+
+
             if (GameManager.Instance.petCollection[i].state == 1)
             {
                 status.text = "Dead";
