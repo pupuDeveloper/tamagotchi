@@ -58,12 +58,6 @@ namespace BunnyHole
             GameManager.Instance.Go(States.StateType.MainMenu);
            // SceneManager.LoadScene("mainMenu");
         }
-        public void quitGame()
-        {
-            Debug.Log("Quitted! (This only happens in a build, not in the editor)");
-            Time.timeScale = 1f;
-            Application.Quit();
-        }
         public void saveGame()
         {
             string mainSave = GameManager.Instance.SaveSystem.mainSaveSlot;

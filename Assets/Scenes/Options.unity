@@ -269,6 +269,10 @@ PrefabInstance:
       propertyPath: _volumeText
       value: 
       objectReference: {fileID: 319058936}
+    - target: {fileID: -3967132157925122994, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
+      propertyPath: optionsController
+      value: 
+      objectReference: {fileID: 1923678516}
     - target: {fileID: 451088296854605749, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
       propertyPath: m_Name
       value: VolumeText
@@ -1671,6 +1675,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1774152898}
   m_CullTransparentMesh: 1
+--- !u!1 &1816330327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1816330329}
+  - component: {fileID: 1816330328}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1816330328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816330327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 866fbbaa4e75eb941aa0ff520a0100ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1816330329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816330327}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 287.8923, y: 241.31485, z: -5.0693936}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1891366166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1950,6 +1998,10 @@ PrefabInstance:
       propertyPath: _volumeText
       value: 
       objectReference: {fileID: 1991223790}
+    - target: {fileID: -3967132157925122994, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
+      propertyPath: optionsController
+      value: 
+      objectReference: {fileID: 1923678516}
     - target: {fileID: 451088296854605749, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
       propertyPath: m_Name
       value: VolumeText
@@ -2284,6 +2336,10 @@ PrefabInstance:
       propertyPath: _volumeText
       value: 
       objectReference: {fileID: 959956293}
+    - target: {fileID: -3967132157925122994, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
+      propertyPath: optionsController
+      value: 
+      objectReference: {fileID: 1923678516}
     - target: {fileID: 22188810635949289, guid: 2b1e54c5a1058954aaa509fcf1349626, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2485,3 +2541,4 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1923678515}
+  - {fileID: 1816330329}

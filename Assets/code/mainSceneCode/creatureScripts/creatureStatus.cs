@@ -12,20 +12,19 @@ namespace BunnyHole
         private bool showText;
         [SerializeField] private GameObject ageText;
         [SerializeField] private GameObject thoughtBubbleText;
+        [SerializeField] private Sprite childSprite1;
+        [SerializeField] private Sprite childSprite2;
+        [SerializeField] private Sprite childSprite3;
+        [SerializeField] private Sprite adultSprite1;
+        [SerializeField] private Sprite adultSprite2;
+        [SerializeField] private Sprite adultSprite3;
         private AudioSource _openAudio;
         private bool cd3bool;
+        public newPetRandomiserBD petRandomiser;
         void Awake()
         {
             playedPet = GameManager.Instance.currentPet;
-            if (GameManager.Instance.evolution == 1)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = playedPet.childSprite;
-            }
-            if (GameManager.Instance.evolution == 2)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = playedPet.adultSprite;
-                triggerIdleAnim();
-            }
+            setupPlayedSprite();
             _openAudio = GetComponent<AudioSource>();
             if (GameManager.Instance.idleAnimInt < 0)
             {
@@ -49,6 +48,7 @@ namespace BunnyHole
             GameManager.Instance.currentPet.petName = GameManager.Instance.CurrentlyPlayedPetName;
             gameObject.transform.position = GameManager.Instance.creaturePosition;
             cd3bool = false;
+            Debug.Log(GameManager.Instance.currentPet);
         }
 
         void FixedUpdate()
@@ -78,26 +78,65 @@ namespace BunnyHole
                 StartCoroutine("cd3");
             }
         }
+        public void setupPlayedSprite()
+        {
+            if (GameManager.Instance.evolution == 1)
+            {
+                switch (GameManager.Instance.currentPet.type)
+                {
+                    case 1:
+                        gameObject.GetComponent<SpriteRenderer>().sprite = childSprite1;
+                        break;
+
+                    case 2:
+                        gameObject.GetComponent<SpriteRenderer>().sprite = childSprite2;
+                        break;
+
+                    case 3:
+                        gameObject.GetComponent<SpriteRenderer>().sprite = childSprite3;
+                        break;
+                }
+            }
+
+            if (GameManager.Instance.evolution == 2)
+
+            {
+                switch (GameManager.Instance.currentPet.type)
+                {
+                    case 1:
+                        gameObject.GetComponent<SpriteRenderer>().sprite = adultSprite1;
+                        break;
+
+                    case 2:
+                        gameObject.GetComponent<SpriteRenderer>().sprite = adultSprite2;
+                        break;
+
+                    case 3:
+                        gameObject.GetComponent<SpriteRenderer>().sprite = adultSprite3;
+                        break;
+                }
+            }
+        }
 
         public void triggerIdleAnim()
         {
             if (GameManager.Instance.evolution == 1)
             {
-                switch (GameManager.Instance.currentPet.childSprite.name)
+                switch (GameManager.Instance.currentPet.type)
                 {
-                    case ("baby1_0"):
+                    case 1:
                         GameManager.Instance.idleAnimInt = 0;
                         gameObject.GetComponent<Animator>().SetBool("happyanim", false);
                         gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", 0);
                         break;
 
-                    case ("baby2_0"):
+                    case 2:
                         GameManager.Instance.idleAnimInt = 2;
                         gameObject.GetComponent<Animator>().SetBool("happyanim", false);
                         gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", 2);
                         break;
 
-                    case ("baby3_0"):
+                    case 3:
                         GameManager.Instance.idleAnimInt = 4;
                         gameObject.GetComponent<Animator>().SetBool("happyanim", false);
                         gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", 4);
@@ -108,21 +147,21 @@ namespace BunnyHole
             if (GameManager.Instance.evolution == 2)
 
             {
-                switch (GameManager.Instance.currentPet.adultSprite.name)
+                switch (GameManager.Instance.currentPet.type)
                 {
-                    case ("adult1_0"):
+                    case 1:
                         GameManager.Instance.idleAnimInt = 1;
                         gameObject.GetComponent<Animator>().SetBool("happyanim", false);
                         gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", 1);
                         break;
 
-                    case ("adult2_0"):
+                    case 2:
                         GameManager.Instance.idleAnimInt = 3;
                         gameObject.GetComponent<Animator>().SetBool("happyanim", false);
                         gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", 3);
                         break;
 
-                    case ("adult3_0"):
+                    case 3:
                         GameManager.Instance.idleAnimInt = 5;
                         gameObject.GetComponent<Animator>().SetBool("happyanim", false);
                         gameObject.GetComponent<Animator>().SetInteger("whichIdleAnim", 5);
