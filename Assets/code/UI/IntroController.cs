@@ -14,8 +14,8 @@ namespace BunnyHole
 
         private IEnumerator PlayAnimation()
         {
-            _animator.Play("IntroAnimation");
-            yield return new WaitForSeconds(_animator.GetCurrentAnimatorClipInfo(0).Length + 2);
+            _animator.Play("DarkIntroAnimation");
+            yield return new WaitForSeconds(_animator.GetCurrentAnimatorClipInfo(0).Length + 1.8f);
             ExitIntro();
         }
 
