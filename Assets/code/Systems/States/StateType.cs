@@ -14,7 +14,7 @@ namespace BunnyHole.States
         Credits,
         Minigame,
         Pause,
-        GameOver
+        GameOver,
+        Graveyard
     }
-
 }

@@ -30,6 +30,7 @@ namespace BunnyHole
 
         void Awake()
         {
+            
             happinessbar = happinessBarScriptHolder.GetComponent<happinessBar>();
             for (int i = 0; i < GameManager.Instance.poops.Count; i++)
             {
@@ -132,12 +133,14 @@ namespace BunnyHole
             if (isCleaningOn)
             {
                 isCleaningOn = false;
+                
                 Cursor.SetCursor(null, hotSpot, cursorMode);
                 creature.GetComponentInChildren<BoxCollider2D>().enabled = true;
             }
             else
             {
                 isCleaningOn = true;
+                
                 Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
                 creature.GetComponentInChildren<BoxCollider2D>().enabled = false;
             }

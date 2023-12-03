@@ -303,8 +303,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ok
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
-  m_sharedMaterial: {fileID: -8904356437895447798, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc84c4f6bf14ba14cab51045e2f44eff, type: 2}
+  m_sharedMaterial: {fileID: 410895084692867903, guid: dc84c4f6bf14ba14cab51045e2f44eff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -328,8 +328,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 2
@@ -656,10 +656,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Collect the strawberries
+  m_text: "Collect \nthe \nstrawberries"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
-  m_sharedMaterial: {fileID: -8904356437895447798, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc84c4f6bf14ba14cab51045e2f44eff, type: 2}
+  m_sharedMaterial: {fileID: 410895084692867903, guid: dc84c4f6bf14ba14cab51045e2f44eff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -683,8 +683,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 2
@@ -6354,8 +6354,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 15
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
-  m_sharedMaterial: {fileID: -8904356437895447798, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc84c4f6bf14ba14cab51045e2f44eff, type: 2}
+  m_sharedMaterial: {fileID: 410895084692867903, guid: dc84c4f6bf14ba14cab51045e2f44eff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6379,8 +6379,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6488,8 +6488,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Don't show this again
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
-  m_sharedMaterial: {fileID: -8904356437895447798, guid: 1f2502b9a47a629468c55f6ce6ac5dcf, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc84c4f6bf14ba14cab51045e2f44eff, type: 2}
+  m_sharedMaterial: {fileID: 410895084692867903, guid: dc84c4f6bf14ba14cab51045e2f44eff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6513,10 +6513,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 11.7
-  m_fontSizeBase: 7
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 2
   m_fontSizeMax: 72
   m_fontStyle: 16

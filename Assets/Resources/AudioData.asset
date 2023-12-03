@@ -13,17 +13,21 @@ MonoBehaviour:
   m_Name: AudioData
   m_EditorClassIdentifier: 
   _soundEffects:
-  - Type: 11
-    Clip: {fileID: 8300000, guid: 7cb0fbc4251684c4c8732682ff0361ea, type: 3}
   - Type: 5
     Clip: {fileID: 8300000, guid: c5320440272d4784c8689bf0546039d8, type: 3}
-  - Type: 12
+  - Type: 10
+    Clip: {fileID: 8300000, guid: 7cb0fbc4251684c4c8732682ff0361ea, type: 3}
+  - Type: 11
     Clip: {fileID: 8300000, guid: b2936ba4673345042b1dca14c50e9405, type: 3}
   - Type: 7
     Clip: {fileID: 8300000, guid: 0bf831055dea5ba479a02b58c2345183, type: 3}
-  - Type: 10
-    Clip: {fileID: 8300000, guid: e7546a1519adf044485730447c2f6e64, type: 3}
+  - Type: 6
+    Clip: {fileID: 8300000, guid: 0bf831055dea5ba479a02b58c2345183, type: 3}
   - Type: 8
-    Clip: {fileID: 8300000, guid: a69b04a8361ce73488cd78cf38981486, type: 3}
-  - Type: 9
     Clip: {fileID: 8300000, guid: a5df6f342799b9e42b0e796d2ef8b713, type: 3}
+  - Type: 9
+    Clip: {fileID: 8300000, guid: e7546a1519adf044485730447c2f6e64, type: 3}
+  - Type: 12
+    Clip: {fileID: 8300000, guid: 2ed09f30198f3644896acfc3ed1af8f7, type: 3}
+  - Type: 13
+    Clip: {fileID: 8300000, guid: 55a74ae88aea7404899f6de154ee46d3, type: 3}

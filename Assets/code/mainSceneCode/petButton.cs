@@ -8,14 +8,14 @@ namespace BunnyHole
 {
     public class petButton : MonoBehaviour
     {
-        private bool isButtonAvailable;
+        // private bool isButtonAvailable; This variable is never used, so commented it out.
         public bool isBrushingOn;
         private happinessBar happinessbar;
         public GameObject happinessBarScriptHolder;
         public Button petbutton;
         public int petAmount;
         public int petProgress;
-        public Texture2D cursorTexture;
+        [SerializeField] private Texture2D cursorTexture;
         public CursorMode cursorMode = CursorMode.Auto;
         public Vector2 hotSpot = Vector2.zero;
         private AudioSource _openAudio;
