@@ -291,8 +291,8 @@ GameObject:
   - component: {fileID: 88403711}
   - component: {fileID: 88403710}
   - component: {fileID: 88403709}
-  - component: {fileID: 88403712}
   - component: {fileID: 88403713}
+  - component: {fileID: 88403714}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -374,26 +374,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &88403712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88403708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AssetsPPU: 24
-  m_RefResolutionX: 240
-  m_RefResolutionY: 240
-  m_UpscaleRT: 0
-  m_PixelSnapping: 0
-  m_CropFrameX: 1
-  m_CropFrameY: 1
-  m_StretchFill: 1
 --- !u!114 &88403713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,6 +418,30 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &88403714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88403708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_AssetsPPU: 120
+  m_RefResolutionX: 240
+  m_RefResolutionY: 240
+  m_CropFrame: 4
+  m_GridSnapping: 0
+  m_FilterMode: 0
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1 &100399763
 GameObject:
   m_ObjectHideFlags: 0
@@ -2845,21 +2849,18 @@ MonoBehaviour:
   pet1:
     petName: 
     ageInSeconds: 0
-    childSprite: {fileID: -1372548038, guid: c059eb1024d85a941879c59f023fbe7e, type: 3}
-    adultSprite: {fileID: 1541089401, guid: 242a0db5f698c474199bdbbe5df16392, type: 3}
     type: 0
+    state: 0
   pet2:
     petName: 
     ageInSeconds: 0
-    childSprite: {fileID: 170022629, guid: 008334bf62182b7469523bf2a09fcf2e, type: 3}
-    adultSprite: {fileID: -1713487399, guid: 3518e69c73d78f646898b7e95b58316c, type: 3}
     type: 0
+    state: 0
   pet3:
     petName: 
     ageInSeconds: 0
-    childSprite: {fileID: 1760906238, guid: 20e65e9fcb8b0c04fb111abd4e7300a2, type: 3}
-    adultSprite: {fileID: 741968437, guid: f5b8a1f982f9e764dadeaaac730fc411, type: 3}
     type: 0
+    state: 0
   pets: []
 --- !u!4 &1455597767
 Transform:
@@ -2913,9 +2914,8 @@ MonoBehaviour:
   petOption:
     petName: 
     ageInSeconds: 0
-    childSprite: {fileID: 0}
-    adultSprite: {fileID: 0}
     type: 0
+    state: 0
 --- !u!114 &1477967285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3428,6 +3428,7 @@ GameObject:
   - component: {fileID: 1773545222}
   - component: {fileID: 1773545223}
   - component: {fileID: 1773545224}
+  - component: {fileID: 1773545225}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -3660,6 +3661,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c50140403e45874c9521c03dcde14be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1773545225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773545216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e849296e953645c4789f8bef1eb328b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mixer: {fileID: 24100000, guid: 07c146a112b16f946897bb656b936bf5, type: 2}
 --- !u!1 &1836813273
 GameObject:
   m_ObjectHideFlags: 0
@@ -4241,7 +4255,7 @@ PrefabInstance:
       objectReference: {fileID: 1773545224}
     - target: {fileID: 5552042060226256050, guid: 12baa08c6846b1f4a9f02ba5e95411e3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnCredits
+      value: onGraveyard
       objectReference: {fileID: 0}
     - target: {fileID: 5552042060226256050, guid: 12baa08c6846b1f4a9f02ba5e95411e3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
