@@ -26,7 +26,7 @@ namespace BunnyHole.UI
             GameManager.Instance.activePet = true;
             GameManager.Instance.gameIsPaused = false;
             GameManager.Instance.currentPet = petOption;
-            Debug.Log(GameManager.Instance.currentPet);
+            Debug.Log(GameManager.Instance.currentPet.type);
             GameManager.Instance.Go(States.StateType.MainScene);
         }
     }

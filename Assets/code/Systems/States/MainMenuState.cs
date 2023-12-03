@@ -9,7 +9,8 @@ namespace BunnyHole.States
         {
             AddTargetState(StateType.MainScene);
             AddTargetState(StateType.Options);
-            AddTargetState(StateType.Credits);        
+            AddTargetState(StateType.Credits);
+            AddTargetState(StateType.Graveyard);
         }
     }
 }
