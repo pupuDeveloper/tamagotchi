@@ -9,6 +9,7 @@ namespace BunnyHole
         [SerializeField] private ParticleSystem successParticles; // Particle effect for strawberry collection
         [SerializeField] private ParticleSystem eyeballParticles; // Particle effect for when the eye is collected
         [SerializeField] private Sprite[] spriteArray; // Basket damaged sprite array
+        [SerializeField] private Animator animator;
         private Vector3 _mousePos; // Mouse position in Vector3
         private Rigidbody2D _rb2D; // Ridigbody 2D
         private Vector2 _position; 
@@ -69,6 +70,7 @@ namespace BunnyHole
                 Debug.Log(Counting.eyeBallCount);
                 eyeballParticles.Play();
                 spriteRenderer.sprite = spriteArray[Counting.eyeBallCount];
+                animator.SetTrigger("Damage");
             }
         }
     }
