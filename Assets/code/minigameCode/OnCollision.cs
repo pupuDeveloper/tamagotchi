@@ -26,7 +26,7 @@ namespace BunnyHole
                 // transforming the berries and eyeballs to new position.
                 transform.position = _newPos;
             }
-
+            // Is collision happening with the eyeball do the same thing.
             if (collision.gameObject.layer == LayerMask.NameToLayer("Eyeball"))
             {
                 float _xPos = Random.Range(-3.85f, 3.80f);
