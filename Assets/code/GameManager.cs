@@ -250,8 +250,6 @@ namespace BunnyHole
 
         private void InitializeState()
         {
-            // Probably have to change how initialState is Introstate and
-            // not main menu state.
             GameStateBase initialState = (new IntroState());
             //Create all states.
             _states.Add(initialState);
