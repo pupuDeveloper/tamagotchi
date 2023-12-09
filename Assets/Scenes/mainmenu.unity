@@ -336,9 +336,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 1
-    height: 1
+    y: 0.128125
+    width: 0.9640625
+    height: 0.9640625
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -431,7 +431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
-  m_AssetsPPU: 120
+  m_AssetsPPU: 24
   m_RefResolutionX: 240
   m_RefResolutionY: 240
   m_CropFrame: 4
