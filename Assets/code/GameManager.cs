@@ -185,8 +185,14 @@ namespace BunnyHole
             happinessMultiplier = 1f;
             petDeathTimer = 5f;
             happiness = 0.5f;
+            idleAnimInt = -1;
+            lostToy = false;
+            brushPet = false;
             miniGamePlayed = false;
+            poops.Clear();
             currentPet = new pet("empty", 0, 0, 0); //placeholder
+            string mainSaveSlot = SaveSystem.mainSaveSlot;
+            SaveSystem.Save(mainSaveSlot);
             Go(StateType.GameOver);
         }
         IEnumerator miniGamecooldown()
