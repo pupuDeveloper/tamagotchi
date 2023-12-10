@@ -48,7 +48,6 @@ namespace BunnyHole
             GameManager.Instance.currentPet.petName = GameManager.Instance.CurrentlyPlayedPetName;
             gameObject.transform.position = GameManager.Instance.creaturePosition;
             cd3bool = false;
-            Debug.Log(GameManager.Instance.currentPet);
         }
 
         void FixedUpdate()
