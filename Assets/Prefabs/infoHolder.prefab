@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5685715745189230316}
   - component: {fileID: 3907616104266953868}
   - component: {fileID: 5096736677239148332}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: status
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 0
 --- !u!95 &6209276609219459101
 Animator:
@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 4405827145992363519}
   - component: {fileID: 430192041625758956}
   - component: {fileID: 7661328732330455923}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: infoHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6068960240114626769}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 3244429126029614161}
   - component: {fileID: 6264997731841639921}
   - component: {fileID: 8947517792173648966}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: nameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -489,7 +489,7 @@ GameObject:
   - component: {fileID: 6795434718902870284}
   - component: {fileID: 6863659462913565356}
   - component: {fileID: 4398156422545892058}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}

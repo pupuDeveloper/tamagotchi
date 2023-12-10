@@ -20,7 +20,6 @@ namespace BunnyHole
 
         void FixedUpdate()
         {
-            Debug.Log(GameObject.Find("toy(Clone)"));
             if (GameManager.Instance.gameIsPaused == false)
             {
                 if (brush.interactable && isCoroutine1Running == false)
