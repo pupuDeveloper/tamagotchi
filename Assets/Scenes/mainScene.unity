@@ -5452,8 +5452,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.86695, y: -0.639, z: 0}
-    m_Extent: {x: 2.41955, y: 2.0376, z: 0}
+    m_Center: {x: 0.87495, y: -0.63460004, z: 0}
+    m_Extent: {x: 2.41665, y: 2.0273, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -7352,7 +7352,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &864655558
 RectTransform:
@@ -7509,7 +7509,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8166,9 +8166,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 1
-    height: 1
+    y: 0.128125
+    width: 0.9640625
+    height: 0.9640625
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -20038,8 +20038,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.030850053, y: -1.96415, z: 0}
-    m_Extent: {x: 3.0373502, y: 2.71245, z: 0}
+    m_Center: {x: 0.024049997, y: -1.9730501, z: 0}
+    m_Extent: {x: 3.03575, y: 2.71495, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -20621,8 +20621,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.020899951, y: 0.7112, z: 0}
-    m_Extent: {x: 1.0291, y: 0.9721, z: 0}
+    m_Center: {x: -0.019550025, y: 0.71025, z: 0}
+    m_Extent: {x: 1.0281501, y: 0.96935, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
