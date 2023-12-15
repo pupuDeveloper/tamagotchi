@@ -94,9 +94,9 @@ namespace BunnyHole
             returningFromMinigame = false; // Don't save to file
             idleAnimInt = -1; // Don't save to file
             currentPet = new pet("empty", 0, 0, 0); //placeholder
-            volumeTextCopy1 = 0; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
-            volumeTextCopy2 = 0; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
-            volumeTextCopy3 = 0; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
+            volumeTextCopy1 = 0.5f; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
+            volumeTextCopy2 = 1f; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
+            volumeTextCopy3 = 1f; //this is just a placeholder so saving system doesnt scream null, will get overwritten by every save/load
             InitializeSaveSystem();
             if (_instance)
             {
@@ -114,6 +114,7 @@ namespace BunnyHole
         {
             string mainSaveSlot = SaveSystem.mainSaveSlot;
             SaveSystem.Load(mainSaveSlot);
+            CurrentlyPlayedPetName = currentPet.petName;
         }
 
         private void InitializeSaveSystem()
@@ -157,7 +158,7 @@ namespace BunnyHole
             }
             if (lostToy && isLostToyCooldownRunning == false)
             {
-                StartCoroutine("lostToyBunnyCooldown");
+                StartCoroutine("lostToyCooldown");
             }
         }
         public void evolutionChange()
@@ -184,8 +185,14 @@ namespace BunnyHole
             happinessMultiplier = 1f;
             petDeathTimer = 5f;
             happiness = 0.5f;
+            idleAnimInt = -1;
+            lostToy = false;
+            brushPet = false;
             miniGamePlayed = false;
+            poops.Clear();
             currentPet = new pet("empty", 0, 0, 0); //placeholder
+            string mainSaveSlot = SaveSystem.mainSaveSlot;
+            SaveSystem.Save(mainSaveSlot);
             Go(StateType.GameOver);
         }
         IEnumerator miniGamecooldown()
@@ -202,7 +209,7 @@ namespace BunnyHole
             brushPet = false;
             isbrushBunnyCooldownRunning = false;
         }
-        IEnumerator lostToyBunnyCooldown()
+        IEnumerator lostToyCooldown()
         {
             isLostToyCooldownRunning = true;
             yield return new WaitForSeconds(individualActivityCooldown);
@@ -250,6 +257,8 @@ namespace BunnyHole
 
         private void InitializeState()
         {
+            // Probably have to change how initialState is Introstate and
+            // not main menu state.
             GameStateBase initialState = (new IntroState());
             //Create all states.
             _states.Add(initialState);

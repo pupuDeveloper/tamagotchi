@@ -20,7 +20,6 @@ namespace BunnyHole
         [SerializeField] private Sprite adultSprite3;
         private AudioSource _openAudio;
         private bool cd3bool;
-        public newPetRandomiserBD petRandomiser;
         void Awake()
         {
             playedPet = GameManager.Instance.currentPet;
@@ -48,7 +47,6 @@ namespace BunnyHole
             GameManager.Instance.currentPet.petName = GameManager.Instance.CurrentlyPlayedPetName;
             gameObject.transform.position = GameManager.Instance.creaturePosition;
             cd3bool = false;
-            Debug.Log(GameManager.Instance.currentPet);
         }
 
         void FixedUpdate()
